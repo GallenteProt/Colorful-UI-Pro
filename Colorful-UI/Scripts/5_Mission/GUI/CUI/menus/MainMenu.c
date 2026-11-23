@@ -248,9 +248,9 @@ modded class MainMenu extends UIScriptedMenu
 		// Direct-connect only when a real server is configured; the 127.0.0.1 default falls
 		// back to vanilla Play() (last played server, else the server browser).
 		if (SERVER_IP != "" && SERVER_IP != "127.0.0.1" && SERVER_PORT > 0)
-			cuiElmnt.proSolidBtnDC(this, ButtonWidget.Cast(m_Play), "В ЗОНУ", UIColor.Transparent(), colorScheme.BrandColor(), SERVER_IP, SERVER_PORT);
+			cuiElmnt.proSolidBtnDC(this, ButtonWidget.Cast(m_Play), "ВОЙТИ", UIColor.Transparent(), colorScheme.BrandColor(), SERVER_IP, SERVER_PORT);
 		else
-			cuiElmnt.proSolidBtnCB(this, ButtonWidget.Cast(m_Play), "В ЗОНУ", UIColor.Transparent(), colorScheme.BrandColor(), this, "Play");
+			cuiElmnt.proSolidBtnCB(this, ButtonWidget.Cast(m_Play), "ВОЙТИ", UIColor.Transparent(), colorScheme.BrandColor(), this, "Play");
 
 		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_SettingsBtn), "", colorScheme.PrimaryText(), colorScheme.BrandColor(), this, "OpenSettings");
 		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Website), "", colorScheme.PrimaryText(), colorScheme.BrandColor(), this, "OpenRules");

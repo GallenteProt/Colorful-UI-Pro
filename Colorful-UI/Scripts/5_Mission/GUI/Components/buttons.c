@@ -294,7 +294,7 @@ class cuiElmnt
         s_Handlers.Insert(h);
     }
 
-    // Solid-background direct-connect button (main menu "В ЗОНУ").
+    // Solid-background direct-connect button (main menu "ВОЙТИ").
     static void proSolidBtnDC(Class owner, ButtonWidget button, string text, int bgColor, int hoverBgColor, string serverIP, int serverPort)
     {
         if (!button) return;

@@ -511,7 +511,7 @@ FrameWidgetClass mainmenu_root {
          vexactpos 0
          hexactsize 1
          vexactsize 0
-         text "В ЗОНУ"
+         text "ВОЙТИ"
          font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
          "text sharpness" 1.1
          "exact text" 1
