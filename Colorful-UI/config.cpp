@@ -54,7 +54,7 @@ class CfgMods
 		};
 		class defs
 		{
-			class imageSets			  {files[]= {"Colorful-UI/GUI/imagesets/CUI.imageset","Colorful-UI/GUI/imagesets/Backgrounds.imageset","Colorful-UI/GUI/imagesets/Branding.imageset","Colorful-UI/GUI/imagesets/InventoryIcons.imageset","Colorful-UI/GUI/imagesets/Rounded.imageset"};};
+			class imageSets			  {files[]= {"Colorful-UI/GUI/imagesets/CUI.imageset","Colorful-UI/GUI/imagesets/Backgrounds.imageset","Colorful-UI/GUI/imagesets/Branding.imageset","Colorful-UI/GUI/imagesets/InventoryIcons.imageset","Colorful-UI/GUI/imagesets/Rounded.imageset","Colorful-UI/GUI/imagesets/cui_symbols.imageset"};};
 			class widgetStyles		  {files[]= {"Colorful-UI/GUI/looknfeel/Rounded.styles"};};
 			class gameScriptModule 	  {files[]= {"Colorful-UI/Scripts/3_Game"};};
 			class worldScriptModule	  {files[]= {"Colorful-UI/Scripts/4_World"};};

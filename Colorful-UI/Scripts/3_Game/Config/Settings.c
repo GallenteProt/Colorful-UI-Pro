@@ -42,13 +42,60 @@ static const string m_LoadingVideo     = "CUI_Video.mov";  // Video file name fo
 static const string m_MainMenuVideo    = "CUI_Video.mov";  // Video file name for Main Menu screen video. 
 static const string m_OptionsMenuVideo = "CUI_Video.mov";  // Video file name for Options screen video. 
 
-// Main Menu Background — picks between imageset sprite and raw .edds
-// based on UseImagesets. Edit either side to repoint.
+// MOONLIGHT wallpapers ----------------------------------------------------
+// Six loading-screen wallpapers shared by the main menu and all loading
+// phases. Each call takes the next one from a shuffled pool, so the same
+// image does not repeat until all six have been shown.
+static const int MOONLIGHT_BACKGROUND_COUNT = 6;
+
+class MoonlightBackgroundPool
+{
+	static ref array<int> m_RemainingBackgrounds;
+
+	static void FillPool()
+	{
+		if (!m_RemainingBackgrounds)
+			m_RemainingBackgrounds = new array<int>;
+
+		if (m_RemainingBackgrounds.Count() > 0)
+			return;
+
+		for (int bgPoolIndex = 1; bgPoolIndex <= MOONLIGHT_BACKGROUND_COUNT; bgPoolIndex++)
+			m_RemainingBackgrounds.Insert(bgPoolIndex);
+	}
+
+	static int TakeNextIndex()
+	{
+		FillPool();
+
+		int randomPoolIndex = Math.RandomInt(0, m_RemainingBackgrounds.Count());
+		int backgroundIndex = m_RemainingBackgrounds.Get(randomPoolIndex);
+		m_RemainingBackgrounds.RemoveOrdered(randomPoolIndex);
+		return backgroundIndex;
+	}
+}
+
+string GetRandomMoonlightBackground()
+{
+	int loadscreenIndex = MoonlightBackgroundPool.TakeNextIndex();
+	return "Colorful-UI/GUI/textures/LoadScreens/MOONLIGHT_Loadscreen_" + loadscreenIndex.ToString() + "_co.paa";
+}
+
+// Main Menu Background — imageset sprite when UseImagesets is on,
+// otherwise a random MOONLIGHT wallpaper.
 string GetMainMenuBackground()
 {
     if (UseImagesets)
         return "set:backgrounds image:mainmenu";
-    return "Colorful-UI/GUI/textures/LoadScreens/MainMenu.edds";
+    return GetRandomMoonlightBackground();
+}
+
+// Loading screens (loading, logging in, queue) use the same wallpaper pool.
+string GetLoadingBackground()
+{
+    if (UseImagesets)
+        return "set:backgrounds image:mainmenu";
+    return GetRandomMoonlightBackground();
 }
 // Set Single Game Over Screen ( Death Screen )
 class GameOverScreen
@@ -65,7 +112,7 @@ class Branding
     {
         if (UseImagesets)
             return "set:branding image:logo";
-        return "Colorful-UI/GUI/textures/Shared/Colorful UI Logo.edds";
+        return "Colorful-UI/GUI/textures/Shared/MOONLIGHT_Logo.paa";
     }
     static void ApplyLogo(ImageWidget widget)
     {
