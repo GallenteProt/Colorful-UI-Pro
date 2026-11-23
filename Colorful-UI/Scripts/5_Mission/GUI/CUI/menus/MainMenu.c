@@ -542,6 +542,19 @@ modded class MainMenu extends UIScriptedMenu
 	{
 		UpdateMusicCredit();
 
+		// Hotkey join of the local Diag server, so a UI change can be debugged in a
+		// running client. Bound in Scripts\Inputs.xml (kF5 by default) and gated by
+		// Settings.DiagHotkey so a live server can turn it off.
+		if (DiagHotkey && GetGame().GetInput().LocalPress("UAColorfulUIDiagConnect", false))
+		{
+			DayZGame game = DayZGame.Cast(GetGame());
+			if (game)
+			{
+				GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(game.ConnectFromJoin, 0, false, DIAG_SERVER_IP, DIAG_SERVER_PORT);
+				return;
+			}
+		}
+
 		if (m_RulesOverlay && m_RulesOverlay.IsOpen())
 		{
 			if (GetUApi().GetInputByID(UAUIBack).LocalPress())

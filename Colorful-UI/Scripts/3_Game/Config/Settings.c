@@ -43,6 +43,15 @@ static bool VideoDeathScreens  = false;  // If set to true, a random game over s
 static const string SERVER_IP = "194.93.2.220";  // MOONLIGHT
 static const int SERVER_PORT = 2302;
 
+// Diag session -------------------------------------------------------------
+// The main menu joins a local DayZ Diag server when its hotkey is pressed, so a
+// menu or UI change can be debugged without leaving the client. Run
+// tools\Build and Run Server.bat to start that server; it listens on the port
+// below (Run Server.bat: $Port = 2702).
+static const string DIAG_SERVER_IP = "127.0.0.1";
+static const int DIAG_SERVER_PORT = 2702;
+static bool DiagHotkey = true;  // Set to false to remove the hotkey from the main menu.
+
 // Video Settings (Change them up)
 static const string m_LoadingVideo     = "CUI_Video.mov";  // Video file name for loading screen video. 
 static const string m_MainMenuVideo    = "CUI_Video.mov";  // Video file name for Main Menu screen video. 

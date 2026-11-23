@@ -15,7 +15,7 @@ FrameWidgetClass DialogRoot {
  {
   PanelWidgetClass DialogBox {
    visible 1
-   color 0.243 0.243 0.243 1
+   color 0.043 0.075 0.114 0.92
    position 0 0
    size 600 280
    halign center_ref
@@ -39,15 +39,15 @@ FrameWidgetClass DialogRoot {
      vexactsize 1
      style Bold
      text "Title"
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-     "text color" 1 1 1 1
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+     "text color" 0.902 0.937 0.965 1
      "exact text" 0
      "exact text size" 28
      "text halign" center
      "text valign" center
     }
     PanelWidgetClass SeparatorPanel {
-     color 0.863 0.271 0.271 0.6
+     color 0.541 0.706 0.839 0.9
      position 0 62
      size 0.85 2
      halign center_ref
@@ -61,7 +61,7 @@ FrameWidgetClass DialogRoot {
     }
     RichTextWidgetClass Body {
      clipchildren 1
-     color 1 1 1 1
+     color 0.784 0.847 0.91 0.92
      position 0 80
      size 0.9 100
      halign center_ref
@@ -70,7 +70,7 @@ FrameWidgetClass DialogRoot {
      hexactsize 0
      vexactsize 1
      text "Body"
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
      "text spacing" 0 4
      "exact text" 1
      "exact text size" 22
@@ -81,7 +81,7 @@ FrameWidgetClass DialogRoot {
     }
     ButtonWidgetClass Cancel {
      visible 1
-     color 0.2 0.4 0.8 1
+     color 0 0 0 0
      position 20 16
      size 270 56
      valign bottom_ref
@@ -93,11 +93,11 @@ FrameWidgetClass DialogRoot {
      "no focus" 0
      text "#dialog_cancel"
      text_proportion 0.5
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
     }
     ButtonWidgetClass Confirm {
      visible 1
-     color 0.1 0.6 1 1
+     color 0 0 0 0
      position 20 16
      size 270 56
      halign right_ref
@@ -110,7 +110,7 @@ FrameWidgetClass DialogRoot {
      "no focus" 0
      text "#dialog_confirm"
      text_proportion 0.5
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
     }
    }
   }
