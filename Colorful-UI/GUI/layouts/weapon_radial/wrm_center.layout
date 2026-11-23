@@ -9,9 +9,11 @@ RichTextWidgetClass WRMCenter {
  hexactsize 0
  vexactsize 0
  priority 300
- font "gui/fonts/sdf_MetronBook24"
+ font "Colorful-UI/GUI/fonts/Barlow-Medium.fnt"
+ "text sharpness" 1.5
  "exact text" 1
- "exact text size" 24
+ "exact text size" 22
+ color 0.8627 0.851 0.8118 1
  wrap 1
  "text halign" center
  "text valign" center

@@ -1,3 +1,6 @@
+// One cell of the weapon radial menu, drawn like a Colorful UI inventory card: the dark rounded panel,
+// a thin rounded edge (the theme colour on the item in hands / installed attachment and on hover) and
+// the hover wash. Colours are set by script from colorScheme (WRMLook).
 PanelWidgetClass WRMCard {
  ignorepointer 1
  clipchildren 0
@@ -11,9 +14,9 @@ PanelWidgetClass WRMCard {
  vexactsize 0
  style blank
  {
-  ImageWidgetClass Back {
+  PanelWidgetClass Back {
    ignorepointer 1
-   color 0 0 0 0.45
+   color 0.071 0.071 0.071 0.92
    position 0 0
    size 1 1
    halign center_ref
@@ -23,8 +26,36 @@ PanelWidgetClass WRMCard {
    hexactsize 0
    vexactsize 0
    priority 100
-   mode blend
-   "src alpha" 1
+   style round_fill_sm
+  }
+  PanelWidgetClass Wash {
+   visible 0
+   ignorepointer 1
+   color 0.8431 0.6 0.0745 0.18
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   priority 110
+   style round_fill_sm
+  }
+  PanelWidgetClass Edge {
+   ignorepointer 1
+   color 0.227 0.227 0.227 1
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   priority 120
+   style round_edge_sm
   }
   ItemPreviewWidgetClass Render {
    visible 0
@@ -88,13 +119,14 @@ PanelWidgetClass WRMCard {
    hexactsize 0
    vexactsize 0
    priority 250
-   font "gui/fonts/sdf_MetronBook24"
+   font "Colorful-UI/GUI/fonts/Barlow-Medium.fnt"
+   "text sharpness" 1.5
    "exact text" 1
-   "exact text size" 20
+   "exact text size" 17
    "text halign" left
    "text valign" top
    text "0"
-   color 1 1 1 1
+   color 0.8627 0.851 0.8118 1
   }
  }
 }

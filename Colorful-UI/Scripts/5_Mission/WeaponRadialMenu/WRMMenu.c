@@ -1,6 +1,6 @@
 // Weapon radial menu. A UIScriptedMenu driven by the vanilla RadialMenu widget handler (vanilla gestures root layout,
 // own card and centre layouts, own menu class and id, none of the gesture / emote code).
-// Cards carry no text: a 3D preview of the item (or an icon), a green tint for the item in hands / the installed
+// Cards carry no text: a 3D preview of the item (or an icon), a theme-coloured edge for the item in hands / the installed
 // attachment and a small marker for "colour variants inside". The name of the hovered cell, the level title and short
 // status messages are shown in the centre of the wheel.
 
@@ -27,7 +27,7 @@ class WRMCell
 	string m_Id;
 	string m_Label;			// shown in the centre of the wheel while the cell is hovered
 	bool m_Enabled;
-	bool m_Highlight;		// green tint: item in hands / installed attachment
+	bool m_Highlight;		// theme-coloured edge: item in hands / installed attachment
 	int m_Count;			// classes behind the cell: > 1 opens the variants wheel
 	string m_Preview;		// class drawn as a local 3D preview entity
 	EntityAI m_Entity;		// existing world entity drawn directly (item in hands, installed item): never created or deleted here
@@ -66,10 +66,10 @@ class WRMLevel
 class WRMMenu extends UIScriptedMenu
 {
 	static const string LAYOUT_ROOT = "gui/layouts/radial_menu/radial_gestures/day_z_gestures.layout";
-	static const string LAYOUT_CARD = "WeaponRadialMenu/gui/layouts/wrm_card.layout";
-	static const string LAYOUT_CENTER = "WeaponRadialMenu/gui/layouts/wrm_center.layout";
+	static const string LAYOUT_CARD = "Colorful-UI/GUI/layouts/weapon_radial/wrm_card.layout";
+	static const string LAYOUT_CENTER = "Colorful-UI/GUI/layouts/weapon_radial/wrm_center.layout";
 	static const string LAYOUT_DELIMITER = "gui/layouts/radial_menu/radial_gestures/day_z_gesture_delimiter.layout";
-	static const string ICON_DIR = "WeaponRadialMenu/gui/textures/";
+	static const string ICON_DIR = "Colorful-UI/GUI/textures/WeaponRadialMenu/";
 	static const string CATEGORY_ICONS = ",assault,sniper,smg,shotgun,rifle,pistol,launcher,other,";
 	static const float REFRESH_INTERVAL = 0.5;	// re-evaluates the level, which also repeats unanswered requests
 	static const int KEY_ESC = -1;				// pseudo "numbers" of the polled keys that are not number keys
@@ -624,8 +624,8 @@ class WRMMenu extends UIScriptedMenu
 			return;
 		}
 		num.SetText(cell.m_Number.ToString());
-		num.SetOutline(2, ARGB(255, 0, 0, 0));
-		num.SetColor(ARGB(255, 255, 255, 255));
+		num.SetOutline(1, ARGB(200, 0, 0, 0));
+		num.SetColor(WRMLook.Text());
 		num.Show(true);
 	}
 
@@ -1163,7 +1163,6 @@ class WRMMenu extends UIScriptedMenu
 	protected void ApplyCell(WRMCell cell)
 	{
 		Widget card = cell.m_Widget;
-		ImageWidget back = ImageWidget.Cast(card.FindAnyWidget("Back"));
 		ItemPreviewWidget render = ItemPreviewWidget.Cast(card.FindAnyWidget("Render"));
 		ImageWidget icon = ImageWidget.Cast(card.FindAnyWidget("Icon"));
 		ImageWidget mark = ImageWidget.Cast(card.FindAnyWidget("Mark"));
@@ -1191,23 +1190,14 @@ class WRMMenu extends UIScriptedMenu
 				path = ICON_DIR + "wrm_" + cell.m_Icon + "_ca.paa";
 			icon.LoadImageFile(0, path);
 			icon.SetImage(0);
-			int iconColor = ARGB(255, 255, 255, 255);
+			int iconColor = WRMLook.Icon();
 			if (!cell.m_Enabled)
-				iconColor = ARGB(110, 150, 150, 150);
+				iconColor = WRMLook.IconDisabled();
 			icon.SetColor(iconColor);
 			icon.Show(true);
 		}
 
-		// tint: green = in hands / installed, dark grey = not available, black = normal
-		if (back)
-		{
-			int backColor = ARGB(115, 0, 0, 0);
-			if (cell.m_Highlight)
-				backColor = ARGB(170, 50, 150, 55);
-			else if (!cell.m_Enabled)
-				backColor = ARGB(90, 60, 60, 60);
-			back.SetColor(backColor);
-		}
+		PaintCard(cell, cell == m_HoverCell);
 
 		// RadialMenu colours its selector by this flag and the logic is inverted: an ENABLED card has DISABLED set
 		if (cell.m_Enabled)
@@ -1228,6 +1218,55 @@ class WRMMenu extends UIScriptedMenu
 			{
 				mark.Show(false);
 			}
+		}
+	}
+
+	// Inventory-card look (WRMLook): dark rounded panel, thin edge in the theme colour for the item in
+	// hands / installed attachment and for the hovered card, theme-colour wash on hover.
+	protected void PaintCard(WRMCell cell, bool hovered)
+	{
+		if (!cell || !cell.m_Widget)
+			return;
+		Widget card = cell.m_Widget;
+		Widget back = card.FindAnyWidget("Back");
+		Widget wash = card.FindAnyWidget("Wash");
+		Widget edge = card.FindAnyWidget("Edge");
+		bool hover = hovered && cell.m_Enabled;
+
+		if (back)
+		{
+			if (cell.m_Enabled)
+				back.SetColor(WRMLook.CardBack());
+			else
+				back.SetColor(WRMLook.CardBackDisabled());
+		}
+		if (wash)
+		{
+			if (hover)
+			{
+				wash.SetColor(WRMLook.Wash());
+				wash.Show(true);
+			}
+			else if (cell.m_Highlight)
+			{
+				wash.SetColor(WRMLook.ActiveWash());
+				wash.Show(true);
+			}
+			else
+			{
+				wash.Show(false);
+			}
+		}
+		if (edge)
+		{
+			int edgeColor = WRMLook.Edge();
+			if (cell.m_Highlight)
+				edgeColor = WRMLook.EdgeActive();
+			else if (hover)
+				edgeColor = WRMLook.EdgeHover();
+			else if (!cell.m_Enabled)
+				edgeColor = WRMLook.EdgeDisabled();
+			edge.SetColor(edgeColor);
 		}
 	}
 
@@ -1299,8 +1338,7 @@ class WRMMenu extends UIScriptedMenu
 
 	void OnMouseDeselect(Widget w)
 	{
-		m_HoverLabel = "";
-		m_HoverCell = null;
+		ClearHover();
 	}
 
 	void OnMouseExecute(Widget w)
@@ -1326,8 +1364,7 @@ class WRMMenu extends UIScriptedMenu
 
 	void OnControllerDeselect(Widget w)
 	{
-		m_HoverLabel = "";
-		m_HoverCell = null;
+		ClearHover();
 	}
 
 	void OnControllerExecute(Widget w)
@@ -1346,8 +1383,7 @@ class WRMMenu extends UIScriptedMenu
 
 	protected void HoverCell(Widget w)
 	{
-		m_HoverLabel = "";
-		m_HoverCell = null;
+		ClearHover();
 		if (!w)
 			return;
 		WRMCell cell;
@@ -1356,7 +1392,17 @@ class WRMMenu extends UIScriptedMenu
 		{
 			m_HoverLabel = cell.m_Label;
 			m_HoverCell = cell;
+			PaintCard(cell, true);
 		}
+	}
+
+	protected void ClearHover()
+	{
+		WRMCell old = m_HoverCell;
+		m_HoverLabel = "";
+		m_HoverCell = null;
+		if (old)
+			PaintCard(old, false);
 	}
 
 	// ----- actions -----

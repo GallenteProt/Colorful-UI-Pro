@@ -2,11 +2,17 @@
 <modded_inputs>
     <inputs>
         <actions>
-			    <!-- Actions go here -->
+            <!-- Weapon radial menu (Scripts/5_Mission/WeaponRadialMenu), turned off by WeaponRadialMenu in Settings.c -->
+            <input name="UAWRMOpenMenu" loc="STR_WRM_INPUT_OPEN" />
         </actions>
+        <sorting name="weaponradialmenu" loc="STR_WRM_INPUT_GROUP">
+            <input name="UAWRMOpenMenu" />
+        </sorting>
     </inputs>
 
     <preset>
-		  <!-- Presets for actions go here -->
+        <input name="UAWRMOpenMenu">
+            <btn name="kGrave" />
+        </input>
     </preset>
 </modded_inputs>

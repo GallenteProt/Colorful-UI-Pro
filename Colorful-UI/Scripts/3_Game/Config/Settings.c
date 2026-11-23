@@ -22,6 +22,7 @@ static bool InventorySearch      = true;   // The search button and search bar w
 static bool InventoryFold        = true;   // Fold and show all buttons, and fold buttons on each card.
 static bool InventoryTooltips    = true;   // Colorful UI item and slot tooltips. False = vanilla tooltips.
 static bool InventoryQuickSlots  = true;   // Colorful UI quick slot bar and quick assign (hover an item, press a number). False = vanilla quick bar.
+static bool WeaponRadialMenu     = true;   // Weapon radial menu (key ~ by default): weapons, attachments and magazines, drawn in the inventory style. Must match on server and clients. False = no menu, no key, the server issues nothing.
 
 static bool RoundedInventory   = false;  // If set to true, inventory cards get rounded corners; off, they keep the original game style. Tool buttons are always rounded; quick slots follow RoundedQuickSlots.
 static bool RoundedQuickSlots  = true;   // If set to true, the quick slots use the rounded tile style. If false, they keep the vanilla quick bar look.

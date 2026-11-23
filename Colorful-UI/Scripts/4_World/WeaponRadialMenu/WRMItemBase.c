@@ -5,7 +5,7 @@ modded class ItemBase
 	{
 		super.OnItemLocationChanged(old_owner, new_owner);
 
-		if (g_Game.IsServer())
+		if (WeaponRadialMenu && g_Game.IsServer())
 			WRMServer.OnItemMoved(this, new_owner);
 	}
 }

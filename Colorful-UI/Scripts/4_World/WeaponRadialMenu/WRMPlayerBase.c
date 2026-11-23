@@ -4,7 +4,7 @@ modded class PlayerBase
 	{
 		super.OnRPC(sender, rpc_type, ctx);
 
-		if (rpc_type != WRM_RPC_ID)
+		if (rpc_type != WRM_RPC_ID || !WeaponRadialMenu)
 			return;
 
 		WRMMsg msg = new WRMMsg();

@@ -3,7 +3,7 @@ modded class MissionBase
 	override UIScriptedMenu CreateScriptedMenu(int id)
 	{
 		UIScriptedMenu menu = super.CreateScriptedMenu(id);
-		if (!menu && id == WRM_MENU_ID)
+		if (!menu && id == WRM_MENU_ID && WeaponRadialMenu)
 		{
 			menu = new WRMMenu();
 			menu.SetID(id);
@@ -17,13 +17,15 @@ modded class MissionServer
 	override void OnMissionStart()
 	{
 		super.OnMissionStart();
-		WRMServer.Init();
+		if (WeaponRadialMenu)
+			WRMServer.Init();
 	}
 
 	override void OnUpdate(float timeslice)
 	{
 		super.OnUpdate(timeslice);
-		WRMServer.Tick(timeslice);
+		if (WeaponRadialMenu)
+			WRMServer.Tick(timeslice);
 	}
 }
 
@@ -54,7 +56,7 @@ modded class MissionGameplay
 	{
 		super.OnMissionStart();
 		WRMClient.Reset();
-		if (!g_Game.IsMultiplayer())
+		if (WeaponRadialMenu && !g_Game.IsMultiplayer())
 			WRMServer.Init();		// offline: this process is the server too
 	}
 
@@ -72,6 +74,8 @@ modded class MissionGameplay
 		super.OnUpdate(timeslice);
 		WRMInputGuard.s_BlockToggle = false;
 
+		if (!WeaponRadialMenu)
+			return;
 		if (!g_Game.IsMultiplayer())
 			WRMServer.Tick(timeslice);
 
@@ -94,6 +98,8 @@ modded class MissionGameplay
 	// our key is pressed, held or was released this frame AND the vanilla toggle sees the same key
 	protected bool IsWRMKeyActive()
 	{
+		if (!WeaponRadialMenu)
+			return false;
 		UAInput ours = GetUApi().GetInputByName(WRM_INPUT_OPEN);
 		if (!ours)
 			return false;
