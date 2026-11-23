@@ -59,18 +59,73 @@ class MoonlightSteamIdCopyHandler : ScriptedWidgetEventHandler
 	}
 }
 
+// Click on the music credit opens the composer's page (CustomURL.MusicAuthor).
+class MoonlightMusicCreditHandler : ScriptedWidgetEventHandler
+{
+	protected ButtonWidget m_ClickTarget;
+	protected TextWidget m_ArtistText;
+	protected TextWidget m_TrackText;
+
+	void Bind(ButtonWidget clickTarget, TextWidget artistText, TextWidget trackText)
+	{
+		m_ClickTarget = clickTarget;
+		m_ArtistText = artistText;
+		m_TrackText = trackText;
+
+		if (m_ClickTarget)
+		{
+			m_ClickTarget.ClearFlags(WidgetFlags.IGNOREPOINTER);
+			m_ClickTarget.SetHandler(this);
+		}
+	}
+
+	void Dispose()
+	{
+		if (m_ClickTarget) m_ClickTarget.SetHandler(null);
+		m_ClickTarget = null;
+		m_ArtistText = null;
+		m_TrackText = null;
+	}
+
+	override bool OnMouseEnter(Widget w, int x, int y)
+	{
+		if (w != m_ClickTarget) return false;
+		if (m_ArtistText) m_ArtistText.SetColor(UIColor.ZoneLoadingBlue());
+		if (m_TrackText) m_TrackText.SetColor(UIColor.ZoneLoadingBlue());
+		return true;
+	}
+
+	override bool OnMouseLeave(Widget w, Widget enterW, int x, int y)
+	{
+		if (w != m_ClickTarget) return false;
+		if (m_ArtistText) m_ArtistText.SetColor(colorScheme.PrimaryText());
+		if (m_TrackText) m_TrackText.SetColor(colorScheme.SecondaryText());
+		return true;
+	}
+
+	override bool OnClick(Widget w, int x, int y, int button)
+	{
+		if (w != m_ClickTarget) return false;
+		string url = CustomURL.MusicAuthor;
+		if (url != "" && url != "#") GetGame().OpenURL(url);
+		return true;
+	}
+}
+
 modded class MainMenu extends UIScriptedMenu
 {
 	protected ref MainMenuStats m_Stats;
 	protected ref MoonlightSteamIdCopyHandler m_SteamIdCopyHandler;
+	protected ref MoonlightMusicCreditHandler m_MusicCreditHandler;
+	protected TextWidget m_MusicArtistText, m_MusicTrackText;
+	protected string m_CurrentMusicTrackTitle;
 	protected ref CUIRulesOverlay m_RulesOverlay;
 	protected TextWidget m_PlayerName;
 	protected TextWidget m_WelcomeBack;
 	protected TextWidget m_StatsHeader;
 	protected TextWidget m_ZoneTitle, m_ZoneSubtitle;
 	protected TextWidget m_DateTimeText, m_SteamIdLabel, m_SteamIdText;
-	protected ButtonWidget m_SteamCredit;
-	protected Widget m_MusicCredit;
+	protected ButtonWidget m_SteamCredit, m_MusicCredit;
 	protected ButtonWidget m_PrevCharacter, m_NextCharacter;
 	protected ImageWidget m_TopShader, m_BottomShader, m_MenuDivider, m_StatisticsBoxBG, m_SurvivorBox, m_Logo, m_Background;
 	protected Widget m_ZoneTint;
@@ -136,7 +191,9 @@ modded class MainMenu extends UIScriptedMenu
 		m_SteamIdLabel      = TextWidget.Cast(layoutRoot.FindAnyWidget("SteamIDLabelText"));
 		m_SteamIdText       = TextWidget.Cast(layoutRoot.FindAnyWidget("SteamIDText"));
 		m_SteamCredit       = ButtonWidget.Cast(layoutRoot.FindAnyWidget("SteamCredit"));
-		m_MusicCredit       = layoutRoot.FindAnyWidget("MusicCredit");
+		m_MusicCredit       = ButtonWidget.Cast(layoutRoot.FindAnyWidget("MusicCredit"));
+		m_MusicArtistText   = TextWidget.Cast(layoutRoot.FindAnyWidget("MusicArtistText"));
+		m_MusicTrackText    = TextWidget.Cast(layoutRoot.FindAnyWidget("MusicTrackText"));
 
 		if (m_ZoneTitle) m_ZoneTitle.SetColor(colorScheme.PrimaryText());
 		if (m_ZoneSubtitle) m_ZoneSubtitle.SetColor(colorScheme.SecondaryText());
@@ -145,9 +202,16 @@ modded class MainMenu extends UIScriptedMenu
 		if (m_SteamIdLabel) m_SteamIdLabel.SetColor(colorScheme.PrimaryText());
 		if (m_SteamIdText) m_SteamIdText.SetColor(colorScheme.SecondaryText());
 
-		// The track credit needs the old branch's per-track music sets, which
-		// are not part of this mod yet. Hide it instead of showing a wrong title.
-		if (m_MusicCredit) m_MusicCredit.Show(false);
+		if (m_MusicArtistText) m_MusicArtistText.SetColor(colorScheme.PrimaryText());
+		if (m_MusicTrackText) m_MusicTrackText.SetColor(colorScheme.SecondaryText());
+
+		// Track credit only makes sense with the Colorful UI playlist.
+		if (m_MusicCredit) m_MusicCredit.Show(MenuMusic);
+		if (MenuMusic && m_MusicCredit && m_MusicArtistText && m_MusicTrackText)
+		{
+			m_MusicCreditHandler = new MoonlightMusicCreditHandler();
+			m_MusicCreditHandler.Bind(m_MusicCredit, m_MusicArtistText, m_MusicTrackText);
+		}
 
 		if (m_SteamCredit && m_SteamIdLabel && m_SteamIdText)
 		{
@@ -200,6 +264,7 @@ modded class MainMenu extends UIScriptedMenu
 		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_NextCharacter), "", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "NextCharacter");
 
 		UpdateCornerText();
+		UpdateMusicCredit();
 		
 		Branding.ApplyLogo(m_Logo);	
 
@@ -449,8 +514,34 @@ modded class MainMenu extends UIScriptedMenu
 		return selectedUser.GetUid();
 	}
 
+	// Shows "<track> - Joe Mathews" for the menu track DayZ is playing now.
+	void UpdateMusicCredit()
+	{
+		if (!MenuMusic || !m_MusicTrackText) return;
+
+		string trackTitle = "";
+		Mission mission = GetGame().GetMission();
+		if (mission)
+		{
+			DynamicMusicPlayer musicPlayer = mission.GetDynamicMusicPlayer();
+			if (musicPlayer)
+				trackTitle = musicPlayer.GetCUITrackTitle();
+		}
+
+		if (trackTitle == "")
+			trackTitle = "...";
+
+		if (m_CurrentMusicTrackTitle != trackTitle)
+		{
+			m_CurrentMusicTrackTitle = trackTitle;
+			m_MusicTrackText.SetText(trackTitle + " - Joe Mathews");
+		}
+	}
+
 	override void Update(float timeslice)
 	{
+		UpdateMusicCredit();
+
 		if (m_RulesOverlay && m_RulesOverlay.IsOpen())
 		{
 			if (GetUApi().GetInputByID(UAUIBack).LocalPress())
@@ -508,6 +599,12 @@ modded class MainMenu extends UIScriptedMenu
 		{
 			m_SteamIdCopyHandler.Dispose();
 			m_SteamIdCopyHandler = null;
+		}
+
+		if (m_MusicCreditHandler)
+		{
+			m_MusicCreditHandler.Dispose();
+			m_MusicCreditHandler = null;
 		}
 
 		cuiElmnt.CleanupForOwner(this);

@@ -34,7 +34,7 @@ static bool VideoDeathScreens  = false;  // If set to true, a random game over s
 
 // Server Information 
 // (Possibly Buggy in the CUI Buttons. Not yet tested on live servers)
-static const string SERVER_IP = "127.0.0.1";
+static const string SERVER_IP = "194.93.2.220";  // MOONLIGHT
 static const int SERVER_PORT = 2302;
 
 // Video Settings (Change them up)
@@ -139,6 +139,7 @@ class CustomURL {
 	static string Website    = "#"; 
 	static string PriorityQ  = "#";
 	static string Custom     = "#";
+	static string MusicAuthor = "https://joemathews.bandcamp.com"; // Menu music credit link
 }
 
 class SocialURL {
