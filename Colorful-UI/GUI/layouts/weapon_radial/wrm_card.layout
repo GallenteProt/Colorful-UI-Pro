@@ -119,7 +119,7 @@ PanelWidgetClass WRMCard {
    hexactsize 0
    vexactsize 0
    priority 250
-   font "Colorful-UI/GUI/fonts/Barlow-Medium.fnt"
+   font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
    "text sharpness" 1.5
    "exact text" 1
    "exact text size" 17

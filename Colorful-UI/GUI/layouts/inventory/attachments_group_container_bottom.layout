@@ -65,7 +65,7 @@ GridSpacerWidgetClass AttachmentsWrapper {
        vexactsize 0
        style DayZNormal
        text "CLOSABLE CONTAINER"
-       font "Colorful-UI/GUI/fonts/GB-Regular"
+       font "gui/fonts/sdf_MetronLight24"
        "exact text" 1
        "exact text size" 20
        "size to text v" 1

@@ -651,7 +651,7 @@ FrameWidgetClass character_creation_root {
          vexactsize 0
          style DayZNormal
          text "#layout_character_previously_played_desc"
-         font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+         font "gui/fonts/sdf_MetronLight24"
          text_proportion 0.8
          "size to text h" 1
          "size to text v" 0
@@ -734,7 +734,7 @@ FrameWidgetClass character_creation_root {
            vexactsize 0
            scaled 1
            text "#layout_character_creation_apply"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 45
@@ -777,7 +777,7 @@ FrameWidgetClass character_creation_root {
            vexactsize 0
            scaled 1
            text "#layout_character_creation_save"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 45
@@ -875,7 +875,7 @@ FrameWidgetClass character_creation_root {
            vexactsize 0
            scaled 1
            text "#layout_character_creation_randomize"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 24
@@ -917,7 +917,7 @@ FrameWidgetClass character_creation_root {
            vexactsize 0
            scaled 1
            text "#layout_character_creation_back"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 24
@@ -944,7 +944,7 @@ FrameWidgetClass character_creation_root {
      priority 1
      style Normal
      text "#layout_character_creation_character_creation"
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "gui/fonts/sdf_MetronLight24"
      "text color" 0.8157 0.1255 0.7843 1
      "exact text" 0
      "size to text h" 0

@@ -8,6 +8,9 @@ class WRMMsg
 
 	int m_Op;
 	int m_Status;
+	// First int of the payload. The weapon menu and the quick slot wheel share this envelope, so each
+	// one stamps its own magic and a message read by the wrong handler is dropped instead of misread.
+	int m_Magic = WRM_MAGIC;
 	ref TIntArray m_Ints = new TIntArray;
 	ref TStringArray m_Strs = new TStringArray;
 
@@ -33,7 +36,7 @@ class WRMMsg
 
 	void Write(ParamsWriteContext ctx)
 	{
-		ctx.Write(WRM_MAGIC);
+		ctx.Write(m_Magic);
 		ctx.Write(m_Op);
 		ctx.Write(m_Status);
 
@@ -55,7 +58,7 @@ class WRMMsg
 	bool Read(ParamsReadContext ctx)
 	{
 		int magic;
-		if (!ctx.Read(magic) || magic != WRM_MAGIC)
+		if (!ctx.Read(magic) || magic != m_Magic)
 			return false;
 
 		int op;

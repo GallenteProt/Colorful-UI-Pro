@@ -146,7 +146,7 @@ PanelWidgetClass GridCell {
            vexactsize 0
            priority 610
            text "99"
-           font "Colorful-UI/GUI/fonts/JetBrainsMono-Medium.fnt"
+           font "gui/fonts/sdf_MetronBook24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 11

@@ -79,7 +79,7 @@ PanelWidgetClass height_wrapper {
    vexactsize 0
    style Normal
    text "#layout_collapsible_header"
-   font "Colorful-UI/GUI/fonts/GB-Regular"
+   font "gui/fonts/sdf_MetronLight24"
    "text offset" 10 0
    "bold text" 0
    "text sharpness" 0.5

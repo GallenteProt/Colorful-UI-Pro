@@ -4,17 +4,23 @@
         <actions>
             <!-- Weapon radial menu (Scripts/5_Mission/WeaponRadialMenu), turned off by WeaponRadialMenu in Settings.c -->
             <input name="UAWRMOpenMenu" loc="STR_WRM_INPUT_OPEN" />
+            <!-- Quick slot wheel: the deep action on the hovered cell (attachments / magazines of the weapon in hands) -->
+            <input name="CUIQuickSlotsDeep" loc="STR_CUI_QS_INPUT_DEEP" />
             <!-- Main menu hotkey: join the local Diag server, gated by DiagHotkey in Settings.c -->
             <input name="UAColorfulUIDiagConnect" loc="STR_CUI_DIAG_CONNECT" />
         </actions>
         <sorting name="weaponradialmenu" loc="STR_WRM_INPUT_GROUP">
             <input name="UAWRMOpenMenu" />
+            <input name="CUIQuickSlotsDeep" />
         </sorting>
     </inputs>
 
     <preset>
         <input name="UAWRMOpenMenu">
             <btn name="kGrave" />
+        </input>
+        <input name="CUIQuickSlotsDeep">
+            <btn name="kF" />
         </input>
         <input name="UAColorfulUIDiagConnect">
             <btn name="kF5" />

@@ -146,7 +146,7 @@ PanelWidgetClass LoadingFrame {
      vexactpos 1
      hexactsize 1
      vexactsize 1
-     text "ПОДКЛЮЧЕНИЕ К СЕРВЕРУ..."
+     text "ПОДКЛЮЧЕНИЕ"
      font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
      "exact text" 1
      "exact text size" 18

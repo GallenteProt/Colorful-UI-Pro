@@ -3,16 +3,18 @@
 
 modded class InGameMenu extends UIScriptedMenu
 {
-    protected ImageWidget m_TopShader, m_BottomShader, m_MenuDivider, m_GameOverScreenImage, m_Logo;
+    protected ImageWidget m_TopShader, m_BottomShader, m_MenuDivider, m_GameOverScreenImage;
+    protected TextWidget m_DateTimeText;
     protected ButtonWidget m_PrioQ, m_Website, m_Discord, m_Twitter, m_Youtube, m_Reddit, m_Facebook;
     protected ButtonWidget m_ExitButton, m_ContinueButton, m_OptionsButton, m_RestartButton, m_RespawnButton;
     protected Widget m_TopSpacer, m_BottomSpacer, m_GameOverScreen;
     float m_TimerSlice;
+    float m_DateTimeSlice;
 
     override Widget Init()
     {
         layoutRoot = GetGame().GetWorkspace().CreateWidgets("Colorful-UI/GUI/layouts/menus/inGame/cui.ingame.layout");
-        m_Logo                  = ImageWidget.Cast(layoutRoot.FindAnyWidget("Logo"));
+        m_DateTimeText          = TextWidget.Cast(layoutRoot.FindAnyWidget("DateTimeText"));
         m_GameOverScreen        = Widget.Cast(layoutRoot.FindAnyWidget("GameOverScreen"));
         m_GameOverScreenImage   = ImageWidget.Cast(m_GameOverScreen.FindAnyWidget("GameOverScreenImage"));
         m_HintPanel             = new UiHintPanel(layoutRoot.FindAnyWidget("hint_frame"));
@@ -75,7 +77,8 @@ modded class InGameMenu extends UIScriptedMenu
 
 		HudShow(false);       
         
-        Branding.ApplyLogo(m_Logo);
+        if (m_DateTimeText) m_DateTimeText.SetColor(colorScheme.PrimaryText());
+        UpdateDateTime();
 		m_GameOverScreen.SetAlpha(0);
 		m_GameOverScreenImage.SetAlpha(0);
 		m_GameOverScreenImage.LoadImageFile(0, GameOverScreen.GameOverScreenImage());
@@ -111,6 +114,15 @@ modded class InGameMenu extends UIScriptedMenu
 
    	override void Update(float timeslice)
 	{
+		// The pause menu can stay open, so the clock has to keep ticking: once a second is enough
+		// for a minute-precision string, and it costs nothing while the menu is closed.
+		m_DateTimeSlice += timeslice;
+		if (m_DateTimeSlice >= 1.0)
+		{
+			m_DateTimeSlice = 0;
+			UpdateDateTime();
+		}
+
 		if (CustomDeathScreens && ShowGameOverOverlay)
 		{
 			m_TimerSlice += timeslice;
@@ -122,6 +134,20 @@ modded class InGameMenu extends UIScriptedMenu
 		}
 		super.Update(timeslice);
 	};
+
+	// Same string as the main menu (MainMenu.GetMenuDateTime): dd.mm.yyyy hh:mm, local time.
+	void UpdateDateTime()
+	{
+		if (!m_DateTimeText)
+			return;
+
+		int year, month, day;
+		int hour, minute, second;
+		GetYearMonthDay(year, month, day);
+		GetHourMinuteSecond(hour, minute, second);
+
+		m_DateTimeText.SetText(day.ToStringLen(2) + "." + month.ToStringLen(2) + "." + year.ToString() + " " + hour.ToStringLen(2) + ":" + minute.ToStringLen(2));
+	}
 
 	void GameOverMan(float timeslice)
 	{

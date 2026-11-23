@@ -118,7 +118,7 @@ FrameWidgetClass SearchCard {
        priority 2
        color 0.663 0.659 0.627 1
        text ""
-       font "Colorful-UI/GUI/fonts/BarlowCondensed-SemiBold.fnt"
+       font "gui/fonts/sdf_MetronBook24"
        "text sharpness" 1.5
        "exact text" 1
        "exact text size" 15
@@ -148,7 +148,7 @@ FrameWidgetClass SearchCard {
          vexactsize 0
          color 0.8627 0.851 0.8118 0.6
          text "Reset"
-         font "Colorful-UI/GUI/fonts/BarlowCondensed-SemiBold.fnt"
+         font "gui/fonts/sdf_MetronBook24"
          "text sharpness" 1.5
          "exact text" 1
          "exact text size" 14

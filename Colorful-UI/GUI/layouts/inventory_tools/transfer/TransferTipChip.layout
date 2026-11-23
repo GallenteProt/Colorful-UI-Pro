@@ -23,7 +23,7 @@ PanelWidgetClass XferTipChip {
    vexactsize 0
    color 1 1 1 1
    text ""
-   font "Colorful-UI/GUI/fonts/BarlowCondensed-SemiBold.fnt"
+   font "gui/fonts/sdf_MetronBook24"
    "text sharpness" 1.5
    "exact text" 1
    "exact text size" 15

@@ -185,7 +185,7 @@ FrameWidgetClass InGameMenuRoot {
            hexactsize 0
            vexactsize 0
            text "#main_menu_exit"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 26
@@ -224,7 +224,7 @@ FrameWidgetClass InGameMenuRoot {
            hexactsize 0
            vexactsize 0
            text "#main_menu_restart"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 26
@@ -264,7 +264,7 @@ FrameWidgetClass InGameMenuRoot {
            hexactsize 0
            vexactsize 0
            text "#layout_xbox_ingame_menu_options"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 26
@@ -303,7 +303,7 @@ FrameWidgetClass InGameMenuRoot {
            hexactsize 0
            vexactsize 0
            text "#main_menu_continue"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 26
@@ -335,7 +335,7 @@ FrameWidgetClass InGameMenuRoot {
            hexactsize 1
            vexactsize 1
            text "#main_menu_respawn"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 26
@@ -366,7 +366,7 @@ FrameWidgetClass InGameMenuRoot {
            hexactsize 1
            vexactsize 1
            text "#CUI_priority_queue"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 26
@@ -397,7 +397,7 @@ FrameWidgetClass InGameMenuRoot {
            hexactsize 1
            vexactsize 1
            text "#mod_detail_info_website"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 26
@@ -483,7 +483,7 @@ FrameWidgetClass InGameMenuRoot {
            hexactsize 1
            vexactsize 1
            text "Discord"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 26
@@ -534,7 +534,7 @@ FrameWidgetClass InGameMenuRoot {
            hexactsize 1
            vexactsize 1
            text "Twitter"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 26
@@ -584,7 +584,7 @@ FrameWidgetClass InGameMenuRoot {
            hexactsize 1
            vexactsize 1
            text "YouTube"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 26
@@ -634,7 +634,7 @@ FrameWidgetClass InGameMenuRoot {
            hexactsize 1
            vexactsize 1
            text "Reddit"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 26
@@ -684,7 +684,7 @@ FrameWidgetClass InGameMenuRoot {
            hexactsize 1
            vexactsize 1
            text "Facebook"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "gui/fonts/sdf_MetronLight24"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 26
@@ -717,23 +717,29 @@ FrameWidgetClass InGameMenuRoot {
       }
      }
     }
-    ImageWidgetClass Logo {
+    // The pause menu shows the date and time instead of the logo image: same widget, same font,
+    // same colour and the same string as the main menu (MainMenu.DateTimeText / GetMenuDateTime).
+    // The old Logo image is gone from this layout on purpose - it carried a baked-in word that is
+    // not part of the brand, and the main menu does not show it either.
+    TextWidgetClass DateTimeText {
      visible 1
-     inheritalpha 1
-     size 438 261
-     hexactpos 1
-     vexactpos 1
-     hexactsize 1
-     vexactsize 1
-     fixaspect outside
-     image0 ""
-     imageTexture "{42E121BAB69F8229}Colorful-UI/GUI/textures/Shared/Colorful UI Logo.edds"
-     mode blend
-     "src alpha" 1
-     "clamp mode" clamp
-     "stretch mode" stretch_w_h
-     filter 1
-     nocache 0
+     ignorepointer 1
+     color 0.925 0.95 0.965 0.86
+     position 0.008 0.089
+     size 0.132 0.024
+     halign left_ref
+     valign top_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text ""
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+     "text sharpness" 1.05
+     "exact text" 1
+     "exact text size" 13
+     "text halign" left
+     "text valign" center
     }
    }
   }

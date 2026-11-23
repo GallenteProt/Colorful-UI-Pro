@@ -74,7 +74,7 @@ PanelWidgetClass QS_Tile {
      vexactsize 1
      priority 610
      text "9"
-     font "Colorful-UI/GUI/fonts/JetBrainsMono-Medium.fnt"
+     font "gui/fonts/sdf_MetronBook24"
      "text sharpness" 1.5
      "exact text" 1
      "exact text size" 12
@@ -117,7 +117,7 @@ PanelWidgetClass QS_Tile {
      vexactsize 1
      priority 610
      text "9"
-     font "Colorful-UI/GUI/fonts/JetBrainsMono-Medium.fnt"
+     font "gui/fonts/sdf_MetronBook24"
      "text sharpness" 1.5
      "exact text" 1
      "exact text size" 16

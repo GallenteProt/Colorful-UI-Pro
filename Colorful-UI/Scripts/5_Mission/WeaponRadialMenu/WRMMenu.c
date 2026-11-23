@@ -69,7 +69,6 @@ class WRMMenu extends UIScriptedMenu
 	static const string LAYOUT_CARD = "Colorful-UI/GUI/layouts/weapon_radial/wrm_card.layout";
 	static const string LAYOUT_CENTER = "Colorful-UI/GUI/layouts/weapon_radial/wrm_center.layout";
 	static const string LAYOUT_DELIMITER = "gui/layouts/radial_menu/radial_gestures/day_z_gesture_delimiter.layout";
-	static const string ICON_DIR = "Colorful-UI/GUI/textures/WeaponRadialMenu/";
 	static const string CATEGORY_ICONS = ",assault,sniper,smg,shotgun,rifle,pistol,launcher,other,";
 	static const float REFRESH_INTERVAL = 0.5;	// re-evaluates the level, which also repeats unanswered requests
 	static const int KEY_ESC = -1;				// pseudo "numbers" of the polled keys that are not number keys
@@ -128,6 +127,9 @@ class WRMMenu extends UIScriptedMenu
 		Widget wheel = layoutRoot.FindAnyWidget("GesturesPanel");
 		if (wheel)
 			m_CenterText = RichTextWidget.Cast(g_Game.GetWorkspace().CreateWidgets(LAYOUT_CENTER, wheel));
+#ifdef DIAG_DEVELOPER
+		Print("[WRM] centre widget created=" + (m_CenterText != null) + " panel=" + (wheel != null));
+#endif
 
 		// the layout creates a fresh RadialMenu handler; it is a singleton driven by method name on this class
 		RadialMenu radial = RadialMenu.GetInstance();
@@ -143,6 +145,15 @@ class WRMMenu extends UIScriptedMenu
 		m_MmbHeld = IsMiddleDown();		// a button held while opening is not a click
 		m_Stack.Insert(new WRMLevel(WRM_LV_ROOT, "", ""));
 		WRMClient.InvalidateWeapon();
+
+		// The quick slot wheel opens this menu for two reasons: the arsenal (root level) and the deep
+		// action on a weapon cell (attachments of the weapon in hands).
+		if (CUIQuickSlotLocal.s_DeepRequested)
+		{
+			CUIQuickSlotLocal.s_DeepRequested = false;
+			ShowAttachments();
+		}
+
 		RebuildCells(true);
 		return layoutRoot;
 	}
@@ -1160,6 +1171,51 @@ class WRMMenu extends UIScriptedMenu
 		AssignNumbers();		// retried from Update() when the positions are not valid yet
 	}
 
+	// The first weapon of a category, used as that category's picture: a real game model, not art.
+	// Empty when the category page is not cached yet, in which case the cell simply shows no picture.
+	protected string RepresentativeWeapon(string category)
+	{
+		if (category == "")
+			return "";
+		WRMPageData data = WRMClient.GetWeaponPage(category, 0);
+		if (!data || data.m_Items.Count() < 1)
+			return "";
+		return data.m_Items.Get(0);
+	}
+
+	// Only structural cells and weapon categories use an icon file, and it is always a vanilla atlas
+	// entry: the mod ships no generated art. An unknown key returns "" and the cell is drawn with no
+	// picture rather than a wrong one.
+	protected string IconPathFor(WRMCell cell)
+	{
+		switch (cell.m_Kind)
+		{
+			case WRM_CELL_BACK:		return "set:cui image:ChevronLeft";
+			case WRM_CELL_NEXT:		return "set:cui image:ChevronRight";
+			case WRM_CELL_ATTACH:	return "set:dayz_inventory image:AttachmentCategory";
+			case WRM_CELL_SLOT:		return "set:dayz_inventory image:magazine";
+			case WRM_CELL_CAT:		return CategoryIconPath(cell.m_Id);
+		}
+		return "";
+	}
+
+	// One white icon per weapon category, from the vanilla atlases only. The game has no per-category
+	// weapon silhouettes, so each category takes the closest real icon it does have; the caption under
+	// the cell is what tells them apart. No generated art anywhere.
+	protected string CategoryIconPath(string id)
+	{
+		string key = id;
+		key.ToLower();
+		if (key == "sniper")	return "set:dayz_gui image:scope";
+		if (key == "assault")	return "set:dayz_gui image:ironsight";
+		if (key == "rifle")		return "set:dayz_gui image:ironsight";
+		if (key == "smg")		return "set:dayz_inventory image:pistol";
+		if (key == "pistol")	return "set:dayz_inventory image:pistol";
+		if (key == "shotgun")	return "set:dayz_inventory image:bullets";
+		if (key == "launcher")	return "set:dayz_inventory image:grenade";
+		return "set:dayz_inventory image:bullets";		// "other"
+	}
+
 	protected void ApplyCell(WRMCell cell)
 	{
 		Widget card = cell.m_Widget;
@@ -1167,9 +1223,12 @@ class WRMMenu extends UIScriptedMenu
 		ImageWidget icon = ImageWidget.Cast(card.FindAnyWidget("Icon"));
 		ImageWidget mark = ImageWidget.Cast(card.FindAnyWidget("Mark"));
 
-		// 1. a real entity (hands, installed), 2. a local preview entity, 3. an image, 4. our icon
+		// 1. a real entity (hands, installed), 2. a local preview entity, 3. an image, 4. an atlas icon.
+		// A weapon CATEGORY is never drawn as a model: showing one arbitrary weapon of the category
+		// reads as "this wheel gives me that gun". It gets the category icon instead.
+		bool catCell = (cell.m_Kind == WRM_CELL_CAT);
 		EntityAI entity = cell.m_Entity;
-		if (!entity && cell.m_Preview != "")
+		if (!entity && cell.m_Preview != "" && !catCell)
 			entity = m_Previews.Get(cell.m_Preview);
 
 		bool shown = false;
@@ -1187,14 +1246,25 @@ class WRMMenu extends UIScriptedMenu
 		{
 			string path = cell.m_Image;
 			if (path == "")
-				path = ICON_DIR + "wrm_" + cell.m_Icon + "_ca.paa";
-			icon.LoadImageFile(0, path);
-			icon.SetImage(0);
-			int iconColor = WRMLook.Icon();
-			if (!cell.m_Enabled)
-				iconColor = WRMLook.IconDisabled();
-			icon.SetColor(iconColor);
-			icon.Show(true);
+				path = IconPathFor(cell);
+			if (path == "")
+			{
+				icon.Show(false);		// nothing to draw: the centre text still names the cell
+			}
+			else
+			{
+				icon.LoadImageFile(0, path);
+				icon.SetImage(0);
+				// Categories are drawn pure white as the human asked; every other cell keeps the
+				// warm theme white so it still reads as part of the card.
+				int iconColor = WRMLook.Icon();
+				if (catCell)
+					iconColor = ARGB(255, 255, 255, 255);
+				if (!cell.m_Enabled)
+					iconColor = WRMLook.IconDisabled();
+				icon.SetColor(iconColor);
+				icon.Show(true);
+			}
 		}
 
 		PaintCard(cell, cell == m_HoverCell);
@@ -1205,12 +1275,12 @@ class WRMMenu extends UIScriptedMenu
 		else
 			card.ClearFlags(WidgetFlags.DISABLED);
 
-		// small marker: colour variants behind this cell
+		// small marker: colour variants behind this cell. Vanilla atlas entry, not the mod's own art.
 		if (mark)
 		{
 			if (cell.m_Count > 1)
 			{
-				mark.LoadImageFile(0, ICON_DIR + "wrm_variants_ca.paa");
+				mark.LoadImageFile(0, "set:dayz_inventory image:magazine2");
 				mark.SetImage(0);
 				mark.Show(true);
 			}
@@ -1272,21 +1342,13 @@ class WRMMenu extends UIScriptedMenu
 
 	// ----- centre text -----
 
-	// status (a few seconds) > hovered cell > level title
+	// The centre shows one thing only: the name of the cell under the cursor. No breadcrumb, no status line.
 	protected void UpdateCenterText()
 	{
 		if (!m_CenterText)
 			return;
 
-		string text = WRMClient.GetStatus();
-		if (text == "" && m_HoverLabel != "")
-			text = m_HoverLabel;
-		if (text == "")
-		{
-			text = Widget.TranslateString("#STR_WRM_WEAPONS");
-			for (int i = 1; i < m_Stack.Count(); i++)
-				text = text + " > " + m_Stack.Get(i).m_Title;
-		}
+		string text = m_HoverLabel;
 		if (text != m_CenterShown)
 		{
 			m_CenterShown = text;

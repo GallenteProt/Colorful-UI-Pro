@@ -45,7 +45,7 @@ FrameWidgetClass TargetMark {
    vexactsize 1
    priority 2
    text ""
-   font "Colorful-UI/GUI/fonts/BarlowCondensed-SemiBold.fnt"
+   font "gui/fonts/sdf_MetronBook24"
    "text sharpness" 1.5
    "exact text" 1
    "exact text size" 15

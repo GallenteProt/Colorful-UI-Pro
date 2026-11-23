@@ -60,7 +60,7 @@ FrameWidgetClass ErrorDialogRoot {
      vexactsize 1
      style Bold
      text "WARNING"
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "gui/fonts/sdf_MetronLight24"
      "text color" 1 1 1 1
      "exact text" 0
      "exact text size" 26
@@ -90,7 +90,7 @@ FrameWidgetClass ErrorDialogRoot {
      hexactsize 0
      vexactsize 1
      text ""
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "gui/fonts/sdf_MetronLight24"
      "text color" 1 1 1 1
      "exact text" 1
      "exact text size" 18
@@ -114,7 +114,7 @@ FrameWidgetClass ErrorDialogRoot {
      "no focus" 0
      text "OK"
      text_proportion 0.5
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "gui/fonts/sdf_MetronLight24"
      "disabled text color" 0.3412 0.3412 0.3412 1
     }
    }

@@ -42,7 +42,7 @@ GridSpacerWidgetClass closable_header_root {
      vexactsize 0
      style Normal
      text "#container_hands"
-     font "Colorful-UI/GUI/fonts/GB-Regular"
+     font "gui/fonts/sdf_MetronLight24"
      "text offset" 25 0
      "text spacing" 50 0
      "bold text" 0
@@ -181,7 +181,7 @@ GridSpacerWidgetClass closable_header_root {
        vexactsize 1
        style DayZNormal
        text "#STR_widget_TextWidget00"
-       font "Colorful-UI/GUI/fonts/GB-Regular"
+       font "gui/fonts/sdf_MetronLight24"
        "exact text" 1
        "exact text size" 20
        "size to text h" 0

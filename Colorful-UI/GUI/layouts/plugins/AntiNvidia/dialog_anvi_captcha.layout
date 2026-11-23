@@ -61,7 +61,7 @@ FrameWidgetClass CaptchaRoot {
      vexactsize 1
      style Bold
      text "SECURITY CHECK"
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "gui/fonts/sdf_MetronLight24"
      "text color" 1 1 1 1
      "exact text" 0
      "exact text size" 28
@@ -108,7 +108,7 @@ FrameWidgetClass CaptchaRoot {
        vexactsize 1
        priority 10
        text "What number do you see in the box above?"
-       font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+       font "gui/fonts/sdf_MetronLight24"
        "exact text" 1
        "exact text size" 20
        "size to text h" 0
@@ -435,7 +435,7 @@ FrameWidgetClass CaptchaRoot {
        vexactsize 1
        priority 10
        text "attempts left: 3"
-       font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+       font "gui/fonts/sdf_MetronLight24"
        "exact text" 1
        "exact text size" 16
        "size to text h" 0
@@ -469,7 +469,7 @@ FrameWidgetClass CaptchaRoot {
          vexactsize 1
          priority 10
          text "ANSWER:"
-         font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+         font "gui/fonts/sdf_MetronLight24"
          "exact text" 1
          "exact text size" 16
          text_proportion 0.55
@@ -517,7 +517,7 @@ FrameWidgetClass CaptchaRoot {
        draggable 0
        style Normal
        text "Captcha is mandatory and leaving this menu will be reported!"
-       font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+       font "gui/fonts/sdf_MetronLight24"
        "italic text" 0
        "bold text" 0
        "exact text" 1
@@ -546,7 +546,7 @@ FrameWidgetClass CaptchaRoot {
      "no focus" 0
      text "QUIT"
      text_proportion 0.5
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "gui/fonts/sdf_MetronLight24"
      "disabled text color" 0.3412 0.3412 0.3412 1
     }
     ButtonWidgetClass ConfirmQuitButton {
@@ -566,7 +566,7 @@ FrameWidgetClass CaptchaRoot {
      "no focus" 0
      text "CONFIRM QUIT"
      text_proportion 0.5
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "gui/fonts/sdf_MetronLight24"
      "disabled text color" 0.3412 0.3412 0.3412 1
     }
     ButtonWidgetClass AnswerSubmitButton {
@@ -587,7 +587,7 @@ FrameWidgetClass CaptchaRoot {
      "no focus" 0
      text "SUBMIT"
      text_proportion 0.5
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "gui/fonts/sdf_MetronLight24"
      "disabled text color" 0.3412 0.3412 0.3412 1
     }
    }

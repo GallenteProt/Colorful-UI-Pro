@@ -32,7 +32,7 @@ ButtonWidgetClass SmRow {
    vexactsize 1
    color 0.8627 0.851 0.8118 1
    text ""
-   font "Colorful-UI/GUI/fonts/Barlow-Medium.fnt"
+   font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
    "text sharpness" 1.5
    "exact text" 1
    "exact text size" 15

@@ -10,7 +10,7 @@ TextWidgetClass ErrorTestHeaderText {
  vexactsize 1
  style Bold
  text ""
- font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+ font "gui/fonts/sdf_MetronLight24"
  "text color" 1 1 1 1
  "exact text" 1
  "exact text size" 18

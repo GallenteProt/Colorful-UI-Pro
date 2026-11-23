@@ -36,11 +36,14 @@ class CUIQuickSlotProfile
 
 	static void Load()
 	{
-		CUIQuickSlotProfileData data = new CUIQuickSlotProfileData();
+		// The base is the shipped default, not an empty profile: a fresh player must get a wheel with
+		// real cells, and an unreadable file must fall back to that same default in memory.
+		CUIQuickSlotProfileData data = BuildDefault();
 		bool loaded = false;
+		bool existed = FileExist(FILE);
 
 		MakeDirectory(DIR);
-		if (FileExist(FILE))
+		if (existed)
 		{
 			CUIQuickSlotProfileData read = new CUIQuickSlotProfileData();
 			string err;
@@ -68,9 +71,9 @@ class CUIQuickSlotProfile
 		s_Data = data;
 		Sanitize(s_Data);
 
-		// Write only when there was nothing to read. A file that failed to parse stays as it is,
-		// and a migrated file is written back in the new shape.
-		if (!loaded)
+		// Write when there was no file at all (first run), and when an old file was migrated. A file that
+		// exists but failed to parse stays exactly as it is: the defaults above are used in memory only.
+		if (!existed)
 		{
 			string saveErr;
 			if (!JsonFileLoader<CUIQuickSlotProfileData>.SaveFile(FILE, s_Data, saveErr))
@@ -111,16 +114,20 @@ class CUIQuickSlotProfile
 		data.schemaVersion = SCHEMA_VERSION;
 		data.wheelSize = 8;
 
-		// Bottom and top are the two weapon cells, always. The rest are the typical slots a player
-		// wants on day one; any of them can be replaced and the whole set restored.
+		// Bottom and top are the two weapon cells, always: key 1 is the first weapon, key 2 the second.
+		// The other six follow the requested layout, clockwise from the left:
+		//   3 left gas mask, 4 right PDA, 5 bottom-right medkit, 6 bottom-left knife,
+		//   7 top-left anomaly scanner, 8 top-right survey meter.
+		// The last three are MOONLIGHT ModPack items, so they use that pack's real class names; with the
+		// pack loaded they resolve and show their own model, without it they read as empty cells.
 		Add(data, CUIQuickSlotPosition.BOTTOM, "weapon", "", "");
 		Add(data, CUIQuickSlotPosition.TOP, "weapon", "", "");
-		Add(data, CUIQuickSlotPosition.LEFT, "equip", "Mask_Base", "Mask");
-		Add(data, CUIQuickSlotPosition.RIGHT, "category", "med", "");
-		Add(data, CUIQuickSlotPosition.LOW_RIGHT, "toggle", "Dosimeter", "");
-		Add(data, CUIQuickSlotPosition.LOW_LEFT, "hands", "PDA", "");
-		Add(data, CUIQuickSlotPosition.TOP_LEFT, "hands", "ArtifactAnalyzer", "");
-		Add(data, CUIQuickSlotPosition.TOP_RIGHT, "category", "mags", "");
+		Add(data, CUIQuickSlotPosition.LEFT, "equip", "GP5GasMask", "Mask");
+		Add(data, CUIQuickSlotPosition.RIGHT, "hands", "KPK_PDA_Item", "");
+		Add(data, CUIQuickSlotPosition.LOW_RIGHT, "category", "@med", "");
+		Add(data, CUIQuickSlotPosition.LOW_LEFT, "hands", "HuntingKnife", "");
+		Add(data, CUIQuickSlotPosition.TOP_LEFT, "hands", "C13_AnomalyScanner", "");
+		Add(data, CUIQuickSlotPosition.TOP_RIGHT, "hands", "BMM_Items_Hil_SurveyMeter", "");
 
 		return data;
 	}

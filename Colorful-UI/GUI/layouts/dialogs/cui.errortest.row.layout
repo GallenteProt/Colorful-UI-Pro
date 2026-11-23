@@ -10,7 +10,7 @@ ButtonWidgetClass ErrorTestRowBtn {
  style EmptyHighlight
  "no focus" 0
  text ""
- font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+ font "gui/fonts/sdf_MetronLight24"
  "exact text" 1
  "exact text size" 14
 }

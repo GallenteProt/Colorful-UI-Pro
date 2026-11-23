@@ -3,9 +3,17 @@ modded class MissionBase
 	override UIScriptedMenu CreateScriptedMenu(int id)
 	{
 		UIScriptedMenu menu = super.CreateScriptedMenu(id);
-		if (!menu && id == WRM_MENU_ID && WeaponRadialMenu)
+		if (menu)
+			return menu;
+
+		if (id == WRM_MENU_ID && WeaponRadialMenu)
 		{
 			menu = new WRMMenu();
+			menu.SetID(id);
+		}
+		else if (id == CUIQuickSlotWheel.MENU_ID && RadialQuickSlots)
+		{
+			menu = new CUIQuickSlotWheel();
 			menu.SetID(id);
 		}
 		return menu;
@@ -19,6 +27,7 @@ modded class MissionServer
 		super.OnMissionStart();
 		if (WeaponRadialMenu)
 			WRMServer.Init();
+		CUIQuickSlotServer.Init();
 	}
 
 	override void OnUpdate(float timeslice)
@@ -56,6 +65,8 @@ modded class MissionGameplay
 	{
 		super.OnMissionStart();
 		WRMClient.Reset();
+		CUIQuickSlotLocal.Reset();
+		CUIQuickSlotServer.Init();
 		if (WeaponRadialMenu && !g_Game.IsMultiplayer())
 			WRMServer.Init();		// offline: this process is the server too
 	}
@@ -63,6 +74,7 @@ modded class MissionGameplay
 	override void OnMissionFinish()
 	{
 		CloseWRMMenu();
+		CloseQuickSlotWheel();
 		WRMInputGuard.s_BlockToggle = false;
 		super.OnMissionFinish();
 	}
@@ -74,7 +86,12 @@ modded class MissionGameplay
 		super.OnUpdate(timeslice);
 		WRMInputGuard.s_BlockToggle = false;
 
-		if (!WeaponRadialMenu)
+		if (WeaponRadialMenu && !g_Game.IsMultiplayer())
+			WRMServer.Tick(timeslice);
+
+		HandleWheelRequests();
+
+		if (!WeaponRadialMenu && !RadialQuickSlots)
 			return;
 		if (!g_Game.IsMultiplayer())
 			WRMServer.Tick(timeslice);
@@ -98,7 +115,7 @@ modded class MissionGameplay
 	// our key is pressed, held or was released this frame AND the vanilla toggle sees the same key
 	protected bool IsWRMKeyActive()
 	{
-		if (!WeaponRadialMenu)
+		if (!WeaponRadialMenu && !RadialQuickSlots)
 			return false;
 		UAInput ours = GetUApi().GetInputByName(WRM_INPUT_OPEN);
 		if (!ours)
@@ -117,6 +134,36 @@ modded class MissionGameplay
 		UIManager uiManager = g_Game.GetUIManager();
 		if (uiManager && uiManager.IsMenuOpen(WRM_MENU_ID))
 			uiManager.CloseMenu(WRM_MENU_ID);
+	}
+
+	protected void CloseQuickSlotWheel()
+	{
+		UIManager uiManager = g_Game.GetUIManager();
+		if (uiManager && uiManager.IsMenuOpen(CUIQuickSlotWheel.MENU_ID))
+			uiManager.CloseMenu(CUIQuickSlotWheel.MENU_ID);
+	}
+
+	// The wheel cannot open the arsenal itself: a menu may not enter another menu while it is closing.
+	// It leaves a request instead and this runs on the next frame, once no menu is open any more.
+	protected void HandleWheelRequests()
+	{
+		if (!CUIQuickSlotLocal.s_ArsenalRequested && !CUIQuickSlotLocal.s_DeepRequested)
+			return;
+		if (!WeaponRadialMenu)
+		{
+			CUIQuickSlotLocal.s_ArsenalRequested = false;
+			CUIQuickSlotLocal.s_DeepRequested = false;
+			return;
+		}
+
+		UIManager uiManager = g_Game.GetUIManager();
+		if (!uiManager || uiManager.GetMenu())
+			return;		// the wheel is still closing, try again next frame
+
+		// RMB on a weapon cell of the quick slot wheel leaves s_DeepRequested set; WRMMenu.Init() sees
+		// it and opens the attachments level itself, so the menu is entered with no extra work here.
+		uiManager.EnterScriptedMenu(WRM_MENU_ID, null);
+		CUIQuickSlotLocal.s_ArsenalRequested = false;		// WRMMenu clears the deep flag itself
 	}
 
 	protected bool CanOpenWRMMenu(PlayerBase player)
@@ -146,9 +193,23 @@ modded class MissionGameplay
 			CloseWRMMenu();
 			return;
 		}
+		if (uiManager.IsMenuOpen(CUIQuickSlotWheel.MENU_ID))
+		{
+			CloseQuickSlotWheel();
+			return;
+		}
 
 		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
-		if (CanOpenWRMMenu(player))
+		if (!CanOpenWRMMenu(player))
+			return;
+
+		// One key, one wheel: the quick slots when the feature is on, the arsenal alone when it is off.
+#ifdef DIAG_DEVELOPER
+		Print("[CUI-QS] open key: RadialQuickSlots=" + RadialQuickSlots + " WeaponRadialMenu=" + WeaponRadialMenu);
+#endif
+		if (RadialQuickSlots)
+			uiManager.EnterScriptedMenu(CUIQuickSlotWheel.MENU_ID, null);
+		else
 			uiManager.EnterScriptedMenu(WRM_MENU_ID, null);
 	}
 }

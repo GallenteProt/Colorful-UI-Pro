@@ -1,0 +1,116 @@
+// One cell of the quick slot wheel.
+//
+// No plate under the cell: the item picture, its name and the key number float directly on the wheel,
+// so the ring and its sector dividers stay visible through the cell. The picture sits in the upper part
+// and the name under it, the same construction the weapon menu's card uses, minus the background panel.
+PanelWidgetClass QSCard {
+ ignorepointer 1
+ clipchildren 0
+ position 0 0
+ size 0.18 0.11
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ style blank
+ {
+  ItemPreviewWidgetClass Render {
+   visible 0
+   ignorepointer 1
+   position 0 0.36
+   size 1 0.62
+   halign center_ref
+   valign top_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   priority 200
+  }
+  ImageWidgetClass Icon {
+   visible 0
+   ignorepointer 1
+   position 0.04 0.36
+   size 0.92 0.62
+   halign center_ref
+   valign top_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   fixaspect inside
+   priority 210
+   mode blend
+   "src alpha" 1
+   "no wrap" 1
+   stretch 1
+   filter 1
+  }
+  TextWidgetClass Label {
+   visible 0
+   ignorepointer 1
+   position 0.02 0.02
+   size 0.96 0.32
+   halign center_ref
+   valign top_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   priority 260
+   font "gui/fonts/sdf_MetronBook72"
+   "text sharpness" 1.5
+   "exact text" 1
+   "exact text size" 12
+   "text halign" center
+   "text valign" center
+   wrap 1
+   text ""
+   color 0.8627 0.851 0.8118 1
+  }
+  TextWidgetClass Num {
+   visible 0
+   ignorepointer 1
+   position 0.02 0.02
+   size 0.30 0.34
+   halign left_ref
+   valign top_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   priority 270
+   font "gui/fonts/sdf_MetronBook72"
+   "text sharpness" 1.5
+   "exact text" 1
+   "exact text size" 15
+   "text halign" left
+   "text valign" top
+   text "0"
+   color 0.8627 0.851 0.8118 1
+  }
+  TextWidgetClass Count {
+   visible 0
+   ignorepointer 1
+   position 0.02 0.02
+   size 0.30 0.34
+   halign right_ref
+   valign top_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   priority 270
+   font "gui/fonts/sdf_MetronBook72"
+   "text sharpness" 1.5
+   "exact text" 1
+   "exact text size" 13
+   "text halign" right
+   "text valign" top
+   text ""
+   color 0.8627 0.851 0.8118 0.85
+  }
+ }
+}

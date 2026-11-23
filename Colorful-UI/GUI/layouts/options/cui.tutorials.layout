@@ -4702,7 +4702,7 @@ FrameWidgetClass rootFrame {
              vexactsize 0
              priority 250
              text "#tutorial_title_healthSystem"
-             font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+             font "gui/fonts/sdf_MetronLight24"
              "italic text" 0
              "bold text" 0
              "exact text" 0
@@ -4762,7 +4762,7 @@ FrameWidgetClass rootFrame {
              vexactsize 0
              priority 250
              text "#tutorial_title_melee"
-             font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+             font "gui/fonts/sdf_MetronLight24"
              "italic text" 0
              "bold text" 0
              "exact text" 0
@@ -4822,7 +4822,7 @@ FrameWidgetClass rootFrame {
              vexactsize 0
              priority 250
              text "#tutorial_title_guns"
-             font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+             font "gui/fonts/sdf_MetronLight24"
              "italic text" 0
              "bold text" 0
              "exact text" 0
@@ -4882,7 +4882,7 @@ FrameWidgetClass rootFrame {
              vexactsize 0
              priority 250
              text "#tutorial_title_infected"
-             font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+             font "gui/fonts/sdf_MetronLight24"
              "italic text" 0
              "bold text" 0
              "exact text" 0
@@ -4942,7 +4942,7 @@ FrameWidgetClass rootFrame {
              vexactsize 0
              priority 250
              text "#tutorial_inventory7"
-             font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+             font "gui/fonts/sdf_MetronLight24"
              "italic text" 0
              "bold text" 0
              "exact text" 0
@@ -5002,7 +5002,7 @@ FrameWidgetClass rootFrame {
              vexactsize 0
              priority 250
              text "#tutorial_title_loot"
-             font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+             font "gui/fonts/sdf_MetronLight24"
              "italic text" 0
              "bold text" 0
              "exact text" 0
@@ -5142,7 +5142,7 @@ FrameWidgetClass rootFrame {
        vexactsize 0
        scaled 1
        text "#layout_pc_keybinding_play_pannel_back"
-       font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+       font "gui/fonts/sdf_MetronLight24"
        "text sharpness" 1.5
        "exact text" 1
        "exact text size" 45
@@ -5176,7 +5176,7 @@ FrameWidgetClass rootFrame {
      priority 1
      style Normal
      text "#STR_rootFrame_TutorialsTextWidget0"
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "gui/fonts/sdf_MetronLight24"
      "text color" 0.8157 0.1255 0.7843 1
      "exact text" 0
      "text halign" right

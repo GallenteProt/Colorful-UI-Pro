@@ -51,7 +51,7 @@ FrameWidgetClass ErrorTestRoot {
      vexactsize 1
      style Bold
      text "Error / Dialog Test Harness"
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "gui/fonts/sdf_MetronLight24"
      "text color" 1 1 1 1
      "exact text" 1
      "exact text size" 28
@@ -69,7 +69,7 @@ FrameWidgetClass ErrorTestRoot {
      hexactsize 0
      vexactsize 1
      text "Every button below calls ErrorModuleHandler.ThrowError() for real - the resulting dialog is the genuine vanilla/CUI article."
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "gui/fonts/sdf_MetronLight24"
      "text color" 0.75 0.75 0.75 1
      "exact text" 1
      "exact text size" 16
@@ -129,7 +129,7 @@ FrameWidgetClass ErrorTestRoot {
      "no focus" 0
      text "Back to Main Menu"
      text_proportion 0.5
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "gui/fonts/sdf_MetronLight24"
     }
    }
   }
