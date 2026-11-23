@@ -49,7 +49,7 @@ class CuiDialog
         if (!m_Root) return;
 
         m_DialogBox = m_Root.FindAnyWidget("DialogBox");
-        if (m_DialogBox) m_DialogBox.SetColor(ARGB(220, 62, 62, 62));
+        if (m_DialogBox) m_DialogBox.SetColor(colorScheme.DialogBG());
         m_Separator = m_Root.FindAnyWidget("SeparatorPanel");
         if (m_Separator) m_Separator.SetColor(colorScheme.Separator());
         m_Caption   = TextWidget.Cast(m_Root.FindAnyWidget("Caption"));

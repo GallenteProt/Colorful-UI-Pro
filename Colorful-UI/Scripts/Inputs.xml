@@ -4,6 +4,8 @@
         <actions>
             <!-- Weapon radial menu (Scripts/5_Mission/WeaponRadialMenu), turned off by WeaponRadialMenu in Settings.c -->
             <input name="UAWRMOpenMenu" loc="STR_WRM_INPUT_OPEN" />
+            <!-- Main menu hotkey: join the local Diag server, gated by DiagHotkey in Settings.c -->
+            <input name="UAColorfulUIDiagConnect" loc="STR_CUI_DIAG_CONNECT" />
         </actions>
         <sorting name="weaponradialmenu" loc="STR_WRM_INPUT_GROUP">
             <input name="UAWRMOpenMenu" />
@@ -13,6 +15,9 @@
     <preset>
         <input name="UAWRMOpenMenu">
             <btn name="kGrave" />
+        </input>
+        <input name="UAColorfulUIDiagConnect">
+            <btn name="kF5" />
         </input>
     </preset>
 </modded_inputs>

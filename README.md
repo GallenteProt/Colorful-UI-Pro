@@ -67,6 +67,7 @@ Open `Colorful-UI\Scripts\3_Game\Config\Settings.c` and edit:
 
 Other edit points:
 
+- `Colorful-UI\Scripts\3_Game\Config\Scheme.c` — `class colorScheme`, every UI colour in one place. Shipped values are taken from the MOONLIGHT wallpapers, so the UI matches the art behind it.
 - `Colorful-UI\Scripts\Data\hints.json` — loading-screen hints
 - `Colorful-UI\GUI\sounds\MainMenu\` — drop your `.ogg` files here, update `CfgSoundShaders` in `Colorful-UI\Scripts\config.cpp`
 - `Colorful-UI\GUI\textures\Shared\` — your logo `.edds`
@@ -85,6 +86,8 @@ Open the **`tools/`** folder and double-click:
 | **`Stop Server.bat`** | Shuts the local server + game down. |
 
 First launch finds DayZ / DayZ Server / DayZ Tools on any drive, mounts `P:\`, links `P:\Colorful-UI`, and copies the Chernarus mission into `.server\`. Extra Workshop mods to load alongside go in `tools\mods.txt`, one per line.
+
+While the server runs, press **F5** in the main menu to join it as a Diag client, so menu and UI work can be debugged without leaving the game. The hotkey is `UAColorfulUIDiagConnect` in `Colorful-UI\Scripts\Inputs.xml`; the address is `DIAG_SERVER_IP` / `DIAG_SERVER_PORT` in `Settings.c` (defaults `127.0.0.1:2702`, the port `Run Server.bat` uses), and `DiagHotkey = false` removes it.
 
 The build output is a single `P:\Mods\@Colorful-UI\Addons\Colorful-UI.pbo`. **Note:** script edits are NOT picked up live via `-filePatching` here — rebuild (`Build and Run Server.bat`) after changing `.c` or `.layout` files.
 
