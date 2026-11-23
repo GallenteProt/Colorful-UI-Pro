@@ -1,0 +1,24 @@
+{
+	"version": 1,
+	"cooldownMs": 1500,
+	"maxIssuedPerPlayer": 30,
+	"categories": [
+		{ "id": "assault", "name": "", "order": 10, "hidden": false },
+		{ "id": "sniper", "name": "Marksman rifles", "order": 20, "hidden": false },
+		{ "id": "smg", "name": "", "order": 30, "hidden": false },
+		{ "id": "shotgun", "name": "", "order": 40, "hidden": false },
+		{ "id": "rifle", "name": "", "order": 50, "hidden": false },
+		{ "id": "pistol", "name": "", "order": 60, "hidden": false },
+		{ "id": "launcher", "name": "", "order": 70, "hidden": true },
+		{ "id": "other", "name": "", "order": 80, "hidden": false },
+		{ "id": "heavy", "name": "Heavy weapons", "order": 25, "hidden": false }
+	],
+	"categoryOverrides": [
+		"M249=heavy",
+		"SomeModRifle_Black=sniper"
+	],
+	"weaponInclude": [ "MyModWeaponNotDetected" ],
+	"weaponExclude": [ "SawedoffMosin9130", "Mod_Debug*" ],
+	"attachmentInclude": [],
+	"attachmentExclude": [ "PistolSuppressor_Debug", "Mag_Debug*" ]
+}
