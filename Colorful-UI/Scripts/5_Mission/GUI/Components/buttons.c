@@ -294,6 +294,36 @@ class cuiElmnt
         s_Handlers.Insert(h);
     }
 
+    // Solid-background direct-connect button (main menu "ВОЙТИ").
+    static void proSolidBtnDC(Class owner, ButtonWidget button, string text, int bgColor, int hoverBgColor, string serverIP, int serverPort)
+    {
+        if (!button) return;
+
+        button.SetText(text);
+        TextWidget label; ImageWidget icon; GetParts(button, label, icon);
+        if (label) { label.SetText(text); button.SetText(""); }
+
+        CUIButtonHandler h = new CUIButtonHandler(button, label, icon, bgColor, hoverBgColor, "", null, "", serverIP, serverPort);
+        h.SetSolidBg(true);
+        h.m_Owner = owner;
+        s_Handlers.Insert(h);
+    }
+
+    // Solid-background callback button.
+    static void proSolidBtnCB(Class owner, ButtonWidget button, string text, int bgColor, int hoverBgColor, Class targetClass, string callbackMethod)
+    {
+        if (!button) return;
+
+        button.SetText(text);
+        TextWidget label; ImageWidget icon; GetParts(button, label, icon);
+        if (label) { label.SetText(text); button.SetText(""); }
+
+        CUIButtonHandler h = new CUIButtonHandler(button, label, icon, bgColor, hoverBgColor, "", targetClass, callbackMethod, "", 0);
+        h.SetSolidBg(true);
+        h.m_Owner = owner;
+        s_Handlers.Insert(h);
+    }
+
     static void proBtnURL(Class owner, ButtonWidget button, string text, int textColor, int hoverColor, string clickAction)
     {
         if (!button) return;

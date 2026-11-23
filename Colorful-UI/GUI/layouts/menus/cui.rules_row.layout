@@ -1,0 +1,85 @@
+PanelWidgetClass RulesRowRoot {
+ clipchildren 1
+ ignorepointer 1
+ color 0 0 0 0
+ position 0 0
+ size 1 38
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 1
+ style DayZDefaultPanel
+ {
+  PanelWidgetClass RulesRowSurface {
+   visible 0
+   ignorepointer 1
+   color 0.027 0.063 0.094 0.55
+   position 0 0
+   size 0.985 1
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   style DayZDefaultPanel
+  }
+  PanelWidgetClass RulesRowAccent {
+   visible 0
+   ignorepointer 1
+   color 0.322 0.612 0.824 1
+   position 0 0
+   size 3 1
+   hexactpos 1
+   vexactpos 0
+   hexactsize 1
+   vexactsize 0
+   style DayZDefaultPanel
+  }
+  PanelWidgetClass RulesRowDivider {
+   visible 0
+   ignorepointer 1
+   color 0.925 0.95 0.965 0.075
+   position 18 0
+   size 0.94 1
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   style DayZDefaultPanel
+  }
+  PanelWidgetClass RulesRowBulletDot {
+   visible 0
+   ignorepointer 1
+   color 0.322 0.612 0.824 1
+   position 17 0
+   size 5 5
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style blank
+  }
+  RichTextWidgetClass RulesRowText {
+   clipchildren 1
+   ignorepointer 1
+   color 0.925 0.95 0.965 0.92
+   position 18 7
+   size 0.94 28
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   text ""
+   font "Colorful-UI/GUI/fonts/HudStalker/Arimo-Stalker.fnt"
+   "text spacing" 0 3
+   "text sharpness" 1.05
+   "exact text" 1
+   "exact text size" 17
+   "size to text h" 0
+   "size to text v" 1
+   "text halign" left
+   "text valign" top
+   wrap 1
+  }
+ }
+}

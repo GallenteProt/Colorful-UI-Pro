@@ -42,11 +42,14 @@ class colorScheme
 	static int LoadingMsg()          { return TertiaryColor(); }        	// Color for loading messages
 	static int TipHeader()           { return BrandColor(); }           	// Header color for tips
 	static int TipLine()             { return BrandColor(); }           	// Divider line color in tips
+	static int LoadingDim()          { return ARGB(115, 0, 0, 0); }      	// Dark overlay over loading screen wallpapers
 
 	// Main Menu
 	static int NavIcon()             { return BrandColor(); }           	// Navigation icon color
 	static int SurvivorBox()         { return UIColor.cuiDarkBlue(); }		// Background color for "Survivor" box
 	static int StatsBox()            { return UIColor.cuiDarkBlue(); }  	// Background color for "Stats" box
+	static int MenuTint()            { return ARGB(165, 2, 5, 7); }      	// Tint over the main menu wallpaper (ZoneTint)
+	static int BackgroundTone()      { return ARGB(255, 132, 154, 170); } 	// Color multiplier for the main menu wallpaper
 
 	// Options Page 
 	static int OptionHeaders()       { return BrandColor(); }           	// Header color in options

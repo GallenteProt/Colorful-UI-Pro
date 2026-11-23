@@ -1,97 +1,142 @@
-// MainMenu, stats and credits — CUI main menu.
+// MainMenu, stats and credits — CUI main menu (MOONLIGHT design).
 // Vanilla source: P:\scripts\5_mission\gui\newui\mainmenu\mainmenu.c
+
+// Click on the SteamID line in the bottom corner copies it to the clipboard.
+class MoonlightSteamIdCopyHandler : ScriptedWidgetEventHandler
+{
+	protected ButtonWidget m_ClickTarget;
+	protected TextWidget m_LabelText;
+	protected TextWidget m_ValueText;
+	protected string m_SteamId;
+
+	void Bind(ButtonWidget clickTarget, TextWidget labelText, TextWidget valueText)
+	{
+		m_ClickTarget = clickTarget;
+		m_LabelText = labelText;
+		m_ValueText = valueText;
+
+		if (m_ClickTarget)
+		{
+			m_ClickTarget.ClearFlags(WidgetFlags.IGNOREPOINTER);
+			m_ClickTarget.SetHandler(this);
+		}
+	}
+
+	void SetSteamId(string steamId)
+	{
+		m_SteamId = steamId;
+	}
+
+	void Dispose()
+	{
+		if (m_ClickTarget) m_ClickTarget.SetHandler(null);
+		m_ClickTarget = null;
+		m_LabelText = null;
+		m_ValueText = null;
+	}
+
+	override bool OnMouseEnter(Widget w, int x, int y)
+	{
+		if (w != m_ClickTarget) return false;
+		if (m_LabelText) m_LabelText.SetColor(UIColor.ZoneLoadingBlue());
+		if (m_ValueText) m_ValueText.SetColor(UIColor.ZoneLoadingBlue());
+		return true;
+	}
+
+	override bool OnMouseLeave(Widget w, Widget enterW, int x, int y)
+	{
+		if (w != m_ClickTarget) return false;
+		if (m_LabelText) m_LabelText.SetColor(colorScheme.PrimaryText());
+		if (m_ValueText) m_ValueText.SetColor(colorScheme.SecondaryText());
+		return true;
+	}
+
+	override bool OnClick(Widget w, int x, int y, int button)
+	{
+		if (w != m_ClickTarget) return false;
+		if (m_SteamId != "") g_Game.CopyToClipboard(m_SteamId);
+		return true;
+	}
+}
+
+// Click on the music credit opens the composer's page (CustomURL.MusicAuthor).
+class MoonlightMusicCreditHandler : ScriptedWidgetEventHandler
+{
+	protected ButtonWidget m_ClickTarget;
+	protected TextWidget m_ArtistText;
+	protected TextWidget m_TrackText;
+
+	void Bind(ButtonWidget clickTarget, TextWidget artistText, TextWidget trackText)
+	{
+		m_ClickTarget = clickTarget;
+		m_ArtistText = artistText;
+		m_TrackText = trackText;
+
+		if (m_ClickTarget)
+		{
+			m_ClickTarget.ClearFlags(WidgetFlags.IGNOREPOINTER);
+			m_ClickTarget.SetHandler(this);
+		}
+	}
+
+	void Dispose()
+	{
+		if (m_ClickTarget) m_ClickTarget.SetHandler(null);
+		m_ClickTarget = null;
+		m_ArtistText = null;
+		m_TrackText = null;
+	}
+
+	override bool OnMouseEnter(Widget w, int x, int y)
+	{
+		if (w != m_ClickTarget) return false;
+		if (m_ArtistText) m_ArtistText.SetColor(UIColor.ZoneLoadingBlue());
+		if (m_TrackText) m_TrackText.SetColor(UIColor.ZoneLoadingBlue());
+		return true;
+	}
+
+	override bool OnMouseLeave(Widget w, Widget enterW, int x, int y)
+	{
+		if (w != m_ClickTarget) return false;
+		if (m_ArtistText) m_ArtistText.SetColor(colorScheme.PrimaryText());
+		if (m_TrackText) m_TrackText.SetColor(colorScheme.SecondaryText());
+		return true;
+	}
+
+	override bool OnClick(Widget w, int x, int y, int button)
+	{
+		if (w != m_ClickTarget) return false;
+		string url = CustomURL.MusicAuthor;
+		if (url != "" && url != "#") GetGame().OpenURL(url);
+		return true;
+	}
+}
 
 modded class MainMenu extends UIScriptedMenu
 {
 	protected ref MainMenuStats m_Stats;
+	protected ref MoonlightSteamIdCopyHandler m_SteamIdCopyHandler;
+	protected ref MoonlightMusicCreditHandler m_MusicCreditHandler;
+	protected TextWidget m_MusicArtistText, m_MusicTrackText;
+	protected string m_CurrentMusicTrackTitle;
+	protected ref CUIRulesOverlay m_RulesOverlay;
 	protected TextWidget m_PlayerName;
 	protected TextWidget m_WelcomeBack;
 	protected TextWidget m_StatsHeader;
+	protected TextWidget m_ZoneTitle, m_ZoneSubtitle;
+	protected TextWidget m_DateTimeText, m_SteamIdLabel, m_SteamIdText;
+	protected ButtonWidget m_SteamCredit, m_MusicCredit;
 	protected ButtonWidget m_PrevCharacter, m_NextCharacter;
 	protected ImageWidget m_TopShader, m_BottomShader, m_MenuDivider, m_StatisticsBoxBG, m_SurvivorBox, m_Logo, m_Background;
+	protected Widget m_ZoneTint;
 	protected Widget m_MenuDivider0;
-	protected ButtonWidget m_Play, m_Exit, m_SettingsBtn, m_TutorialBtn, m_MessageBtn, m_PrioQ, m_Website, m_Discord, m_Twitter, m_Youtube, m_Reddit, m_Facebook, m_CharacterBtn;
+	protected ButtonWidget m_Play, m_Exit, m_QuitBtn, m_SettingsBtn, m_MessageBtn, m_PrioQ, m_Website, m_Discord, m_CharacterBtn;
 	protected ButtonWidget m_TestBtn0, m_TestBtn1, m_TestBtn2, m_TestBtn3, m_TestBtn4, m_TestBtn5;
 	protected Widget m_TopSpacer, m_BottomSpacer;
 	protected ProgressBarWidget m_LoadingBar;
+	protected bool m_FirstShowDone;
 
 	protected ref CUI_ErrorTestScreen m_ErrorTestScreen;
-
-	static const float ICON_TEXT_GAP = 8;
-
-	protected int m_FitRetries;
-
-	protected void SetNavLabel(ButtonWidget btn, string key)
-	{
-		if (!btn) return;
-
-		TextWidget label = TextWidget.Cast(btn.FindAnyWidget(btn.GetName() + "_label"));
-		if (label) label.SetText(key);
-	}
-
-	protected void RefreshNavLabels()
-	{
-		SetNavLabel(ButtonWidget.Cast(m_MessageBtn),  "#menu_credits");
-		SetNavLabel(ButtonWidget.Cast(m_TutorialBtn), "#menu_tutorials");
-		SetNavLabel(ButtonWidget.Cast(m_SettingsBtn), "#layout_xbox_ingame_menu_options");
-		SetNavLabel(ButtonWidget.Cast(m_Exit),        "#main_menu_exit");
-	}
-
-	protected bool FitIconButton(ButtonWidget btn)
-	{
-		if (!btn) return true;
-
-		TextWidget label = TextWidget.Cast(btn.FindAnyWidget(btn.GetName() + "_label"));
-		if (!label) return true;
-
-		label.Update();
-
-		int textW, textH;
-		label.GetTextSize(textW, textH);
-		if (textW <= 0) return false;
-
-		ImageWidget icon = ImageWidget.Cast(btn.FindAnyWidget(btn.GetName() + "_img"));
-		if (!icon) icon = ImageWidget.Cast(btn.FindAnyWidget(btn.GetName() + "_image"));
-
-		float iconW, iconH;
-		if (icon) icon.GetSize(iconW, iconH);
-
-		float btnW, btnH;
-		btn.GetSize(btnW, btnH);
-		btn.SetSize(textW + ICON_TEXT_GAP + iconW, btnH);
-
-		Widget container = btn.GetParent();
-		if (container) container.Update();
-
-		return true;
-	}
-
-	protected void FitTopNav()
-	{
-		if (!layoutRoot) return;
-
-		bool ok = true;
-		ok = FitIconButton(ButtonWidget.Cast(m_MessageBtn))  && ok;
-		ok = FitIconButton(ButtonWidget.Cast(m_TutorialBtn)) && ok;
-		ok = FitIconButton(ButtonWidget.Cast(m_SettingsBtn)) && ok;
-		ok = FitIconButton(ButtonWidget.Cast(m_Exit))        && ok;
-
-		Widget topNav = layoutRoot.FindAnyWidget("TopNavigation");
-		if (topNav) topNav.Update();
-
-		if (!ok && m_FitRetries < 20)
-		{
-			m_FitRetries++;
-			GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(this.FitTopNav, 50, false);
-		}
-	}
-
-	protected void ScheduleTopNavFit()
-	{
-		m_FitRetries = 0;
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(this.FitTopNav);
-		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(this.FitTopNav, 0, false);
-	}
 
 	override Widget Init()
 	{
@@ -103,6 +148,7 @@ modded class MainMenu extends UIScriptedMenu
 		}
 
 		layoutRoot = GetGame().GetWorkspace().CreateWidgets("Colorful-UI/GUI/layouts/menus/cui.mainMenu.layout");
+		m_RulesOverlay = new CUIRulesOverlay(layoutRoot);
 
 		// Vanilla Init sets these; OpenCredits() and Play() -> ConnectLastSession() dereference them.
 		m_Mission = MissionMainMenu.Cast(GetGame().GetMission());
@@ -110,25 +156,19 @@ modded class MainMenu extends UIScriptedMenu
 
 		m_Play              = ButtonWidget.Cast(layoutRoot.FindAnyWidget("PlayBtn"));
 		m_Exit              = ButtonWidget.Cast(layoutRoot.FindAnyWidget("ExitBtn"));
+		m_QuitBtn           = ButtonWidget.Cast(layoutRoot.FindAnyWidget("QuitBtn"));
 		m_SettingsBtn       = ButtonWidget.Cast(layoutRoot.FindAnyWidget("SettingsBtn"));
-		m_TutorialBtn       = ButtonWidget.Cast(layoutRoot.FindAnyWidget("TutorialBtn"));
 		m_MessageBtn        = ButtonWidget.Cast(layoutRoot.FindAnyWidget("MessageBtn"));
 		m_CharacterBtn      = ButtonWidget.Cast(layoutRoot.FindAnyWidget("CharacterBtn"));
 
+		// Right-hand icon column: Rules (WebsiteBtn), Shop/site (QueueBtn), Discord.
 		m_PrioQ             = ButtonWidget.Cast(layoutRoot.FindAnyWidget("QueueBtn"));
 		m_Website           = ButtonWidget.Cast(layoutRoot.FindAnyWidget("WebsiteBtn"));
 		m_Discord           = ButtonWidget.Cast(layoutRoot.FindAnyWidget("DiscordBtn"));
-		m_Twitter           = ButtonWidget.Cast(layoutRoot.FindAnyWidget("TwitterBtn"));
-		m_Youtube           = ButtonWidget.Cast(layoutRoot.FindAnyWidget("YoutubeBtn"));
-		m_Reddit            = ButtonWidget.Cast(layoutRoot.FindAnyWidget("RedditBtn"));
-		m_Facebook          = ButtonWidget.Cast(layoutRoot.FindAnyWidget("FacebookBtn"));
 
 		m_Background        = ImageWidget.Cast(layoutRoot.FindAnyWidget("ImageBackground"));
-		if (m_Background)
-		{
-			if (EnableMenuVideo) m_Background.Show(false);
-			else                 m_Background.LoadImageFile(0, GetMainMenuBackground());
-		}
+		m_ZoneTint          = layoutRoot.FindAnyWidget("ZoneTint");
+		ApplyRandomMainMenuBackground();
 
 		m_TopShader         = ImageWidget.Cast(layoutRoot.FindAnyWidget("TopShader"));
 		m_BottomShader      = ImageWidget.Cast(layoutRoot.FindAnyWidget("BottomShader"));
@@ -141,9 +181,44 @@ modded class MainMenu extends UIScriptedMenu
 
 		m_LoadingBar        = ProgressBarWidget.Cast(layoutRoot.FindAnyWidget("LoadingBar"));
 		m_Logo              = ImageWidget.Cast(layoutRoot.FindAnyWidget("Logo"));
+		m_ZoneTitle         = TextWidget.Cast(layoutRoot.FindAnyWidget("ZoneTitle"));
+		m_ZoneSubtitle      = TextWidget.Cast(layoutRoot.FindAnyWidget("ZoneSubtitle"));
+		// Vanilla MainMenu.Refresh() calls m_Version.SetText(); keep the widget bound.
+		m_Version           = TextWidget.Cast(layoutRoot.FindAnyWidget("version"));
 		m_PlayerName        = TextWidget.Cast(layoutRoot.FindAnyWidget("character_name_text"));
 		m_WelcomeBack       = TextWidget.Cast(layoutRoot.FindAnyWidget("WelcomeBack"));
+		m_DateTimeText      = TextWidget.Cast(layoutRoot.FindAnyWidget("DateTimeText"));
+		m_SteamIdLabel      = TextWidget.Cast(layoutRoot.FindAnyWidget("SteamIDLabelText"));
+		m_SteamIdText       = TextWidget.Cast(layoutRoot.FindAnyWidget("SteamIDText"));
+		m_SteamCredit       = ButtonWidget.Cast(layoutRoot.FindAnyWidget("SteamCredit"));
+		m_MusicCredit       = ButtonWidget.Cast(layoutRoot.FindAnyWidget("MusicCredit"));
+		m_MusicArtistText   = TextWidget.Cast(layoutRoot.FindAnyWidget("MusicArtistText"));
+		m_MusicTrackText    = TextWidget.Cast(layoutRoot.FindAnyWidget("MusicTrackText"));
+
+		if (m_ZoneTitle) m_ZoneTitle.SetColor(colorScheme.PrimaryText());
+		if (m_ZoneSubtitle) m_ZoneSubtitle.SetColor(colorScheme.SecondaryText());
 		if (m_WelcomeBack) m_WelcomeBack.SetColor(colorScheme.BrandColor());
+		if (m_DateTimeText) m_DateTimeText.SetColor(colorScheme.PrimaryText());
+		if (m_SteamIdLabel) m_SteamIdLabel.SetColor(colorScheme.PrimaryText());
+		if (m_SteamIdText) m_SteamIdText.SetColor(colorScheme.SecondaryText());
+
+		if (m_MusicArtistText) m_MusicArtistText.SetColor(colorScheme.PrimaryText());
+		if (m_MusicTrackText) m_MusicTrackText.SetColor(colorScheme.SecondaryText());
+
+		// Track credit only makes sense with the Colorful UI playlist.
+		if (m_MusicCredit) m_MusicCredit.Show(MenuMusic);
+		if (MenuMusic && m_MusicCredit && m_MusicArtistText && m_MusicTrackText)
+		{
+			m_MusicCreditHandler = new MoonlightMusicCreditHandler();
+			m_MusicCreditHandler.Bind(m_MusicCredit, m_MusicArtistText, m_MusicTrackText);
+		}
+
+		if (m_SteamCredit && m_SteamIdLabel && m_SteamIdText)
+		{
+			m_SteamIdCopyHandler = new MoonlightSteamIdCopyHandler();
+			m_SteamIdCopyHandler.Bind(m_SteamCredit, m_SteamIdLabel, m_SteamIdText);
+		}
+
 		m_PrevCharacter     = ButtonWidget.Cast(layoutRoot.FindAnyWidget("prev_character"));
 		m_NextCharacter     = ButtonWidget.Cast(layoutRoot.FindAnyWidget("next_character"));
 
@@ -158,8 +233,9 @@ modded class MainMenu extends UIScriptedMenu
 		if (stats_root)
 			m_Stats = new MainMenuStats(stats_root);
 
-		if (m_StatisticsBoxBG) m_StatisticsBoxBG.SetColor(UIColor.cuiDarkBlue());
-		if (m_SurvivorBox) m_SurvivorBox.SetColor(UIColor.cuiDarkBlue());
+		if (m_StatisticsBoxBG) m_StatisticsBoxBG.SetColor(colorScheme.StatsBox());
+		if (m_SurvivorBox) m_SurvivorBox.SetColor(colorScheme.SurvivorBox());
+		if (m_ZoneTint) m_ZoneTint.SetColor(colorScheme.MenuTint());
 		if (m_TopShader) m_TopShader.SetColor(colorScheme.TopShader());
 		if (m_BottomShader) m_BottomShader.SetColor(colorScheme.BottomShader());
 		if (m_MenuDivider) m_MenuDivider.SetColor(colorScheme.Separator());
@@ -172,43 +248,23 @@ modded class MainMenu extends UIScriptedMenu
 		// Direct-connect only when a real server is configured; the 127.0.0.1 default falls
 		// back to vanilla Play() (last played server, else the server browser).
 		if (SERVER_IP != "" && SERVER_IP != "127.0.0.1" && SERVER_PORT > 0)
-			cuiElmnt.proBtnDC(this, ButtonWidget.Cast(m_Play), "#main_menu_play", colorScheme.PrimaryText(), colorScheme.ButtonHover(), SERVER_IP, SERVER_PORT);
+			cuiElmnt.proSolidBtnDC(this, ButtonWidget.Cast(m_Play), "ВОЙТИ", UIColor.Transparent(), colorScheme.BrandColor(), SERVER_IP, SERVER_PORT);
 		else
-			cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Play), "#main_menu_play", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Play");
+			cuiElmnt.proSolidBtnCB(this, ButtonWidget.Cast(m_Play), "ВОЙТИ", UIColor.Transparent(), colorScheme.BrandColor(), this, "Play");
 
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Exit), "#main_menu_exit", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "OpenExitDialog");
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_SettingsBtn), "#layout_xbox_ingame_menu_options", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "OpenSettings");
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_TutorialBtn), "#menu_tutorials", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "OpenTutorials");
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_MessageBtn), "#menu_credits", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "OpenCredits");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_SettingsBtn), "", colorScheme.PrimaryText(), colorScheme.BrandColor(), this, "OpenSettings");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Website), "", colorScheme.PrimaryText(), colorScheme.BrandColor(), this, "OpenRules");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_PrioQ), "", colorScheme.PrimaryText(), colorScheme.BrandColor(), this, "OpenWebsite");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Discord), "", colorScheme.PrimaryText(), colorScheme.BrandColor(), this, "OpenDiscord");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_QuitBtn), "", UIColor.ZoneDanger(), UIColor.ZoneDanger(), this, "OpenExitDialog");
+
 		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_CharacterBtn), "", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "OpenMenuCustomizeCharacter");
-
+		
 		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_PrevCharacter), "", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "PreviousCharacter");
 		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_NextCharacter), "", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "NextCharacter");
 
-		cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_PrioQ), CuiLoc.Get("CUI_priority_queue"), colorScheme.PrimaryText(), colorScheme.ButtonHover(), CustomURL.PriorityQ);
-		cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_Website), "#mod_detail_info_website", colorScheme.PrimaryText(), colorScheme.ButtonHover(), CustomURL.Website);
-
-		cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_Discord), "Discord", colorScheme.PrimaryText(), UIColor.Discord(), SocialURL.Discord);
-		cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_Twitter), "Twitter", colorScheme.PrimaryText(), UIColor.Twitter(), SocialURL.Twitter);
-		cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_Youtube), "Youtube", colorScheme.PrimaryText(), UIColor.YouTube(), SocialURL.Youtube);
-		cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_Reddit), "Reddit", colorScheme.PrimaryText(), UIColor.Reddit(), SocialURL.Reddit);
-		cuiElmnt.proBtnURL(this, ButtonWidget.Cast(m_Facebook), "Facebook", colorScheme.PrimaryText(), UIColor.Facebook(), SocialURL.Facebook);
-
-		allInvalid = true;
-		CheckURL(m_PrioQ, CustomURL.PriorityQ);
-		CheckURL(m_Website, CustomURL.Website);
-		CheckSocials(m_Discord, SocialURL.Discord);
-		CheckSocials(m_Twitter, SocialURL.Twitter);
-		CheckSocials(m_Youtube, SocialURL.Youtube);
-		CheckSocials(m_Reddit, SocialURL.Reddit);
-		CheckSocials(m_Facebook, SocialURL.Facebook);
-		
-		if (allInvalid && m_MenuDivider)
-		{
-			if (m_TopSpacer) m_TopSpacer.Show(false);
-			m_MenuDivider.Show(false);
-			if (m_BottomSpacer) m_BottomSpacer.Show(false);
-		}
+		UpdateCornerText();
+		UpdateMusicCredit();
 		
 		Branding.ApplyLogo(m_Logo);	
 
@@ -224,14 +280,11 @@ modded class MainMenu extends UIScriptedMenu
 		RefreshCuiText();
 
 		GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(this.CheckPendingCuiError, 0, false);
-		ScheduleTopNavFit();
 
 		return layoutRoot;
 	}
 
-	// Re-applies every CUI_-keyed label from CuiLoc instead of relying on the layout's static
-	// "#CUI_..." text or the engine's "#KEY" re-resolve pass, since neither survives a live
-	// in-game language change (see CuiLoc.c for why). Safe to call repeatedly.
+	// Re-applies every CUI_-keyed label from CuiLoc (see CuiLoc.c). Safe to call repeatedly.
 	protected void RefreshCuiText()
 	{
 		if (m_WelcomeBack) m_WelcomeBack.SetText(CuiLoc.Get("CUI_welcome_back"));
@@ -255,12 +308,32 @@ modded class MainMenu extends UIScriptedMenu
 			if (!m_BottomShader) m_BottomShader = ImageWidget.Cast(layoutRoot.FindAnyWidget("BottomShader"));
 		}
 
+		// New wallpaper every time the player comes back to the main menu.
+		if (!m_FirstShowDone)
+			m_FirstShowDone = true;
+		else
+			ApplyRandomMainMenuBackground();
+
 		if (m_Stats) m_Stats.UpdateStats();
+		UpdateCornerText();
 		OnChangeCharacter(false);
 
 		RefreshCuiText();
-		RefreshNavLabels();
-		ScheduleTopNavFit();
+	}
+
+	void ApplyRandomMainMenuBackground()
+	{
+		if (!m_Background) return;
+
+		if (EnableMenuVideo)
+		{
+			m_Background.Show(false);
+			return;
+		}
+
+		m_Background.Show(true);
+		m_Background.LoadImageFile(0, GetMainMenuBackground());
+		m_Background.SetColor(colorScheme.BackgroundTone());
 	}
 	
 	override void Refresh()
@@ -358,8 +431,137 @@ modded class MainMenu extends UIScriptedMenu
 		CuiDialog.Show("#main_menu_exit", "#main_menu_exit_desc", true, this, "DoExit", "");
 	}
 
+	void OpenRules()
+	{
+		if (!m_RulesOverlay)
+			m_RulesOverlay = new CUIRulesOverlay(layoutRoot);
+
+		m_RulesOverlay.Open(true);
+	}
+
+	void OpenWebsite()
+	{
+		if (!IsConfiguredURL(CustomURL.Website))
+			return;
+
+		CuiDialog.Show("САЙТ ПРОЕКТА", "Вы хотите перейти на сайт проекта?", true, this, "ConfirmWebsite", "");
+	}
+
+	void ConfirmWebsite()
+	{
+		OpenConfiguredURL(CustomURL.Website);
+	}
+
+	void OpenDiscord()
+	{
+		if (!IsConfiguredURL(SocialURL.Discord))
+			return;
+
+		CuiDialog.Show("DISCORD-СЕРВЕР", "Вы хотите посетить Discord-сервер?", true, this, "ConfirmDiscord", "");
+	}
+
+	void ConfirmDiscord()
+	{
+		OpenConfiguredURL(SocialURL.Discord);
+	}
+
+	bool IsConfiguredURL(string url)
+	{
+		return url != "" && url != "#" && url != "test" && url != "/test";
+	}
+
+	void OpenConfiguredURL(string url)
+	{
+		if (!IsConfiguredURL(url))
+			return;
+
+		GetGame().OpenURL(url);
+	}
+
+	// Date/time and SteamID in the bottom-left corner.
+	void UpdateCornerText()
+	{
+		if (m_DateTimeText)
+			m_DateTimeText.SetText(GetMenuDateTime());
+
+		string steamId = GetPlayerSteamId();
+		if (m_SteamIdText)
+			m_SteamIdText.SetText(steamId);
+
+		if (m_SteamIdCopyHandler)
+			m_SteamIdCopyHandler.SetSteamId(steamId);
+	}
+
+	string GetMenuDateTime()
+	{
+		int year, month, day;
+		int hour, minute, second;
+
+		GetYearMonthDay(year, month, day);
+		GetHourMinuteSecond(hour, minute, second);
+
+		return day.ToStringLen(2) + "." + month.ToStringLen(2) + "." + year.ToString() + " " + hour.ToStringLen(2) + ":" + minute.ToStringLen(2);
+	}
+
+	string GetPlayerSteamId()
+	{
+		BiosUserManager userManager = g_Game.GetUserManager();
+		if (!userManager) return "";
+
+		BiosUser selectedUser = userManager.GetSelectedUser();
+		if (!selectedUser) return "";
+
+		return selectedUser.GetUid();
+	}
+
+	// Shows "<track> - Joe Mathews" for the menu track DayZ is playing now.
+	void UpdateMusicCredit()
+	{
+		if (!MenuMusic || !m_MusicTrackText) return;
+
+		string trackTitle = "";
+		Mission mission = GetGame().GetMission();
+		if (mission)
+		{
+			DynamicMusicPlayer musicPlayer = mission.GetDynamicMusicPlayer();
+			if (musicPlayer)
+				trackTitle = musicPlayer.GetCUITrackTitle();
+		}
+
+		if (trackTitle == "")
+			trackTitle = "...";
+
+		if (m_CurrentMusicTrackTitle != trackTitle)
+		{
+			m_CurrentMusicTrackTitle = trackTitle;
+			m_MusicTrackText.SetText(trackTitle + " - Joe Mathews");
+		}
+	}
+
+	override void Update(float timeslice)
+	{
+		UpdateMusicCredit();
+
+		if (m_RulesOverlay && m_RulesOverlay.IsOpen())
+		{
+			if (GetUApi().GetInputByID(UAUIBack).LocalPress())
+			{
+				m_RulesOverlay.Close();
+				return;
+			}
+		}
+
+		super.Update(timeslice);
+	}
+
 	override void Exit()
 	{
+		if (m_RulesOverlay && m_RulesOverlay.IsOpen())
+		{
+			m_RulesOverlay.Close();
+			return;
+		}
+
 		if (CuiDialog.CancelTop())
 			return;
 		OpenExitDialog();
@@ -385,9 +587,24 @@ modded class MainMenu extends UIScriptedMenu
 	void ~MainMenu()
 	{
 		if (GetGame())
-		{
 			GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(this.CheckPendingCuiError);
-			GetGame().GetCallQueue(CALL_CATEGORY_GUI).Remove(this.FitTopNav);
+
+		if (m_RulesOverlay)
+		{
+			m_RulesOverlay.Dispose();
+			m_RulesOverlay = null;
+		}
+
+		if (m_SteamIdCopyHandler)
+		{
+			m_SteamIdCopyHandler.Dispose();
+			m_SteamIdCopyHandler = null;
+		}
+
+		if (m_MusicCreditHandler)
+		{
+			m_MusicCreditHandler.Dispose();
+			m_MusicCreditHandler = null;
 		}
 
 		cuiElmnt.CleanupForOwner(this);
@@ -472,19 +689,31 @@ modded class MainMenuStats
 		if (m_LongRangeLabel) m_LongRangeLabel.SetText(CuiLoc.Get("CUI_best_long_range_hit"));
 	}
 
+	// Does not call super: vanilla UpdateStats() writes to the stat widgets
+	// unguarded, and the MOONLIGHT main menu layout has no stats block.
 	override void UpdateStats()
 	{
-		super.UpdateStats();
-
-		PlayerBase player;
 		MissionMainMenu missionMainMenu = MissionMainMenu.Cast(g_Game.GetMission());
-		if (!missionMainMenu || !missionMainMenu.GetIntroScenePC()) return;
+		if (!missionMainMenu) return;
 
-		player = missionMainMenu.GetIntroScenePC().GetIntroCharacter().GetCharacterObj();
+		DayZIntroScenePC introScene = missionMainMenu.GetIntroScenePC();
+		if (!introScene) return;
+
+		IntroSceneCharacter introCharacter = introScene.GetIntroCharacter();
+		if (!introCharacter) return;
+
+		PlayerBase player = introCharacter.GetCharacterObj();
 		if (!player) return;
 
 		FullTimeData ft = new FullTimeData();
 		TimeConversions.ConvertSecondsToFullTime(player.StatGet(AnalyticsManagerServer.STAT_PLAYTIME), ft);
+
+		if (m_TimeSurvivedValue) m_TimeSurvivedValue.SetText(ft.FormatedNonZero());
+		if (m_PlayersKilledValue) m_PlayersKilledValue.SetText(GetValueString(player.StatGet(AnalyticsManagerServer.STAT_PLAYERS_KILLED)));
+		if (m_InfectedKilledValue) m_InfectedKilledValue.SetText(GetValueString(player.StatGet(AnalyticsManagerServer.STAT_INFECTED_KILLED)));
+		if (m_DistanceTraveledValue) m_DistanceTraveledValue.SetText(GetDistanceString(player.StatGet(AnalyticsManagerServer.STAT_DISTANCE)));
+		if (m_LongRangeShotValue) m_LongRangeShotValue.SetText(GetDistanceString(player.StatGet(AnalyticsManagerServer.STAT_LONGEST_SURVIVOR_HIT), true));
+
 		if (m_RichTime) m_RichTime.SetText(BuildColoredTime(ft));
 
 		if (m_RichDistance)  m_RichDistance.SetText(BuildColoredDistance(player.StatGet(AnalyticsManagerServer.STAT_DISTANCE), false));

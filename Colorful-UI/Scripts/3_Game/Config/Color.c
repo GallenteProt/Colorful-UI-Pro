@@ -1,6 +1,27 @@
 // COLOR PALETTES ---------------------------------------------------------
 class UIColor
 {
+	// Cold Zone palette (MOONLIGHT main menu, loading screens, rules overlay).
+	// Kept separate so the rest of the UI (inventory etc.) keeps its own colors.
+	static int ZoneBlack()        { return ARGB(255, 2, 5, 7); };       // #020507
+	static int ZoneDeepBlack()    { return ARGB(255, 7, 16, 24); };     // #071018
+	static int ZoneNavy()         { return ARGB(255, 13, 23, 33); };    // #0D1721
+	static int ZoneGraphite()     { return ARGB(255, 28, 39, 48); };    // #1C2730
+	static int ZoneText()         { return ARGB(255, 236, 242, 246); }; // #ECF2F6
+	static int ZoneTextMuted()    { return ARGB(220, 236, 242, 246); };
+	static int ZoneTextDim()      { return ARGB(165, 236, 242, 246); };
+	static int ZoneDanger()       { return ARGB(255, 127, 47, 47); };   // #7F2F2F
+	static int ZoneDangerDark()   { return ARGB(255, 72, 22, 22); };
+	static int ZoneLoadingBlue()  { return ARGB(255, 82, 156, 210); };  // #529CD2
+	static int ZonePanel()        { return ARGB(196, 2, 5, 7); };
+	static int ZonePanelSoft()    { return ARGB(132, 7, 16, 24); };
+	static int ZoneSurface()      { return ARGB(184, 13, 23, 33); };
+	static int ZoneBorder()       { return ARGB(150, 236, 242, 246); };
+	static int ZoneBorderDim()    { return ARGB(82, 236, 242, 246); };
+	static int ZoneAgedPaper()    { return ARGB(255, 154, 150, 136); }; // #9A9688
+	static int ZoneActivePaper()  { return ARGB(255, 236, 242, 246); };
+	static int ZoneActiveText()   { return ARGB(255, 2, 5, 7); };
+
 	// GreyScale
 	static int White()            { return ARGB(255, 255, 255, 255); };
 	static int Grey()             { return ARGB(255, 130, 130, 130); };

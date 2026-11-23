@@ -1,11 +1,20 @@
 // Loading, login and queue screens.
 // Vanilla source: P:\scripts\3_game\dayzgame.c
 
+// Wallpapers are shown at full brightness; the layout's LoadingBlueTint
+// panel darkens them so text stays readable.
+void CuiApplyLoadingTint(ImageWidget background, Widget dimmer)
+{
+    if (background) background.SetColor(ARGB(255, 255, 255, 255));
+    if (dimmer)     dimmer.SetColor(colorScheme.LoadingDim());
+}
+
 modded class LoadingScreen
 {
     protected ImageWidget m_Background, m_TopShader, m_BottomShader, m_Mask, m_Logo;
     protected TextWidget m_LoadingMsg, m_Title;
     protected ProgressBarWidget m_ProgressLoading;
+    protected Widget m_LoadingDimmer;
 
     // The vanilla constructor has already built gui/layouts/loading.layout by the time this runs.
     void LoadingScreen(DayZGame game)
@@ -22,6 +31,7 @@ modded class LoadingScreen
         Class.CastTo(m_LoadingMsg, m_WidgetRoot.FindAnyWidget("LoadingMsg"));
         Class.CastTo(m_ProgressLoading, m_WidgetRoot.FindAnyWidget("LoadingBar"));
         Class.CastTo(m_Title, m_WidgetRoot.FindAnyWidget("Title"));
+        m_LoadingDimmer = m_WidgetRoot.FindAnyWidget("LoadingBlueTint");
 
         if (m_TopShader) m_TopShader.SetColor(colorScheme.TopShader());
         if (m_BottomShader) m_BottomShader.SetColor(colorScheme.BottomShader());
@@ -30,6 +40,7 @@ modded class LoadingScreen
         if (m_ProgressLoading) m_ProgressLoading.SetColor(colorScheme.Loadingbar());
 
         Branding.ApplyLogo(m_Logo);
+        CuiApplyLoadingTint(m_Background, m_LoadingDimmer);
         ProgressAsync.SetProgressData(m_ProgressLoading);
         ProgressAsync.SetUserData(m_Background);
     }
@@ -42,7 +53,8 @@ modded class LoadingScreen
             return;
         }
 
-        if (m_Background) m_Background.LoadImageFile(0, GetMainMenuBackground());
+        if (m_Background) m_Background.LoadImageFile(0, GetLoadingBackground());
+        CuiApplyLoadingTint(m_Background, m_LoadingDimmer);
     }
 
     override void SetTitle(string title)
@@ -83,6 +95,7 @@ modded class LoginTimeBase
     protected ImageWidget m_Background, m_TopShader, m_BottomShader, m_ExitIcon, m_Logo;
     protected TextWidget m_LoadingMsg, m_ExitText;
     protected ProgressBarWidget m_ProgressLoading;
+    protected Widget m_LoadingDimmer;
 
     override Widget Init()
     {
@@ -101,9 +114,11 @@ modded class LoginTimeBase
         m_btnLeave = ButtonWidget.Cast(layoutRoot.FindAnyWidget("btnLeave"));
         m_ExitText = TextWidget.Cast(layoutRoot.FindAnyWidget("ExitText"));
         m_ExitIcon = ImageWidget.Cast(layoutRoot.FindAnyWidget("Exit"));
+        m_LoadingDimmer = layoutRoot.FindAnyWidget("LoadingBlueTint");
 
         if (m_Background)
-            m_Background.LoadImageFile(0, GetMainMenuBackground());
+            m_Background.LoadImageFile(0, GetLoadingBackground());
+        CuiApplyLoadingTint(m_Background, m_LoadingDimmer);
 
         if (m_TopShader) m_TopShader.SetColor(colorScheme.TopShader());
         if (m_BottomShader) m_BottomShader.SetColor(colorScheme.BottomShader());
@@ -175,9 +190,10 @@ modded class LoginTimeBase
 
 modded class LoginQueueBase
 {
-    protected ImageWidget m_TopShader, m_BottomShader, m_ExitIcon, m_ShopIcon;
+    protected ImageWidget m_Background, m_TopShader, m_BottomShader, m_ExitIcon, m_ShopIcon;
     protected TextWidget m_ExitText, m_PrioText;
     protected ProgressBarWidget m_ProgressLoading;
+    protected Widget m_LoadingDimmer;
     protected ButtonWidget m_PrioQBtn; // m_btnLeave is vanilla's; redeclaring it hid it from vanilla OnClick
 
     override Widget Init()
@@ -190,9 +206,14 @@ modded class LoginQueueBase
         m_txtPosition = TextWidget.Cast(layoutRoot.FindAnyWidget("LoadingMsg"));
         m_txtNote = TextWidget.Cast(layoutRoot.FindAnyWidget("txtNote"));
 
+        m_Background = ImageWidget.Cast(layoutRoot.FindAnyWidget("ImageBackground"));
+        m_LoadingDimmer = layoutRoot.FindAnyWidget("LoadingBlueTint");
         m_TopShader = ImageWidget.Cast(layoutRoot.FindAnyWidget("TopShader"));
         m_BottomShader = ImageWidget.Cast(layoutRoot.FindAnyWidget("BottomShader"));
         m_ProgressLoading = ProgressBarWidget.Cast(layoutRoot.FindAnyWidget("LoadingBar"));
+
+        if (m_Background) m_Background.LoadImageFile(0, GetLoadingBackground());
+        CuiApplyLoadingTint(m_Background, m_LoadingDimmer);
 
         m_btnLeave = ButtonWidget.Cast(layoutRoot.FindAnyWidget("btnLeave"));
         m_ExitText = TextWidget.Cast(layoutRoot.FindAnyWidget("ExitText"));
@@ -210,14 +231,8 @@ modded class LoginQueueBase
         if (m_BottomShader) m_BottomShader.SetColor(colorScheme.BottomShader());
         if (m_ProgressLoading) m_ProgressLoading.SetColor(colorScheme.Loadingbar());
 
-        if (CustomURL.PriorityQ == "#" || CustomURL.PriorityQ == "")
-        {
-            m_PrioQBtn.Show(false);
-        }
-        else
-        {
-            m_PrioQBtn.Show(true);
-        }
+        if (m_PrioQBtn)
+            m_PrioQBtn.Show(CustomURL.PriorityQ != "#" && CustomURL.PriorityQ != "");
 
         return layoutRoot;
     }
