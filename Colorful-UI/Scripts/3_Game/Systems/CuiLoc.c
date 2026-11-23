@@ -53,6 +53,8 @@ class CuiLoc
 
 	static int CurrentLangColumn()
 	{
+		CUIQuickSlotSelfTest.RunOnce();
+
 		string probeText = Widget.TranslateString(PROBE_KEY);
 		probeText = probeText.Trim();
 

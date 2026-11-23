@@ -23,6 +23,11 @@ static bool InventoryFold        = true;   // Fold and show all buttons, and fol
 static bool InventoryTooltips    = true;   // Colorful UI item and slot tooltips. False = vanilla tooltips.
 static bool InventoryQuickSlots  = true;   // Colorful UI quick slot bar and quick assign (hover an item, press a number). False = vanilla quick bar.
 
+// Radial wheel
+static bool RadialQuickSlots     = true;   // Player quick slot wheel: bottom/top are weapon 1 and 2, the rest are the player's own slots. False = wheel unavailable.
+static bool RadialArsenal        = true;   // Admin arsenal inside the wheel: an admin clicking weapon slot 1 or 2 gets the full catalogue. Requires server-side admin rights; the client flag only hides the UI.
+static bool QuickSlotsSelfTest   = false;  // Debug/QA only: run the quick slot profile checks once per session and print PASS/FAIL to script.log. Flip to true to verify a build, leave false otherwise.
+
 static bool RoundedInventory   = false;  // If set to true, inventory cards get rounded corners; off, they keep the original game style. Tool buttons are always rounded; quick slots follow RoundedQuickSlots.
 static bool RoundedQuickSlots  = true;   // If set to true, the quick slots use the rounded tile style. If false, they keep the vanilla quick bar look.
 
