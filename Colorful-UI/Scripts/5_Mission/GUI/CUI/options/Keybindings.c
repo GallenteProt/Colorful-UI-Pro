@@ -1,11 +1,9 @@
-// KeybindingsMenu — CUI keybindings screen.
-// Vanilla source: P:\scripts\5_mission\gui\newui\keybindings\keybindingsmenu.c
-
 modded class KeybindingsMenu extends UIScriptedMenu
 {
 	private Widget m_TopShader, m_BottomShader, m_MenuDivider;
     private TextWidget m_ApplyBtn_Label;
 	protected ProgressBarWidget m_LoadingBar;
+	private ScrollWidget m_CUI_ModTabScroller;
 
 	override Widget Init()
 	{
@@ -18,17 +16,17 @@ modded class KeybindingsMenu extends UIScriptedMenu
 		m_Defaults  = ButtonWidget.Cast(layoutRoot.FindAnyWidget("ResetBtn"));
 		m_HardReset = ButtonWidget.Cast(layoutRoot.FindAnyWidget("ResetAllBtn"));
 
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Apply),     "#layout_pc_keybinding_apply",      colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Apply");
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Back),      "#layout_pc_keybinding_play_pannel_back",       colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Back");
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Undo),      "#menu_undo_cap",       colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Reset");
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Defaults),  "#str_settings_menu_root_play_panel_root_top_reset0",   colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "SetToDefaults");
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_HardReset), "#options_reset_all", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "HardReset");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Apply),     "Применить",     colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Apply");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Back),      "Назад",         colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Back");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Undo),      "Отменить",      colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Reset");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Defaults),  "По умолчанию",  colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "SetToDefaults");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_HardReset), "Сбросить все",  colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "HardReset");
 
 		m_TopShader    = layoutRoot.FindAnyWidget( "TopShader" );
 		m_BottomShader = layoutRoot.FindAnyWidget( "BottomShader" );
 		m_MenuDivider  = layoutRoot.FindAnyWidget( "MenuDivider" );
-		m_Version      = TextWidget.Cast(layoutRoot.FindAnyWidget( "version" )); // vanilla Refresh writes to it
 
+		// Note that this is just used as a visual trim, not a real loading bar.
 		m_LoadingBar      = ProgressBarWidget.Cast(layoutRoot.FindAnyWidget("LoadingBar"));
 		if (m_LoadingBar) m_LoadingBar.SetColor(colorScheme.Loadingbar());
 
@@ -37,10 +35,10 @@ modded class KeybindingsMenu extends UIScriptedMenu
 		m_MenuDivider.SetColor(colorScheme.Separator());
 		
 		layoutRoot.FindAnyWidget("Tabber").GetScript(m_Tabber);
+		m_CUI_ModTabScroller = ScrollWidget.Cast(layoutRoot.FindAnyWidget("Tab_Control_Scroller"));
 
 		InitInputSortingMap();
 		CreateTabs();
-		CuiReskinTabs();
 		CreateGroupContainer();
 
 		InitPresets(-1, layoutRoot.FindAnyWidget("group_header"), input);
@@ -50,6 +48,12 @@ modded class KeybindingsMenu extends UIScriptedMenu
 		g_Game.SetKeyboardHandle(this);
 		m_Tabber.RefreshTab(true);
 
+		// Match vanilla initial state — Apply/Undo are disabled until the user
+		// edits a bind. Our `override Init()` replaces vanilla's, so vanilla's
+		// own ColorDisabled() init lines (keybindingsmenu.c:76-81) never ran;
+		// reapply them here. Vanilla's bind-edit handlers (ConfirmKeybindEntry
+		// etc.) call ColorWhite() and ClearFlags() at the right time so these
+		// re-enable themselves when the user actually changes a binding.
 		ColorDisabled(m_Apply);
 		m_Apply.SetFlags(WidgetFlags.IGNOREPOINTER);
 		ColorDisabled(m_Undo);
@@ -58,25 +62,12 @@ modded class KeybindingsMenu extends UIScriptedMenu
 		return layoutRoot;
 	}
 
-	protected void CuiReskinTabs()
-	{
-		int tab_index = 0;
-		int sort_count = InputUtils.GetInputActionSortingMap().Count();
-		for (int i = 0; i < sort_count; i++)
-		{
-			if (InputUtils.GetInputActionSortingMap().GetElement(i) && InputUtils.GetInputActionSortingMap().GetElement(i).Count() > 0)
-			{
-				string group_name = GetUApi().SortingLocalization(InputUtils.GetInputActionSortingMap().GetKey(i));
-				m_Tabber.CuiReskinTabControl(tab_index, Widget.TranslateString("#" + group_name));
-				tab_index++;
-			}
-		}
-
-		if (InputUtils.GetUnsortedInputActions() && InputUtils.GetUnsortedInputActions().Count() > 0)
-		{
-			m_Tabber.CuiReskinTabControl(tab_index, Widget.TranslateString("#layout_pc_keybinding_unsorted"));
-		}
-	}
+	// Vanilla ColorDisabled / ColorWhite only call button.SetTextColor — but
+	// our cuiElmnt.proBtnCB puts the visible text on a `_label` child, so the
+	// button's own text color is invisible. Replicate vanilla's body inline
+	// (no super — vanilla's methods aren't overrides on UIScriptedMenu, so a
+	// super call would fail to compile) and also color the `_label` child.
+	// Vanilla source: keybindingsmenu.c:446-477.
 
 	override void ColorDisabled(Widget w)
 	{
@@ -88,6 +79,12 @@ modded class KeybindingsMenu extends UIScriptedMenu
 		TextWidget label = TextWidget.Cast(w.FindAnyWidget(w.GetName() + "_label"));
 		if (label) label.SetColor(colorScheme.DisabledText());
 	}
+
+	// Vanilla SetToDefaults() and HardReset() open the engine's yes/no dialog
+	// via g_Game.GetUIManager().ShowDialog(...). Override to use our CuiDialog
+	// and skip straight to PerformSetToDefaultsExt() with the right parameter
+	// on confirm — same call vanilla's OnModalResult would make.
+	// Vanilla source: keybindingsmenu.c:284-292.
 
 	override void SetToDefaults()
 	{
@@ -134,11 +131,10 @@ modded class KeybindingsMenu extends UIScriptedMenu
 		}
 	}
 
+	// Vanilla Back() shows ShowDialog when there are unsaved bind changes.
+	// Replicated verbatim, ShowDialog -> CuiDialog. Vanilla source: line 247-271.
 	override void Back()
 	{
-		if (CuiDialog.CancelTop())
-			return;
-
 		if (m_CurrentSettingKeyIndex != -1)
 		{
 			CancelEnteringKeybind();
@@ -171,16 +167,18 @@ modded class KeybindingsMenu extends UIScriptedMenu
 		g_Game.GetUIManager().Back();
 	}
 
+	// Vanilla OnAttemptSelectPreset shows ShowDialog when changing presets
+	// would discard unsaved bind changes. Replicated verbatim, ShowDialog ->
+	// CuiDialog. m_TargetPresetIndex is set unconditionally so the confirm
+	// callback knows which preset to switch to. Vanilla source: line 508-519.
 	override void OnAttemptSelectPreset(int index)
 	{
 		bool changed = m_GroupsContainer.IsChanged() && m_OriginalPresetIndex != index;
 		m_TargetPresetIndex = index;
 
-		if (changed && !CuiDialog.IsAnyOpen())
+		if (changed)
 		{
-			CuiDialog.Show(
-				"#main_menu_configure", "#main_menu_configure_desc",
-				true, this, "DoConfirmPresetChange", "");
+			CuiDialog.Show("#main_menu_configure", "#main_menu_configure_desc", true, this, "DoConfirmPresetChange", "");
 		}
 
 		m_PresetSelector.SetCanSwitch(!changed);
@@ -192,11 +190,29 @@ modded class KeybindingsMenu extends UIScriptedMenu
 		m_PresetSelector.PerformSetOption(m_TargetPresetIndex);
 	}
 
+	override void UpdateTabContent(int tab_index)
+	{
+		super.UpdateTabContent(tab_index);
+
+		if (m_CUI_ModTabScroller)
+		{
+			Widget tabControl = layoutRoot.FindAnyWidget("Tab_Control_" + tab_index);
+			if (tabControl)
+				m_CUI_ModTabScroller.HScrollToWidget(tabControl);
+		}
+	}
+
 	void ~KeybindingsMenu()
 	{
 		cuiElmnt.CleanupForOwner(this);
 	}
 }
+
+// Vanilla KeybindingElementNew.OnMouseEnter / OnMouseLeave paint the bind
+// buttons red ARGBF(1,1,0,0) on hover. We mirror vanilla's structure
+// (clear-X show/hide is preserved) and swap red for our scheme color.
+//
+// Vanilla source: P:\scripts\5_mission\gui\newui\keybindings\keybindingelementnew.c:263-310
 
 modded class KeybindingElementNew
 {
@@ -230,3 +246,4 @@ modded class KeybindingElementNew
 		return false;
 	}
 }
+

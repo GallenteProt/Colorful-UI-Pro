@@ -44,7 +44,7 @@ FrameWidgetClass inventory_root {
        style Default
        "no focus" 0
        "title visible" 0
-       font "gui/fonts/AmorSerifPro16"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
        "text color" 1 1 0 1
        {
         PanelWidgetClass LeftPanel {
@@ -414,7 +414,7 @@ FrameWidgetClass inventory_root {
        hexactsize 0
        vexactsize 1
        text "#layout_console_inventory_toolbar_text"
-       font "gui/fonts/MetronLight"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
        "italic text" 0
        "exact text" 1
        "size to text h" 1
@@ -445,7 +445,7 @@ FrameWidgetClass inventory_root {
        hexactsize 0
        vexactsize 1
        text "#layout_console_inventory_toolbar_context"
-       font "gui/fonts/MetronLight"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
        "italic text" 0
        "exact text" 1
        "size to text h" 1

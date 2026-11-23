@@ -44,7 +44,7 @@ FrameWidgetClass inventory_root {
        style Default
        "no focus" 0
        "title visible" 0
-       font "gui/fonts/AmorSerifPro16"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
        "text color" 1 1 0 1
        {
         PanelWidgetClass LeftPanel {

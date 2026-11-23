@@ -1,6 +1,3 @@
-// OptionsMenu — CUI options screen with universal mod-tab adoption.
-// Vanilla source: P:\scripts\5_mission\gui\newui\options\optionsmenu.c
-
 modded class OptionsMenu extends UIScriptedMenu
 {
 	private Widget m_Separator, m_shader, m_TopShader, m_BottomShader, m_MenuDivider, m_LoadingBar;
@@ -13,31 +10,19 @@ modded class OptionsMenu extends UIScriptedMenu
 		
 	override Widget Init()
 	{
-		TabberUI.s_CuiForeignTabIndices.Clear();
-		TabberUI.s_CuiForeignTabNames.Clear();
-		TabberUI.s_CuiRecordForeignTabs = true;
-
-		Widget oldRoot = super.Init();
-
-		TabberUI.s_CuiRecordForeignTabs = false;
-
-		TabberUI oldTabber;
-		oldRoot.FindAnyWidget("Tabber").GetScript(oldTabber);
-
+		m_Options = new GameOptions();
+		
 		layoutRoot = GetGame().GetWorkspace().CreateWidgets("Colorful-UI/GUI/layouts/options/cui.options_menu.layout", null);
-
+		
 		layoutRoot.FindAnyWidget("Tabber").GetScript(m_Tabber);
-
+		
 		m_Details  = layoutRoot.FindAnyWidget("settings_details");
 		m_Version  = TextWidget.Cast(layoutRoot.FindAnyWidget("version"));
-
+		
 		m_GameTab     = new OptionsMenuGame(layoutRoot.FindAnyWidget("Tab_0"), m_Details, m_Options, this);
 		m_SoundsTab   = new OptionsMenuSounds(layoutRoot.FindAnyWidget("Tab_1"), m_Details, m_Options, this);
 		m_VideoTab    = new OptionsMenuVideo(layoutRoot.FindAnyWidget("Tab_2"), m_Details, m_Options, this);
 		m_ControlsTab = new OptionsMenuControls(layoutRoot.FindAnyWidget("Tab_3"), m_Details, m_Options, this);
-
-		m_Tabber.m_OnTabSwitch.Insert(OnTabSwitch);
-		m_Tabber.m_OnAttemptTabSwitch.Insert(OnAttemptTabSwitch);
 
 		m_Apply    = ButtonWidget.Cast(layoutRoot.FindAnyWidget("apply"));
 		m_Back     = ButtonWidget.Cast(layoutRoot.FindAnyWidget("back"));
@@ -51,20 +36,35 @@ modded class OptionsMenu extends UIScriptedMenu
 		
 		if (m_LoadingBar) m_LoadingBar.SetColor(colorScheme.Loadingbar());
 		
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Back), "#STR_settings_menu_root_play_panel_root_top_back0", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Back");
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Defaults), "#menu_default_cap", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "PerformSetToDefaults");
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Apply), "#STR_settings_menu_root_play_panel_root_bottom_apply0", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Apply");
-		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Reset), "#menu_undo_cap", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Reset");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Back), "Назад", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Back");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Defaults), "По умолчанию", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "PerformSetToDefaults");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Apply), "Применить", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Apply");
+		cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Reset), "Сбросить", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Reset");
 		
 		m_TopShader.SetColor(colorScheme.TopShader());
 		m_BottomShader.SetColor(colorScheme.BottomShader());
 		m_MenuDivider.SetColor(colorScheme.Separator());
 
+		// TutorialsTextWidget is a vanilla-string-id developer marker baked
+		// purple in the layout — hide it.
 		Widget tutorialsLabel = layoutRoot.FindAnyWidget("TutorialsTextWidget");
 		if (tutorialsLabel) tutorialsLabel.Show(false);
 
+		// Tab bar bg: layout's `color 0 0 0 0.549` drops the fractional alpha,
+		// rendering fully opaque. Re-apply via ARGB so the bg stays translucent.
 		Widget tabBarBg = layoutRoot.FindAnyWidget("Tab_Control_Container");
 		if (tabBarBg) tabBarBg.SetColor(ARGB(140, 0, 0, 0));
+
+		// Game-tab section headers — color via OptionHeaders so they follow
+		// brand. All four tabs are constructed up-front so widgets exist here.
+		TextWidget genHeader  = TextWidget.Cast(layoutRoot.FindAnyWidget("general_text"));
+		TextWidget camHeader  = TextWidget.Cast(layoutRoot.FindAnyWidget("camera_text"));
+		TextWidget hudHeader  = TextWidget.Cast(layoutRoot.FindAnyWidget("hud_text"));
+		TextWidget chatHeader = TextWidget.Cast(layoutRoot.FindAnyWidget("chat_text"));
+		if (genHeader)  genHeader.SetColor(colorScheme.OptionHeaders());
+		if (camHeader)  camHeader.SetColor(colorScheme.OptionHeaders());
+		if (hudHeader)  hudHeader.SetColor(colorScheme.OptionHeaders());
+		if (chatHeader) chatHeader.SetColor(colorScheme.OptionHeaders());
 
 		m_ModalLock = false;
 		m_CanApplyOrReset = false;
@@ -75,7 +75,10 @@ modded class OptionsMenu extends UIScriptedMenu
 		m_Separator = layoutRoot.FindAnyWidget("colorful_separator");
 		
 		#ifndef WORKBENCH
-		if (EnableOptionsVideo && IsMainMenuContext())
+		// Only show options video when opened from MAIN MENU, never from
+		// in-game pause/options. Uses singleton CuiBackgroundVideo — Ensure()
+		// is a no-op if already running (e.g. from MainMenu).
+		if (EnableOptionsVideo && IsMainMenuContext() && m_OptionsMenuVideo != "")
 		{
 			if (!FileExist("$saves:" + m_OptionsMenuVideo))
 				CopyFile("Colorful-UI/GUI/video/" + m_OptionsMenuVideo, "$saves:" + m_OptionsMenuVideo);
@@ -83,31 +86,16 @@ modded class OptionsMenu extends UIScriptedMenu
 		}
 		#endif
 
-		for (int i = 0; i < TabberUI.s_CuiForeignTabIndices.Count(); i++)
-		{
-			int oldIndex = TabberUI.s_CuiForeignTabIndices.Get(i);
-			string tabName = TabberUI.s_CuiForeignTabNames.Get(i);
-
-			Widget pane = oldRoot.FindAnyWidget("Tab_" + oldIndex);
-			if (!pane)
-				continue;
-
-			m_Tabber.CuiAdoptTab(tabName, pane);
-		}
-
-		if (oldTabber)
-			oldTabber.CuiCancelInitTimer();
-		oldRoot.Unlink();
-
 		return layoutRoot;
 	}
 
+	// // vanilla color helpers (unchanged)
 	override void ColorDisable(Widget w)
 	{
 		SetFocus(null);
+		w.SetAlpha(0.5);
 		if (w)
 		{
-			w.SetAlpha(0.5);
 			Widget label = w.FindAnyWidget(w.GetName() + "_label");
 			if (label && label.IsInherited(TextWidget))
 			{
@@ -116,26 +104,11 @@ modded class OptionsMenu extends UIScriptedMenu
 		}
 	}
 
-	// Vanilla OnChanged enables Apply/Undo via ColorNormal, which never undoes our
-	// ColorDisable (alpha 0.5 + disabled label colour), so they kept looking disabled.
-	override void OnChanged()
-	{
-		super.OnChanged();
 
-		CuiRestoreToolbarButton(m_Apply);
-		CuiRestoreToolbarButton(m_Reset);
-	}
-
-	protected void CuiRestoreToolbarButton(Widget w)
-	{
-		if (!w) return;
-		if ((w.GetFlags() & WidgetFlags.IGNOREPOINTER) == WidgetFlags.IGNOREPOINTER) return;
-
-		w.SetAlpha(1);
-		Widget label = w.FindAnyWidget(w.GetName() + "_label");
-		if (label) label.SetColor(colorScheme.PrimaryText());
-	}
-
+	// Vanilla OptionsMenu.ColorHighlight tints option rows red — it's the
+	// handler triggered when the chevron or row is hovered. Mirror vanilla's
+	// structure (P:\scripts\5_mission\gui\newui\options\optionsmenu.c:759-811)
+	// but swap the red ARGBs for our scheme hover color.
 	override void ColorHighlight(Widget w)
 	{
 		if ((w.GetFlags() & WidgetFlags.IGNOREPOINTER) == WidgetFlags.IGNOREPOINTER)
@@ -145,10 +118,12 @@ modded class OptionsMenu extends UIScriptedMenu
 
 		if (w.IsInherited(ButtonWidget))
 		{
+			hover = UIColor.ZoneLoadingBlue();
 			ButtonWidget button = ButtonWidget.Cast(w);
 			button.SetTextColor(hover);
 		}
 
+		// Vanilla fills the row background black on hover — preserved.
 		w.SetColor(UIColor.Black());
 
 		TextWidget  text1        = TextWidget.Cast(w.FindAnyWidget(w.GetName() + "_text"));
@@ -162,15 +137,18 @@ modded class OptionsMenu extends UIScriptedMenu
 		if (text2)        text2.SetColor(hover);
 		if (text3)        { text3.SetColor(hover); w.SetAlpha(1); }
 		if (image)        image.SetColor(hover);
-		if (option)       option.SetColor(hover);
-		if (option_label) option_label.SetColor(hover);
+		if (option)       option.SetColor(colorScheme.OptionBGHover());
+		if (option_label) option_label.SetColor(colorScheme.OptionSelectionText());
 	}
 
+	// Vanilla OptionsMenu.Reset() and PerformSetToDefaults() revert immediately
+	// with no confirmation. Wrap each with a CuiDialog so the user gets a
+	// chance to back out — Confirm fires the vanilla revert via super.
 	override void Reset()
 	{
 		CuiDialog.Show(
-			"Reset Settings",
-			"Revert all settings to their saved values? Any unsaved changes will be lost.",
+			"Сброс настроек",
+			"Вернуть сохраненные значения? Несохраненные изменения будут потеряны.",
 			true, this, "DoReset", "");
 	}
 
@@ -182,28 +160,63 @@ modded class OptionsMenu extends UIScriptedMenu
 	override void PerformSetToDefaults()
 	{
 		CuiDialog.Show(
-			"Reset to Defaults",
-			"Reset all settings to factory defaults? This will overwrite your saved configuration.",
+			"Настройки по умолчанию",
+			"Сбросить все настройки к заводским значениям? Сохраненная конфигурация будет перезаписана.",
 			true, this, "DoSetToDefaults", "");
 	}
 
 	void DoSetToDefaults()
 	{
 		super.PerformSetToDefaults();
-
-		CuiRestoreToolbarButton(m_Apply);
-		CuiRestoreToolbarButton(m_Reset);
 	}
+
+	// ---- ShowDialog -> CuiDialog wiring ---------------------------------------
+	// Vanilla optionsmenu.c uses g_Game.GetUIManager().ShowDialog(...) in
+	// Apply() (restart-needed), Back() (discard changes), and OnAttemptTabSwitch
+	// (discard changes on tab switch). Each method body is replicated verbatim
+	// from vanilla, with the ShowDialog call replaced by CuiDialog.Show and
+	// the OnModalResult Yes-branch logic moved into a Confirm callback.
+	// Vanilla source: P:\scripts\5_mission\gui\newui\options\optionsmenu.c
 
 	protected int m_PendingTabTarget;
 
 	override void Apply()
 	{
-		super.Apply();
+		if (m_ControlsTab.IsChanged()) m_ControlsTab.Apply();
+		if (m_SoundsTab.IsChanged())   m_SoundsTab.Apply();
+		if (m_GameTab.IsChanged())     m_GameTab.Apply();
+
+		if (m_Options.IsChanged() || m_GameTab.IsChanged())
+		{
+			m_Options.Test();
+			m_Options.Apply();
+		}
+
+		GetUApi().Export();
+
+		if (g_Game.GetInput().IsEnabledMouseAndKeyboard())
+		{
+			m_Apply.SetFlags(WidgetFlags.IGNOREPOINTER);
+			ColorDisable(m_Apply);
+			m_Reset.SetFlags(WidgetFlags.IGNOREPOINTER);
+			ColorDisable(m_Reset);
+		}
+
+		m_CanApplyOrReset = false;
+
+		#ifdef PLATFORM_CONSOLE
+		UpdateControlsElements();
+		UpdateControlsElementVisibility();
+
+		IngameHud hud;
+		if (g_Game.GetMission() && Class.CastTo(hud, g_Game.GetMission().GetHud()))
+		{
+			hud.ShowQuickBar(g_Game.GetInput().IsEnabledMouseAndKeyboardEvenOnServer());
+		}
+		#endif
 
 		if (m_Options.NeedRestart())
 		{
-			g_Game.GetUIManager().CloseSpecificDialog(117);
 			CuiDialog.Show(
 				"#main_menu_configure", "#menu_restart_needed",
 				true, this, "DoRequestRestart", "");
@@ -217,10 +230,7 @@ modded class OptionsMenu extends UIScriptedMenu
 
 	override void Back()
 	{
-		if (CuiDialog.CancelTop())
-			return;
-
-		if (CuiDialog.IsAnyOpen() || g_Game.GetUIManager().IsDialogVisible() || g_Game.GetUIManager().IsModalVisible())
+		if (g_Game.GetUIManager().IsDialogVisible() || g_Game.GetUIManager().IsModalVisible())
 			return;
 
 		if (IsAnyTabChanged())
@@ -249,8 +259,7 @@ modded class OptionsMenu extends UIScriptedMenu
 		bool changed = IsAnyTabChanged();
 		if (changed)
 		{
-			// UIManager cannot see a CuiDialog; without IsAnyOpen a second prompt stacks.
-			if (!CuiDialog.IsAnyOpen() && !g_Game.GetUIManager().IsDialogVisible() && !g_Game.GetUIManager().IsModalVisible())
+			if (!g_Game.GetUIManager().IsDialogVisible() && !g_Game.GetUIManager().IsModalVisible())
 			{
 				m_PendingTabTarget = target;
 				CuiDialog.Show(
@@ -274,9 +283,15 @@ modded class OptionsMenu extends UIScriptedMenu
 
 	void ~OptionsMenu()
 	{
+		// Singleton bg video persists — do not touch CuiBackgroundVideo.s_Instance.
 		cuiElmnt.CleanupForOwner(this);
 	}
 
+	// Vanilla Refresh (optionsmenu.c:676-692) calls m_Version.SetText
+	// unconditionally. Our cui.options_menu.layout has no "version" widget,
+	// so m_Version stays null after Init's FindAnyWidget — and vanilla's
+	// Refresh NPEs the next time it fires (OnShow → Refresh, triggered by
+	// MainMenu OpenSettings or by Cancel returning to OptionsMenu).
 	override void Refresh()
 	{
 		if (m_Version)

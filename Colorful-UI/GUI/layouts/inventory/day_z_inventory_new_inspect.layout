@@ -83,7 +83,7 @@ FrameWidgetClass rootFrame {
          priority 1
          style None
          text "A box of large kitchen matches. Contains 250 matches. Store in dry place and keep away from children."
-         font "gui/fonts/sdf_MetronLight24"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
          "exact text" 1
          "exact text size" 24
          "size to text h" 0
@@ -124,7 +124,7 @@ FrameWidgetClass rootFrame {
            priority 1
            style Normal
            text "#STR_rootFrame_WindowWidget_BackPanelWidget_InventoryInfoPanelWidget_ItemDamageWidgetBackground_ItemDamageWidget0"
-           font "gui/fonts/sdf_MetronLight24"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text color" 1 1 1 1
            "exact text" 1
            "exact text size" 24
@@ -165,7 +165,7 @@ FrameWidgetClass rootFrame {
            priority 1
            style Normal
            text "#STR_rootFrame_WindowWidget_BackPanelWidget_InventoryInfoPanelWidget_ItemLiquidTypeWidgetBackground_ItemLiquidTypeWidget0"
-           font "gui/fonts/sdf_MetronLight24"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text color" 1 1 1 1
            "exact text" 1
            "exact text size" 24
@@ -206,7 +206,7 @@ FrameWidgetClass rootFrame {
            priority 1
            style Normal
            text "#STR_rootFrame_WindowWidget_BackPanelWidget_InventoryInfoPanelWidget_ItemTemperatureWidgetBackground_ItemTemperatureWidget0"
-           font "gui/fonts/sdf_MetronLight24"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text color" 1 1 1 1
            "exact text" 1
            "exact text size" 24
@@ -248,7 +248,7 @@ FrameWidgetClass rootFrame {
            priority 1
            style Normal
            text "#STR_rootFrame_WindowWidget_BackPanelWidget_InventoryInfoPanelWidget_ItemWetnessWidgetBackground_ItemWetnessWidget0"
-           font "gui/fonts/sdf_MetronLight24"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text color" 1 1 1 1
            "exact text" 1
            "exact text size" 24
@@ -291,7 +291,7 @@ FrameWidgetClass rootFrame {
            priority 1
            style Normal
            text "#STR_rootFrame_WindowWidget_BackPanelWidget_InventoryInfoPanelWidget_ItemFoodStageWidgetBackground_ItemFoodStageWidget0"
-           font "gui/fonts/sdf_MetronLight24"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text color" 1 1 1 1
            "exact text" 1
            "exact text size" 24
@@ -332,7 +332,7 @@ FrameWidgetClass rootFrame {
            priority 1
            style Normal
            text "#STR_rootFrame_WindowWidget_BackPanelWidget_InventoryInfoPanelWidget_ItemWeightWidgetBackground_ItemWeightWidget0"
-           font "gui/fonts/sdf_MetronLight24"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text color" 1 1 1 1
            "exact text" 1
            "exact text size" 24
@@ -373,7 +373,7 @@ FrameWidgetClass rootFrame {
            priority 1
            style Normal
            text "#STR_rootFrame_WindowWidget_BackPanelWidget_InventoryInfoPanelWidget_ItemQuantityWidgetBackground_ItemQuantityWidget0"
-           font "gui/fonts/sdf_MetronLight24"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text color" 1 1 1 1
            "exact text" 1
            "exact text size" 24
@@ -414,7 +414,7 @@ FrameWidgetClass rootFrame {
            priority 1
            style Normal
            text "#inv_inspect_cleaned"
-           font "gui/fonts/sdf_MetronLight24"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text color" 1 1 1 1
            "exact text" 1
            "exact text size" 24
@@ -457,7 +457,7 @@ FrameWidgetClass rootFrame {
          priority 1
          style Normal
          text "Bullet Tuna"
-         font "gui/fonts/sdf_MetronBook24"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
          "text offset" 10 0
          "exact text" 0
          text_proportion 0.55

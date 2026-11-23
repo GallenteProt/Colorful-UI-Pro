@@ -75,7 +75,7 @@ FrameWidgetClass game_tab_root {
            vexactsize 1
            style Normal
            text "#layout_options_pc_general"
-           font "gui/fonts/sdf_MetronLight72"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 0
            "text halign" center
            "text valign" center
@@ -144,7 +144,7 @@ FrameWidgetClass game_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#layout_options_pc_language"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -222,7 +222,7 @@ FrameWidgetClass game_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_option_game_nopause"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -301,7 +301,7 @@ FrameWidgetClass game_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#layout_options_pc_bleeding_indication"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -379,7 +379,7 @@ FrameWidgetClass game_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#layout_options_pc_connectivity_info"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -455,7 +455,7 @@ FrameWidgetClass game_tab_root {
            vexactsize 1
            style Normal
            text "#layout_options_pc_camera"
-           font "gui/fonts/sdf_MetronLight72"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 0
            "text halign" center
            "text valign" center
@@ -524,7 +524,7 @@ FrameWidgetClass game_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#layout_options_pc_fow"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -600,7 +600,7 @@ FrameWidgetClass game_tab_root {
            vexactsize 1
            style Normal
            text "#layout_options_pc_hud"
-           font "gui/fonts/sdf_MetronLight72"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 0
            "text halign" center
            "text valign" center
@@ -669,7 +669,7 @@ FrameWidgetClass game_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#layout_options_pc_show_hud"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -747,7 +747,7 @@ FrameWidgetClass game_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#layout_options_pc_hud_brightness"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -825,7 +825,7 @@ FrameWidgetClass game_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#layout_options_xbox_show_crosshair"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -903,7 +903,7 @@ FrameWidgetClass game_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#layout_options_pc_show_quickbar"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -981,7 +981,7 @@ FrameWidgetClass game_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#layout_options_pc_show_vehicle_hud"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -1059,7 +1059,7 @@ FrameWidgetClass game_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#layout_options_pc_show_serverinfo"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -1135,7 +1135,7 @@ FrameWidgetClass game_tab_root {
            vexactsize 1
            style Normal
            text "#layout_options_pc_chat"
-           font "gui/fonts/sdf_MetronLight72"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 0
            "text halign" center
            "text valign" center
@@ -1204,7 +1204,7 @@ FrameWidgetClass game_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#layout_options_pc_game_messages"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -1282,7 +1282,7 @@ FrameWidgetClass game_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#layout_options_pc_admin_mes"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -1360,7 +1360,7 @@ FrameWidgetClass game_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#layout_options_pc_player_messages"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18

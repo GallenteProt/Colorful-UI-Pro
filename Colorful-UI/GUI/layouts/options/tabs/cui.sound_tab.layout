@@ -75,7 +75,7 @@ FrameWidgetClass sound_tab_root {
            vexactsize 0
            style Normal
            text "#STR_sound_tab_header_sound"
-           font "gui/fonts/sdf_MetronLight72"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 0
            "text halign" center
            "text valign" center
@@ -143,7 +143,7 @@ FrameWidgetClass sound_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_sound_tab_master"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -220,7 +220,7 @@ FrameWidgetClass sound_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_sound_tab_effects_volume"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -299,7 +299,7 @@ FrameWidgetClass sound_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_sound_tab_music_volume"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -378,7 +378,7 @@ FrameWidgetClass sound_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_sound_tab_ambient_mode"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -454,7 +454,7 @@ FrameWidgetClass sound_tab_root {
            vexactsize 0
            style Normal
            text "#STR_sound_tab_voice_header"
-           font "gui/fonts/sdf_MetronLight72"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 0
            "text halign" center
            "text valign" center
@@ -525,7 +525,7 @@ FrameWidgetClass sound_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_sound_tab_voice_master"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -602,7 +602,7 @@ FrameWidgetClass sound_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_sound_tab_voice_output"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -680,7 +680,7 @@ FrameWidgetClass sound_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_sound_tab_voice_mic"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -759,7 +759,7 @@ FrameWidgetClass sound_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_sound_tab_voice_mode"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -836,7 +836,7 @@ FrameWidgetClass sound_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_sound_tab_voice_threshold"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18

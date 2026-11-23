@@ -68,7 +68,7 @@ FrameWidgetClass grid_container_root {
          vexactsize 0
          style DayZNormal
          text "CLOSABLE CONTAINER"
-         font "gui/fonts/sdf_MetronLight24"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
          "exact text" 1
          "exact text size" 20
          "size to text v" 1

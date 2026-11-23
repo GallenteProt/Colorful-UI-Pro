@@ -1,0 +1,242 @@
+ImageSetClass {
+ Name "HudStalkerSystem"
+ RefSize 1549 1549
+ Textures {
+  ImageSetTextureClass {
+   mpix 1
+   path "{3CBE1E285758A725}Colorful-UI/GUI/textures/HudStalker/dayz_hud.edds"
+  }
+ }
+ Images {
+ }
+ Groups {
+  ImageSetGroupClass UI {
+   Name "UI"
+   Images {
+    ImageSetDefClass iconHungry0 {
+     Name "iconHungry0"
+     Pos 5 486
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconHungry1 {
+     Name "iconHungry1"
+     Pos 273 486
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconHungry2 {
+     Name "iconHungry2"
+     Pos 541 486
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconHungry3 {
+     Name "iconHungry3"
+     Pos 808 486
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconHungry4 {
+     Name "iconHungry4"
+     Pos 1076 486
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconThirsty0 {
+     Name "iconThirsty0"
+     Pos 4 260
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconThirsty1 {
+     Name "iconThirsty1"
+     Pos 250 260
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconThirsty2 {
+     Name "iconThirsty2"
+     Pos 496 260
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconThirsty3 {
+     Name "iconThirsty3"
+     Pos 743 259
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconThirsty4 {
+     Name "iconThirsty4"
+     Pos 990 259
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconTemperature0 {
+     Name "iconTemperature0"
+     Pos 0 3
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconTemperature1 {
+     Name "iconTemperature1"
+     Pos 220 3
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconTemperature2 {
+     Name "iconTemperature2"
+     Pos 440 3
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconTemperature3 {
+     Name "iconTemperature3"
+     Pos 660 3
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconTemperature4 {
+     Name "iconTemperature4"
+     Pos 880 3
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconPill {
+     Name "iconPill"
+     Pos 50 720
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconBleeding {
+     Name "iconBleeding"
+     Pos 260 720
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconBone {
+     Name "iconBone"
+     Pos 475 730
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconBacteria {
+     Name "iconBacteria"
+     Pos 35 950
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconStomach2 {
+     Name "iconStomach2"
+     Pos 253 949
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconDrops {
+     Name "iconDrops"
+     Pos 480 956
+     Size 220 210
+     Flags 0
+    }
+    ImageSetDefClass iconStomach0 {
+     Name "iconStomach0"
+     Pos 253 949
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass stance_stand {
+     Name "stance_stand"
+     Pos 600 1445
+     Size 80 80
+     Flags 0
+    }
+    ImageSetDefClass stance_crouch {
+     Name "stance_crouch"
+     Pos 409 1450
+     Size 75 75
+     Flags 0
+    }
+    ImageSetDefClass stance_prone {
+     Name "stance_prone"
+     Pos 505 1450
+     Size 75 75
+     Flags 0
+    }
+    ImageSetDefClass iconStomach1 {
+     Name "iconStomach1"
+     Pos 253 949
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconStomach {
+     Name "iconStomach"
+     Pos 253 949
+     Size 200 200
+     Flags 0
+    }
+    ImageSetDefClass iconArrowDown3 {
+     Name "iconArrowDown3"
+     Pos 40 1458
+     Size 75 70
+     Flags 0
+    }
+    ImageSetDefClass iconArrowDown2 {
+     Name "iconArrowDown2"
+     Pos 182 1458
+     Size 75 51
+     Flags 0
+    }
+    ImageSetDefClass iconArrowDown1 {
+     Name "iconArrowDown1"
+     Pos 324 1458
+     Size 75 32
+     Flags 0
+    }
+    ImageSetDefClass iconArrowUp3 {
+     Name "iconArrowUp3"
+     Pos 40 1360
+     Size 75 70
+     Flags 0
+    }
+    ImageSetDefClass iconArrowUp2 {
+     Name "iconArrowUp2"
+     Pos 182 1379
+     Size 75 51
+     Flags 0
+    }
+    ImageSetDefClass iconArrowUp1 {
+     Name "iconArrowUp1"
+     Pos 324 1397
+     Size 75 32
+     Flags 0
+    }
+    ImageSetDefClass iconInjuredLegs0 {
+     Name "iconInjuredLegs0"
+     Pos 726 744
+     Size 186 200
+     Flags 0
+    }
+    ImageSetDefClass iconInjuredLegs1 {
+     Name "iconInjuredLegs1"
+     Pos 914 744
+     Size 196 200
+     Flags 0
+    }
+    ImageSetDefClass iconInjuredLegs2 {
+     Name "iconInjuredLegs2"
+     Pos 1112 744
+     Size 192 201
+     Flags 0
+    }
+    ImageSetDefClass iconUIMain {
+     Name "iconUIMain"
+     Pos 776 1294
+     Size 760 220
+     Flags 0
+    }
+   }
+  }
+ }
+}
+

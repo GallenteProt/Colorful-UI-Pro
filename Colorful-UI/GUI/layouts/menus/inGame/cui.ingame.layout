@@ -1,43 +1,17 @@
 FrameWidgetClass InGameMenuRoot {
  ignorepointer 0
+ position 0 0
  size 1 1
  halign center_ref
  valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
  priority 995
  {
-  FrameWidgetClass GameOverScreen {
-   visible 0
-   ignorepointer 1
-   size 1 1
-   halign center_ref
-   valign center_ref
-   hexactpos 1
-   vexactpos 1
-   hexactsize 0
-   vexactsize 0
-   {
-    ImageWidgetClass GameOverScreenImage {
-     visible 1
-     ignorepointer 1
-     position 0 0
-     size 1 1
-     halign center_ref
-     valign center_ref
-     hexactpos 1
-     vexactpos 1
-     hexactsize 0
-     vexactsize 0
-     imageTexture "{7D89799E44583509}Colorful-UI/GUI/textures/DeathScreens/DeathScreen.edds"
-     mode blend
-     "src alpha" 1
-     "clamp mode" clamp
-     "stretch mode" stretch_w_h
-    }
-   }
-  }
   FrameWidgetClass Shaders {
    visible 1
-   clipchildren 0
    ignorepointer 1
    size 1 1
    halign center_ref
@@ -49,10 +23,10 @@ FrameWidgetClass InGameMenuRoot {
    {
     ImageWidgetClass TopShader {
      visible 1
-     clipchildren 0
      ignorepointer 1
      size 1 1
      halign center_ref
+     valign top_ref
      hexactpos 1
      vexactpos 1
      hexactsize 0
@@ -65,11 +39,10 @@ FrameWidgetClass InGameMenuRoot {
     }
     ImageWidgetClass BottomShader {
      visible 1
-     clipchildren 0
      ignorepointer 1
-     position 0 0
-     size 1.01 1
+     size 1 1
      halign center_ref
+     valign bottom_ref
      hexactpos 1
      vexactpos 1
      hexactsize 0
@@ -83,9 +56,7 @@ FrameWidgetClass InGameMenuRoot {
     }
     ImageWidgetClass Vingette {
      visible 1
-     clipchildren 0
      ignorepointer 1
-     position 0 0
      size 1 1
      halign center_ref
      valign center_ref
@@ -101,639 +72,1022 @@ FrameWidgetClass InGameMenuRoot {
     }
    }
   }
-  FrameWidgetClass SafeZone {
+  PanelWidgetClass PauseDim {
+   visible 1
    ignorepointer 1
-   position 0 -0.00005
-   size 0.9 0.9
+   color 0.002 0.006 0.008 0.4
+   position 0 0
+   size 1 1
    halign center_ref
    valign center_ref
    hexactpos 0
    vexactpos 0
    hexactsize 0
    vexactsize 0
+  }
+  PanelWidgetClass LeftShadeHard {
+   visible 1
+   ignorepointer 1
+   color 0.002 0.006 0.008 0.72
+   position 0 0
+   size 0.26 1
+   halign left_ref
+   valign top_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+  }
+  PanelWidgetClass LeftShadeMid {
+   visible 1
+   ignorepointer 1
+   color 0.002 0.006 0.008 0.42
+   position 0.22 0
+   size 0.18 1
+   halign left_ref
+   valign top_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+  }
+  PanelWidgetClass LeftShadeFade {
+   visible 1
+   ignorepointer 1
+   color 0.002 0.006 0.008 0.18
+   position 0.36 0
+   size 0.16 1
+   halign left_ref
+   valign top_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+  }
+  FrameWidgetClass SafeZone {
+   ignorepointer 1
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
    {
     FrameWidgetClass hint_frame {
-     visible 1
-     clipchildren 0
+     visible 0
      ignorepointer 1
+     position 0.642 0.32
      size 400 460
-     halign right_ref
-     hexactpos 1
-     vexactpos 1
-     hexactsize 1
-     vexactsize 1
-    }
-    GridSpacerWidgetClass ActionItems {
-     visible 1
-     ignorepointer 1
-     keepsafezone 1
-     size 293 618.29999
-     halign right_ref
-     valign bottom_ref
+     halign left_ref
+     valign top_ref
      hexactpos 0
      vexactpos 0
      hexactsize 1
      vexactsize 1
-     Padding 0
-     Margin 0
-     "Size To Content V" 1
-     Columns 1
+    }
+    FrameWidgetClass TopSpacer {
+     visible 1
+     ignorepointer 1
+     size 1 1
+    }
+    ImageWidgetClass MenuDivider {
+     visible 0
+     ignorepointer 1
+     size 1 1
+     imageTexture "{73620301808D311B}Colorful-UI/GUI/textures/Shared/shader.edds"
+    }
+    FrameWidgetClass BottomSpacer {
+     visible 0
+     ignorepointer 1
+     size 1 1
+    }
+    ImageWidgetClass Logo {
+     visible 0
+     ignorepointer 1
+     size 0.16 0.08
+     halign left_ref
+     valign top_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     imageTexture "{B17D405136692A07}Colorful-UI/GUI/textures/Shared/Loneliness_Logo.paa"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+    }
+    TextWidgetClass BrandTitleTop {
+     visible 1
+     ignorepointer 1
+     color 0.925 0.95 0.965 1
+     position -0.379 0.944
+     size 0.227 0.039
+     halign center_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text "LONELINESS"
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+     "text sharpness" 1.05
+     "exact text" 1
+     "exact text size" 50
+     "text valign" center
+    }
+    TextWidgetClass BrandTitleBottom {
+     visible 1
+     ignorepointer 1
+     color 0.925 0.95 0.965 1
+     position -0.404 0.911
+     size 0.176 0.032
+     halign center_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text "S.T.A.L.K.E.R. RP"
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+     "text sharpness" 1.05
+     "exact text" 1
+     "exact text size" 30
+     "text valign" center
+    }
+    TextWidgetClass DateTimeText {
+     visible 1
+     ignorepointer 1
+     color 0.925 0.95 0.965 0.86
+     position 0.008 0.089
+     size 0.132 0.024
+     halign left_ref
+     valign top_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text ""
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+     "text sharpness" 1.05
+     "exact text" 1
+     "exact text size" 13
+     "text valign" center
+    }
+    TextWidgetClass TopButtonTooltip {
+     visible 0
+     ignorepointer 1
+     color 0.322 0.612 0.824 1
+     position 0.72 0.052
+     size 0.27 0.024
+     halign left_ref
+     valign top_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text ""
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+     "text sharpness" 1.05
+     "exact text" 1
+     "exact text size" 15
+     "text halign" right
+     "text valign" center
+    }
+    FrameWidgetClass TextMenuRoot {
+     visible 0
+     ignorepointer 1
+     position 0.025 0.16
+     size 0.23 0.5
+     halign left_ref
+     valign top_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
      {
-      GridSpacerWidgetClass "Btn Area" {
+      TextWidgetClass TextMenuTitle {
        ignorepointer 1
+       color 0.322 0.612 0.824 1
        position 0 0
-       size 0 0
-       halign right_ref
-       valign bottom_ref
+       size 0.92 0.07
+       halign left_ref
+       valign top_ref
        hexactpos 0
        vexactpos 0
        hexactsize 0
        vexactsize 0
-       Padding 0
-       Margin 0
-       "Size To Content H" 1
-       "Size To Content V" 1
-       content_halign right
-       Columns 1
-       Rows 5
+       text "МЕНЮ"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+       "text sharpness" 1.05
+       "exact text" 1
+       "exact text size" 16
+       "text halign" left
+       "text valign" center
+      }
+      PanelWidgetClass TextMenuTitleLine {
+       ignorepointer 1
+       color 0.322 0.612 0.824 0.82
+       position 0 0.07
+       size 0.92 0.004
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+      ButtonWidgetClass TextMenuContinueBtn {
+       visible 1
+       color 0 0 0 0
+       position 0 0.105
+       size 0.92 0.105
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Empty
+       "no focus" 0
        {
-        ButtonWidgetClass ExitBtn {
+        PanelWidgetClass TextMenuContinueBtn_panel {
+         ignorepointer 1
          color 0 0 0 0
-         position 0 0
-         size 293 38
-         halign right_ref
-         valign center_ref
-         hexactpos 1
-         vexactpos 1
-         hexactsize 1
-         vexactsize 1
-         style Empty
-         "no focus" 0
-         "next left" "news_main"
-         "next right" "news_main"
-         "next up" "choose_server"
-         "next down" "play_video"
-         {
-          TextWidgetClass ExitBtn_label {
-           clipchildren 0
-           ignorepointer 1
-           size 1 1
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 0
-           hexactsize 0
-           vexactsize 0
-           text "#main_menu_exit"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-           "text sharpness" 1.5
-           "exact text" 1
-           "exact text size" 26
-           "size to text h" 1
-           "size to text v" 0
-           "text halign" right
-           "text valign" center
-          }
-         }
+         size 1 1
         }
-        ButtonWidgetClass RestartBtn {
-         color 0 0 0 0
-         position 0 0
-         size 293 38
-         halign right_ref
-         valign center_ref
-         hexactpos 1
-         vexactpos 1
-         hexactsize 1
-         vexactsize 1
-         style Empty
-         "no focus" 0
-         "next left" "news_main"
-         "next right" "news_main"
-         "next up" "choose_server"
-         "next down" "play_video"
-         {
-          TextWidgetClass RestartBtn_label {
-           clipchildren 0
-           ignorepointer 1
-           size 1 1
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 0
-           hexactsize 0
-           vexactsize 0
-           text "#main_menu_restart"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-           "text sharpness" 1.5
-           "exact text" 1
-           "exact text size" 26
-           "size to text h" 1
-           "size to text v" 0
-           "text halign" right
-           "text valign" center
-          }
-         }
+        PanelWidgetClass TextMenuContinueBtn_accent {
+         ignorepointer 1
+         color 0.925 0.95 0.965 0.32
+         size 0.012 1
         }
-        ButtonWidgetClass OptionsBtn {
-         color 0 0 0 0
-         position 0 0
-         size 293 38
-         halign right_ref
-         valign center_ref
-         hexactpos 1
-         vexactpos 1
-         hexactsize 1
-         vexactsize 1
-         style Empty
-         "no focus" 0
-         "next left" "news_main"
-         "next right" "news_main"
-         "next up" "choose_server"
-         "next down" "play_video"
-         {
-          TextWidgetClass OptionsBtn_label {
-           clipchildren 0
-           ignorepointer 1
-           position 0 -0.01948
-           size 1 1
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 0
-           hexactsize 0
-           vexactsize 0
-           text "#layout_xbox_ingame_menu_options"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-           "text sharpness" 1.5
-           "exact text" 1
-           "exact text size" 26
-           "size to text h" 1
-           "size to text v" 0
-           "text halign" right
-           "text valign" center
-          }
-         }
-        }
-        ButtonWidgetClass ContinueBtn {
-         color 0 0 0 0
-         position 0 0
-         size 293 38
-         halign right_ref
-         valign center_ref
-         hexactpos 1
-         vexactpos 1
-         hexactsize 1
-         vexactsize 1
-         style Empty
-         "no focus" 0
-         "next left" "news_main"
-         "next right" "news_main"
-         "next up" "choose_server"
-         "next down" "play_video"
-         {
-          TextWidgetClass ContinueBtn_label {
-           clipchildren 0
-           ignorepointer 1
-           size 1 1
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 0
-           hexactsize 0
-           vexactsize 0
-           text "#main_menu_continue"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-           "text sharpness" 1.5
-           "exact text" 1
-           "exact text size" 26
-           "size to text h" 1
-           "size to text v" 0
-           "text halign" right
-           "text valign" center
-          }
-         }
-        }
-        ButtonWidgetClass respawn_button {
-         position 0 75
-         size 293 38
-         halign center_ref
-         valign center_ref
-         hexactpos 1
-         vexactpos 1
-         hexactsize 1
-         vexactsize 1
-         {
-          TextWidgetClass respawn_button_label {
-           ignorepointer 1
-           position 0 0.7401
-           size 100 38
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 1
-           hexactsize 1
-           vexactsize 1
-           text "#main_menu_respawn"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-           "text sharpness" 1.5
-           "exact text" 1
-           "exact text size" 26
-           "size to text h" 1
-           "size to text v" 0
-           "text halign" center
-           "text valign" center
-          }
-         }
-        }
-        ButtonWidgetClass QueueBtn {
-         position 0 75
-         size 293 38
-         halign center_ref
-         valign center_ref
-         hexactpos 1
-         vexactpos 1
-         hexactsize 1
-         vexactsize 1
-         {
-          TextWidgetClass QueueBtn_label {
-           ignorepointer 1
-           size 100 38
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 1
-           hexactsize 1
-           vexactsize 1
-           text "#CUI_priority_queue"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-           "text sharpness" 1.5
-           "exact text" 1
-           "exact text size" 26
-           "size to text h" 1
-           "size to text v" 0
-           "text halign" center
-           "text valign" center
-          }
-         }
-        }
-        ButtonWidgetClass WebsiteBtn {
-         position 0 75
-         size 293 38
-         halign center_ref
-         valign center_ref
-         hexactpos 1
-         vexactpos 1
-         hexactsize 1
-         vexactsize 1
-         {
-          TextWidgetClass WebsiteBtn_label {
-           ignorepointer 1
-           size 100 38
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 1
-           hexactsize 1
-           vexactsize 1
-           text "#mod_detail_info_website"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-           "text sharpness" 1.5
-           "exact text" 1
-           "exact text size" 26
-           "size to text h" 1
-           "size to text v" 0
-           "text halign" center
-           "text valign" center
-          }
-         }
+        TextWidgetClass TextMenuContinueBtn_label {
+         ignorepointer 1
+         color 0.925 0.95 0.965 1
+         position 0.065 0
+         size 0.91 1
+         text "ПРОДОЛЖИТЬ"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+         "text sharpness" 1.05
+         "exact text" 1
+         "exact text size" 25
+         "text halign" left
+         "text valign" center
         }
        }
       }
-      FrameWidgetClass TopSpacer {
+      ButtonWidgetClass TextMenuOptionsBtn {
        visible 1
-       ignorepointer 1
-       position 174.92999 0.3113
-       size 48 15
-       hexactpos 1
-       vexactpos 1
-       hexactsize 1
-       vexactsize 1
-      }
-      ImageWidgetClass MenuDivider {
-       visible 1
-       ignorepointer 1
-       size 293 3
-       valign center_ref
-       hexactpos 1
-       vexactpos 1
-       hexactsize 1
-       vexactsize 1
-       image0 "set:cui image:MenuDivider"
-       mode blend
-       "src alpha" 1
-       "flip u" 1
-       "flip v" 0
-      }
-      FrameWidgetClass BottomSpacer {
-       visible 1
-       ignorepointer 1
-       position 174.92999 0.3113
-       size 48 15
-       hexactpos 1
-       vexactpos 1
-       hexactsize 1
-       vexactsize 1
-      }
-      GridSpacerWidgetClass Socials {
-       ignorepointer 1
-       position 0 0
-       size 0 0
-       halign right_ref
-       valign bottom_ref
+       color 0 0 0 0
+       position 0 0.225
+       size 0.92 0.105
+       halign left_ref
+       valign top_ref
        hexactpos 0
        vexactpos 0
-       hexactsize 1
-       vexactsize 1
-       Padding 0
-       Margin 0
-       "Size To Content H" 1
-       "Size To Content V" 1
-       Columns 1
-       Rows 5
+       hexactsize 0
+       vexactsize 0
+       style Empty
+       "no focus" 0
        {
-        ButtonWidgetClass DiscordBtn {
-         position 0 75
-         size 293 38
-         halign center_ref
-         valign center_ref
-         hexactpos 1
-         vexactpos 1
-         hexactsize 1
-         vexactsize 1
-         {
-          TextWidgetClass DiscordBtn_label {
-           ignorepointer 1
-           position 40 0
-           size 100 38
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 1
-           hexactsize 1
-           vexactsize 1
-           text "Discord"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-           "text sharpness" 1.5
-           "exact text" 1
-           "exact text size" 26
-           "size to text h" 1
-           "size to text v" 0
-           "text halign" center
-           "text valign" center
-          }
-          ImageWidgetClass DiscordBtn_img {
-           clipchildren 0
-           ignorepointer 1
-           position 0 0
-           size 28 24
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 1
-           hexactsize 1
-           vexactsize 1
-           image0 "set:cui image:Discord"
-           imageTexture "{7CD806F5385DC838}Colorful-UI/GUI/imagesets/CUI-Imageset.edds"
-           mode blend
-           "src alpha" 1
-           "clamp mode" clamp
-           "stretch mode" stretch_w_h
-           filter 0
-          }
-         }
+        PanelWidgetClass TextMenuOptionsBtn_panel {
+         ignorepointer 1
+         color 0 0 0 0
+         size 1 1
         }
-        ButtonWidgetClass TwitterBtn {
-         position 0 75
-         size 293 38
-         halign center_ref
-         valign center_ref
-         hexactpos 1
-         vexactpos 1
-         hexactsize 1
-         vexactsize 1
-         {
-          TextWidgetClass TwitterBtn_label {
-           ignorepointer 1
-           position 40 0
-           size 100 38
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 1
-           hexactsize 1
-           vexactsize 1
-           text "Twitter"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-           "text sharpness" 1.5
-           "exact text" 1
-           "exact text size" 26
-           "size to text h" 1
-           "size to text v" 0
-           "text halign" center
-           "text valign" center
-          }
-          ImageWidgetClass TwitterBtn_img {
-           clipchildren 0
-           ignorepointer 1
-           size 28 24
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 1
-           hexactsize 1
-           vexactsize 1
-           image0 "set:cui image:Twitter"
-           imageTexture "{7CD806F5385DC838}Colorful-UI/GUI/imagesets/CUI-Imageset.edds"
-           mode blend
-           "src alpha" 1
-           "clamp mode" clamp
-           "stretch mode" stretch_w_h
-           filter 0
-          }
-         }
+        PanelWidgetClass TextMenuOptionsBtn_accent {
+         ignorepointer 1
+         color 0.925 0.95 0.965 0.32
+         size 0.012 1
         }
-        ButtonWidgetClass YoutubeBtn {
-         position 0 75
-         size 293 38
-         halign center_ref
-         valign center_ref
-         hexactpos 1
-         vexactpos 1
-         hexactsize 1
-         vexactsize 1
-         {
-          TextWidgetClass YoutubeBtn_label {
-           ignorepointer 1
-           position 40 0
-           size 100 38
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 1
-           hexactsize 1
-           vexactsize 1
-           text "YouTube"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-           "text sharpness" 1.5
-           "exact text" 1
-           "exact text size" 26
-           "size to text h" 1
-           "size to text v" 0
-           "text halign" center
-           "text valign" center
-          }
-          ImageWidgetClass YoutubeBtn_img {
-           clipchildren 0
-           ignorepointer 1
-           size 28 24
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 1
-           hexactsize 1
-           vexactsize 1
-           image0 "set:cui image:Youtube"
-           imageTexture "{7CD806F5385DC838}Colorful-UI/GUI/imagesets/CUI-Imageset.edds"
-           mode blend
-           "src alpha" 1
-           "clamp mode" clamp
-           "stretch mode" stretch_w_h
-           filter 0
-          }
-         }
+        TextWidgetClass TextMenuOptionsBtn_label {
+         ignorepointer 1
+         color 0.925 0.95 0.965 1
+         position 0.065 0
+         size 0.91 1
+         text "НАСТРОЙКИ"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+         "text sharpness" 1.05
+         "exact text" 1
+         "exact text size" 25
+         "text halign" left
+         "text valign" center
         }
-        ButtonWidgetClass RedditBtn {
-         position 0 75
-         size 293 38
-         halign center_ref
-         valign center_ref
-         hexactpos 1
-         vexactpos 1
-         hexactsize 1
-         vexactsize 1
-         {
-          TextWidgetClass RedditBtn_label {
-           ignorepointer 1
-           position 40 0
-           size 100 38
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 1
-           hexactsize 1
-           vexactsize 1
-           text "Reddit"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-           "text sharpness" 1.5
-           "exact text" 1
-           "exact text size" 26
-           "size to text h" 1
-           "size to text v" 0
-           "text halign" center
-           "text valign" center
-          }
-          ImageWidgetClass RedditBtn_img {
-           clipchildren 0
-           ignorepointer 1
-           size 28 24
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 1
-           hexactsize 1
-           vexactsize 1
-           image0 "set:cui image:Reddit"
-           imageTexture "{7CD806F5385DC838}Colorful-UI/GUI/imagesets/CUI-Imageset.edds"
-           mode blend
-           "src alpha" 1
-           "clamp mode" clamp
-           "stretch mode" stretch_w_h
-           filter 0
-          }
-         }
+       }
+      }
+      ButtonWidgetClass TextMenuRulesBtn {
+       visible 1
+       color 0 0 0 0
+       position 0 0.345
+       size 0.92 0.105
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Empty
+       "no focus" 0
+       {
+        PanelWidgetClass TextMenuRulesBtn_panel {
+         ignorepointer 1
+         color 0 0 0 0
+         size 1 1
         }
-        ButtonWidgetClass FacebookBtn {
-         position 0 75
-         size 293 38
-         halign center_ref
-         valign center_ref
-         hexactpos 1
-         vexactpos 1
-         hexactsize 1
-         vexactsize 1
-         {
-          TextWidgetClass FacebookBtn_label {
-           ignorepointer 1
-           position 40 0
-           size 100 38
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 1
-           hexactsize 1
-           vexactsize 1
-           text "Facebook"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-           "text sharpness" 1.5
-           "exact text" 1
-           "exact text size" 26
-           "size to text h" 1
-           "size to text v" 0
-           "text halign" center
-           "text valign" center
-          }
-          ImageWidgetClass FacebookBtn_img {
-           clipchildren 0
-           ignorepointer 1
-           size 28 24
-           halign right_ref
-           valign center_ref
-           hexactpos 1
-           vexactpos 1
-           hexactsize 1
-           vexactsize 1
-           image0 "set:cui image:Meta"
-           imageTexture "{7CD806F5385DC838}Colorful-UI/GUI/imagesets/CUI-Imageset.edds"
-           mode blend
-           "src alpha" 1
-           "clamp mode" clamp
-           "stretch mode" stretch_w_h
-           filter 0
-          }
-         }
+        PanelWidgetClass TextMenuRulesBtn_accent {
+         ignorepointer 1
+         color 0.925 0.95 0.965 0.32
+         size 0.012 1
+        }
+        TextWidgetClass TextMenuRulesBtn_label {
+         ignorepointer 1
+         color 0.925 0.95 0.965 1
+         position 0.065 0
+         size 0.91 1
+         text "ПРАВИЛА"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+         "text sharpness" 1.05
+         "exact text" 1
+         "exact text size" 25
+         "text halign" left
+         "text valign" center
+        }
+       }
+      }
+      ButtonWidgetClass TextMenuWebsiteBtn {
+       visible 1
+       color 0 0 0 0
+       position 0 0.465
+       size 0.92 0.105
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Empty
+       "no focus" 0
+       {
+        PanelWidgetClass TextMenuWebsiteBtn_panel {
+         ignorepointer 1
+         color 0 0 0 0
+         size 1 1
+        }
+        PanelWidgetClass TextMenuWebsiteBtn_accent {
+         ignorepointer 1
+         color 0.925 0.95 0.965 0.32
+         size 0.012 1
+        }
+        TextWidgetClass TextMenuWebsiteBtn_label {
+         ignorepointer 1
+         color 0.925 0.95 0.965 1
+         position 0.065 0
+         size 0.91 1
+         text "МАГАЗИН"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+         "text sharpness" 1.05
+         "exact text" 1
+         "exact text size" 25
+         "text halign" left
+         "text valign" center
+        }
+       }
+      }
+      ButtonWidgetClass TextMenuDiscordBtn {
+       visible 1
+       color 0 0 0 0
+       position 0 0.585
+       size 0.92 0.105
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Empty
+       "no focus" 0
+       {
+        PanelWidgetClass TextMenuDiscordBtn_panel {
+         ignorepointer 1
+         color 0 0 0 0
+         size 1 1
+        }
+        PanelWidgetClass TextMenuDiscordBtn_accent {
+         ignorepointer 1
+         color 0.925 0.95 0.965 0.32
+         size 0.012 1
+        }
+        TextWidgetClass TextMenuDiscordBtn_label {
+         ignorepointer 1
+         color 0.925 0.95 0.965 1
+         position 0.065 0
+         size 0.91 1
+         text "DISCORD"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+         "text sharpness" 1.05
+         "exact text" 1
+         "exact text size" 25
+         "text halign" left
+         "text valign" center
+        }
+       }
+      }
+      ButtonWidgetClass TextMenuExitBtn {
+       visible 1
+       color 0 0 0 0
+       position 0 0.705
+       size 0.92 0.105
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Empty
+       "no focus" 0
+       {
+        PanelWidgetClass TextMenuExitBtn_panel {
+         ignorepointer 1
+         color 0 0 0 0
+         size 1 1
+        }
+        PanelWidgetClass TextMenuExitBtn_accent {
+         ignorepointer 1
+         color 0.925 0.95 0.965 0.32
+         size 0.012 1
+        }
+        TextWidgetClass TextMenuExitBtn_label {
+         ignorepointer 1
+         color 0.925 0.95 0.965 1
+         position 0.065 0
+         size 0.91 1
+         text "ВЫЙТИ В МЕНЮ"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+         "text sharpness" 1.05
+         "exact text" 1
+         "exact text size" 25
+         "text halign" left
+         "text valign" center
         }
        }
       }
      }
     }
-    ImageWidgetClass Logo {
+    ButtonWidgetClass ViewToggleBtn {
      visible 1
-     inheritalpha 1
-     size 438 261
-     hexactpos 1
-     vexactpos 1
-     hexactsize 1
-     vexactsize 1
-     fixaspect outside
-     image0 ""
-     imageTexture "{42E121BAB69F8229}Colorful-UI/GUI/textures/Shared/Colorful UI Logo.edds"
-     mode blend
-     "src alpha" 1
-     "clamp mode" clamp
-     "stretch mode" stretch_w_h
-     filter 1
-     nocache 0
+     color 0 0 0 0
+     position 0.8 0.006
+     size 0.023 0.04
+     halign left_ref
+     valign top_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Empty
+     "no focus" 0
+     {
+      PanelWidgetClass ViewToggleBtn_panel {
+       ignorepointer 1
+       color 0 0 0 0
+       size 1 1
+      }
+      ImageWidgetClass ViewToggleBtn_img {
+       ignorepointer 1
+       color 0.925 0.95 0.965 1
+       position 0.25 0.25
+       size 0.5 0.5
+       image0 "set:cui image:Bars"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+      }
+      PanelWidgetClass ViewToggleIndicator {
+       visible 0
+       ignorepointer 1
+       color 0.322 0.612 0.824 1
+       position 0.22 0.9
+       size 0.56 0.055
+      }
+     }
+    }
+    ButtonWidgetClass ContinueBtn {
+     visible 1
+     color 0 0 0 0
+     position 0.825 0.006
+     size 0.023 0.04
+     halign left_ref
+     valign top_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Empty
+     "no focus" 0
+     {
+      PanelWidgetClass ContinueBtn_panel {
+       ignorepointer 1
+       color 0 0 0 0
+       position 0 0
+       size 1 1
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style DayZDefaultPanel
+      }
+      ImageWidgetClass ContinueBtn_img {
+       visible 1
+       ignorepointer 1
+       color 0.925 0.95 0.965 1
+       position 0.25 0.25
+       size 0.5 0.5
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       image0 "set:cui image:Leave"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+      }
+      TextWidgetClass ContinueBtn_label {
+       ignorepointer 1
+       color 0.925 0.95 0.965 1
+       position 0.145 0
+       size 0.78 1
+       halign left_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       text "Вернуться"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+       "text sharpness" 1.05
+       "exact text" 1
+       "exact text size" 24
+       "text halign" left
+       "text valign" center
+      }
+     }
+    }
+    ButtonWidgetClass OptionsBtn {
+     visible 1
+     color 0 0 0 0
+     position 0.85 0.006
+     size 0.023 0.04
+     halign left_ref
+     valign top_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Empty
+     "no focus" 0
+     {
+      PanelWidgetClass OptionsBtn_panel {
+       ignorepointer 1
+       color 0 0 0 0
+       position 0 0
+       size 1 1
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style DayZDefaultPanel
+      }
+      ImageWidgetClass OptionsBtn_img {
+       visible 1
+       ignorepointer 1
+       color 0.925 0.95 0.965 1
+       position 0.25 0.25
+       size 0.5 0.5
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       image0 "set:cui image:Cog"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+      }
+      TextWidgetClass OptionsBtn_label {
+       ignorepointer 1
+       color 0.925 0.95 0.965 1
+       position 0.145 0
+       size 0.78 1
+       halign left_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       text "Настройки"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+       "text sharpness" 1.05
+       "exact text" 1
+       "exact text size" 23
+       "text halign" left
+       "text valign" center
+      }
+     }
+    }
+    ButtonWidgetClass RestartBtn {
+     visible 0
+     color 0 0 0 0
+     position 0.875 0.006
+     size 0.023 0.04
+     halign left_ref
+     valign top_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Empty
+     "no focus" 0
+     {
+      PanelWidgetClass RestartBtn_panel {
+       ignorepointer 1
+       color 0 0 0 0
+       position 0 0
+       size 1 1
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style DayZDefaultPanel
+      }
+      ImageWidgetClass RestartBtn_img {
+       visible 1
+       ignorepointer 1
+       color 0.925 0.95 0.965 1
+       position 0.25 0.25
+       size 0.5 0.5
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       image0 "set:cui image:Book"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+      }
+      TextWidgetClass RestartBtn_label {
+       ignorepointer 1
+       color 0.925 0.95 0.965 1
+       position 0.145 0
+       size 0.78 1
+       halign left_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       text "Правила"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+       "text sharpness" 1.05
+       "exact text" 1
+       "exact text size" 23
+       "text halign" left
+       "text valign" center
+      }
+     }
+    }
+    ButtonWidgetClass respawn_button {
+     visible 0
+     color 0 0 0 0
+     position 0 0.006
+     size 0.17 0.04
+     halign center_ref
+     valign top_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Empty
+     "no focus" 0
+     "text color" 1 1 1 0.784
+     "disabled text color" 1 1 1 0.784
+     {
+      PanelWidgetClass respawn_button_panel {
+       ignorepointer 1
+       color 0 0 0 0
+       position 0 0
+       size 1 1
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style DayZDefaultPanel
+      }
+      PanelWidgetClass respawn_button_border_top {
+       ignorepointer 1
+       color 0.925 0.95 0.965 0.72
+       position 0 0
+       size 1 0.018
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+      PanelWidgetClass respawn_button_border_bottom {
+       ignorepointer 1
+       color 0.925 0.95 0.965 0.52
+       position 0 0.982
+       size 1 0.018
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+      TextWidgetClass respawn_button_label {
+       ignorepointer 1
+       color 0.925 0.95 0.965 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       text "ВОЗРОЖДЕНИЕ"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+       "text sharpness" 1.1
+       "exact text" 1
+        "exact text size" 22
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+    ButtonWidgetClass WebsiteBtn {
+     visible 1
+     color 0 0 0 0
+     position 0.9 0.006
+     size 0.023 0.04
+     halign left_ref
+     valign top_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Empty
+     "no focus" 0
+     {
+      PanelWidgetClass WebsiteBtn_panel {
+       ignorepointer 1
+       color 0 0 0 0
+       position 0 0
+       size 1 1
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style DayZDefaultPanel
+      }
+      ImageWidgetClass WebsiteBtn_img {
+       visible 1
+       ignorepointer 1
+       color 0.925 0.95 0.965 1
+       position 0.25 0.25
+       size 0.5 0.5
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       image0 "set:cui image:Book"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+      }
+      TextWidgetClass WebsiteBtn_label {
+       ignorepointer 1
+       color 0.925 0.95 0.965 1
+       position 0.145 0
+       size 0.78 1
+       halign left_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+         text "Правила"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+       "text sharpness" 1.05
+       "exact text" 1
+       "exact text size" 23
+       "text halign" left
+       "text valign" center
+      }
+     }
+    }
+    ButtonWidgetClass QueueBtn {
+     visible 1
+     color 0 0 0 0
+     position 0.925 0.006
+     size 0.023 0.04
+     halign left_ref
+     valign top_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Empty
+     "no focus" 0
+     {
+      PanelWidgetClass QueueBtn_panel {
+       ignorepointer 1
+       color 0 0 0 0
+       position 0 0
+       size 1 1
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style DayZDefaultPanel
+      }
+      ImageWidgetClass QueueBtn_img {
+       visible 1
+       ignorepointer 1
+       color 0.925 0.95 0.965 1
+       position 0.25 0.25
+       size 0.5 0.5
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       image0 "set:cui image:Home"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+      }
+      TextWidgetClass QueueBtn_label {
+       ignorepointer 1
+       color 0.925 0.95 0.965 1
+       position 0.145 0
+       size 0.78 1
+       halign left_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       text "Магазин"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+       "text sharpness" 1.05
+       "exact text" 1
+       "exact text size" 23
+       "text halign" left
+       "text valign" center
+      }
+     }
+    }
+    ButtonWidgetClass DiscordBtn {
+     visible 1
+     color 0 0 0 0
+     position 0.95 0.006
+     size 0.023 0.04
+     halign left_ref
+     valign top_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Empty
+     "no focus" 0
+     {
+      PanelWidgetClass DiscordBtn_panel {
+       ignorepointer 1
+       color 0 0 0 0
+       position 0 0
+       size 1 1
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style DayZDefaultPanel
+      }
+      ImageWidgetClass DiscordBtn_img {
+       visible 1
+       ignorepointer 1
+       color 0.925 0.95 0.965 1
+       position 0.25 0.25
+       size 0.5 0.5
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       image0 "set:cui image:Discord"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+      }
+      TextWidgetClass DiscordBtn_label {
+       ignorepointer 1
+       color 0.925 0.95 0.965 1
+       position 0.145 0
+       size 0.78 1
+       halign left_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       text "Дискорд"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+       "text sharpness" 1.05
+       "exact text" 1
+       "exact text size" 23
+       "text halign" left
+       "text valign" center
+      }
+     }
+    }
+    ButtonWidgetClass ExitBtn {
+     visible 1
+     color 0 0 0 0
+     position 0.975 0.006
+     size 0.023 0.04
+     halign left_ref
+     valign top_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Empty
+     "no focus" 0
+     {
+      PanelWidgetClass ExitBtn_panel {
+       ignorepointer 1
+       color 0 0 0 0
+       position 0.08 0.08
+       size 0.84 0.84
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style DayZDefaultPanel
+      }
+      ImageWidgetClass ExitBtn_img {
+       ignorepointer 1
+       color 0.925 0.95 0.965 1
+       position 0.25 0.25
+       size 0.5 0.5
+       halign left_ref
+       valign top_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       image0 "set:cui image:Exit"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "stretch mode" stretch_w_h
+      }
+     }
     }
    }
   }

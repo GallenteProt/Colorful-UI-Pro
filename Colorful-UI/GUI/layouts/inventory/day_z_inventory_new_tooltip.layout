@@ -59,7 +59,7 @@ PanelWidgetClass BackPanelWidget {
      priority 1
      style Normal
      text " "
-     font "gui/fonts/sdf_MetronBook24"
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
      "exact text" 1
      "exact text size" 16
      "size to text h" 0
@@ -78,7 +78,7 @@ PanelWidgetClass BackPanelWidget {
      vexactsize 1
      style Normal
      text "#layout_tooltip_damage"
-     font "gui/fonts/sdf_MetronLight24"
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
      "text color" 1 1 1 1
      "text spacing" 2 0
      "exact text" 1
@@ -100,7 +100,7 @@ PanelWidgetClass BackPanelWidget {
      vexactsize 1
      style Normal
      text "#layout_tooltip_quantity"
-     font "gui/fonts/sdf_MetronLight24"
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
      "text color" 1 1 1 1
      "exact text" 1
      "exact text size" 16
@@ -121,7 +121,7 @@ PanelWidgetClass BackPanelWidget {
      vexactsize 1
      style Normal
      text "#layout_tooltip_weight"
-     font "gui/fonts/sdf_MetronLight24"
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
      "text color" 1 1 1 1
      "exact text" 1
      "exact text size" 16
@@ -226,7 +226,7 @@ PanelWidgetClass BackPanelWidget {
            vexactsize 0
            style Normal
            text "#layout_tooltip_wetness"
-           font "gui/fonts/sdf_MetronLight24"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text color" 1 1 1 1
            "text spacing" 2 0
            "exact text" 0
@@ -270,7 +270,7 @@ PanelWidgetClass BackPanelWidget {
            priority 1
            style Normal
            text "#layout_tooltip_temperature"
-           font "gui/fonts/sdf_MetronLight24"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text color" 1 1 1 1
            "exact text" 0
            text_proportion 0.75
@@ -312,7 +312,7 @@ PanelWidgetClass BackPanelWidget {
            priority 1
            style Normal
            text "#layout_tooltip_liquid_type"
-           font "gui/fonts/sdf_MetronLight24"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text color" 1 1 1 1
            "exact text" 0
            text_proportion 0.75
@@ -353,7 +353,7 @@ PanelWidgetClass BackPanelWidget {
            vexactsize 0
            style Normal
            text "#layout_tooltip_food_stage"
-           font "gui/fonts/sdf_MetronLight24"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text color" 1 1 1 1
            "text spacing" 2 0
            "exact text" 0
@@ -395,7 +395,7 @@ PanelWidgetClass BackPanelWidget {
            vexactsize 0
            style Normal
            text "#inv_inspect_cleaned"
-           font "gui/fonts/sdf_MetronLight24"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text color" 1 1 1 1
            "text spacing" 2 0
            "exact text" 0
@@ -420,7 +420,7 @@ PanelWidgetClass BackPanelWidget {
        vexactsize 1
        style DayZNormal
        text "Relatively heavy stone, can be used for enclosure fireplace, or broken into smaller parts."
-       font "gui/fonts/sdf_MetronLight24"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
        "exact text" 1
        "exact text size" 16
        "size to text h" 0

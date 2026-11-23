@@ -124,7 +124,7 @@ FrameWidgetClass character_creation_root {
          vexactsize 0
          style Normal
          text "#layout_character_creation_character"
-         font "gui/fonts/sdf_MetronLight72"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
          "exact text" 0
          "text halign" center
          "text valign" center
@@ -195,7 +195,7 @@ FrameWidgetClass character_creation_root {
                hexactsize 0
                vexactsize 0
                text "#layout_character_creation_name"
-               font "gui/fonts/sdf_MetronLight24"
+               font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                "text offset" 15 0
                "exact text" 0
                "exact text size" 18
@@ -274,7 +274,7 @@ FrameWidgetClass character_creation_root {
                hexactsize 0
                vexactsize 0
                text "#layout_character_creation_gender"
-               font "gui/fonts/sdf_MetronLight24"
+               font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                "text offset" 15 0
                "exact text" 0
                "exact text size" 18
@@ -351,7 +351,7 @@ FrameWidgetClass character_creation_root {
                hexactsize 0
                vexactsize 0
                text "#layout_character_creation_head"
-               font "gui/fonts/sdf_MetronLight24"
+               font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                "text offset" 15 0
                "exact text" 0
                "exact text size" 18
@@ -428,7 +428,7 @@ FrameWidgetClass character_creation_root {
                hexactsize 0
                vexactsize 0
                text "#layout_character_creation_top"
-               font "gui/fonts/sdf_MetronLight24"
+               font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                "text offset" 15 0
                "exact text" 0
                "exact text size" 18
@@ -505,7 +505,7 @@ FrameWidgetClass character_creation_root {
                hexactsize 0
                vexactsize 0
                text "#layout_character_creation_bottom"
-               font "gui/fonts/sdf_MetronLight24"
+               font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                "text offset" 15 0
                "exact text" 0
                "exact text size" 18
@@ -582,7 +582,7 @@ FrameWidgetClass character_creation_root {
                hexactsize 0
                vexactsize 0
                text "#layout_character_creation_shoes"
-               font "gui/fonts/sdf_MetronLight24"
+               font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                "text offset" 15 0
                "exact text" 0
                "exact text size" 18
@@ -651,7 +651,7 @@ FrameWidgetClass character_creation_root {
          vexactsize 0
          style DayZNormal
          text "#layout_character_previously_played_desc"
-         font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
          text_proportion 0.8
          "size to text h" 1
          "size to text v" 0
@@ -733,8 +733,8 @@ FrameWidgetClass character_creation_root {
            hexactsize 0
            vexactsize 0
            scaled 1
-           text "#layout_character_creation_apply"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           text "Apply"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 45
@@ -776,8 +776,8 @@ FrameWidgetClass character_creation_root {
            hexactsize 0
            vexactsize 0
            scaled 1
-           text "#layout_character_creation_save"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           text "Save"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 45
@@ -874,8 +874,8 @@ FrameWidgetClass character_creation_root {
            hexactsize 0
            vexactsize 0
            scaled 1
-           text "#layout_character_creation_randomize"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           text "Randomize Character"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 24
@@ -916,8 +916,8 @@ FrameWidgetClass character_creation_root {
            hexactsize 0
            vexactsize 0
            scaled 1
-           text "#layout_character_creation_back"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           text "Back"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 24
@@ -944,7 +944,7 @@ FrameWidgetClass character_creation_root {
      priority 1
      style Normal
      text "#layout_character_creation_character_creation"
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
      "text color" 0.8157 0.1255 0.7843 1
      "exact text" 0
      "size to text h" 0

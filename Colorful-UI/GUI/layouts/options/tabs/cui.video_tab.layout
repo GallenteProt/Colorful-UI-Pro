@@ -76,7 +76,7 @@ FrameWidgetClass video_tab_root {
            vexactsize 0
            style Normal
            text "#STR_video_tab_root_video_settings_scroll_video_settings_root_screen_settings_root_screen_settings_header_screen_text0"
-           font "gui/fonts/sdf_MetronLight72"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 0
            "text halign" center
            "text valign" center
@@ -144,7 +144,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_screen_settings_root_screen_settings_content_display_mode_setting_container_display_mode_setting_display_mode_setting_panel_display_mode_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -221,7 +221,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_screen_settings_root_screen_settings_content_resolution_setting_container_resolution_setting_resolution_setting_panel_resolution_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -298,7 +298,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#options_video_brightness_label"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -375,7 +375,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_screen_settings_root_screen_settings_content_vsync_setting_container_vsync_setting_vsync_setting_panel_vsync_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -453,7 +453,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_screen_settings_root_screen_settings_content_color_depth_setting_container_color_depth_setting_color_depth_setting_panel_color_depth_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -529,7 +529,7 @@ FrameWidgetClass video_tab_root {
            vexactsize 0
            style Normal
            text "#STR_video_tab_root_video_settings_scroll_video_settings_root_overall_settings_root_overall_settings_header_overall_text0"
-           font "gui/fonts/sdf_MetronLight72"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 0
            "text halign" center
            "text valign" center
@@ -597,7 +597,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_overall_settings_root_overall_settings_content_overall_quality_setting_container_overall_quality_setting_overall_quality_setting_panel_overall_quality_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -673,7 +673,7 @@ FrameWidgetClass video_tab_root {
            vexactsize 0
            style Normal
            text "#STR_video_tab_root_video_settings_scroll_video_settings_root_scene_settings_root_scene_settings_header_scene_text0"
-           font "gui/fonts/sdf_MetronLight72"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 0
            "text halign" center
            "text valign" center
@@ -741,7 +741,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_option_video_visibility"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -818,7 +818,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_option_video_objectvisibility"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -895,7 +895,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_scene_settings_root_scene_settings_content_object_detail_setting_container_object_detail_setting_object_detail_setting_panel_object_detail_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -973,7 +973,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_scene_settings_root_scene_settings_content_terrain_detail_setting_container_terrain_detail_setting_terrain_detail_setting_panel_terrain_detail_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -1050,7 +1050,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_scene_settings_root_scene_settings_content_texture_detail_setting_container_texture_detail_setting_texture_detail_setting_panel_texture_detail_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -1127,7 +1127,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_scene_settings_root_scene_settings_content_shadow_detail_setting_container_shadow_detail_setting_shadow_detail_setting_panel_shadow_detail_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -1203,7 +1203,7 @@ FrameWidgetClass video_tab_root {
            vexactsize 0
            style Normal
            text "#STR_video_tab_root_video_settings_scroll_video_settings_root_rendering_settings_root_rendering_settings_header_rendering_text0"
-           font "gui/fonts/sdf_MetronLight72"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 0
            "text halign" center
            "text valign" center
@@ -1271,7 +1271,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_rendering_settings_root_rendering_settings_content_texture_filtering_setting_container_texture_filtering_setting_texture_filtering_setting_panel_texture_filtering_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -1348,7 +1348,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_rendering_settings_root_rendering_settings_content_terrain_surface_detail_setting_container_terrain_surface_detail_setting_terrain_surface_detail_setting_panel_terrain_surface_detail_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -1425,7 +1425,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_rendering_settings_root_rendering_settings_content_ppaa_setting_container_ppaa_setting_ppaa_setting_panel_ppaa_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -1502,7 +1502,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_rendering_settings_root_rendering_settings_content_hwaa_setting_container_hwaa_setting_hwaa_setting_panel_hwaa_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -1579,7 +1579,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_rendering_settings_root_rendering_settings_content_atoc_setting_container_atoc_setting_atoc_setting_panel_atoc_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -1656,7 +1656,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_rendering_settings_root_rendering_settings_content_ao_setting_container_ao_setting_ao_setting_panel_ao_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -1733,7 +1733,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_video_tab_root_video_settings_scroll_video_settings_root_rendering_settings_root_rendering_settings_content_pp_setting_container_pp_setting_pp_setting_panel_pp_setting_label0"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -1810,7 +1810,7 @@ FrameWidgetClass video_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_option_video_ssr_quality"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18

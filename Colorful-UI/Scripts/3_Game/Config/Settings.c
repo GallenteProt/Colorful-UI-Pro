@@ -1,71 +1,218 @@
 // Constants.c v3.0.0
-static bool StartMainMenu      = false;  // If set to true, the main menu will be forced to show on startup.
-static bool ErrorTestScreen    = false; // If set to true, MainMenu boots into the error/dialog test harness (cui.errortest.layout) instead of the normal main menu. Debug/QA only.
-static bool NoHints			   = false;  // If set to true, the hints will not be shown during load screens.
-static bool UseImagesets       = false;   // If true, hints.json entries with m_ImageSet/m_ImageName load from the registered `backgrounds` imageset; otherwise m_ImagePath is used.
-static bool LoadVideo          = false;  // If set to true, a video will be shown during load screens along with tips.
-static bool ShowGameOverOverlay = true;  // Internal runtime flag toggled by DayZPlayerImplement.ShowDeadScreen() to drive the custom game-over overlay in InGameMenu/Respawn. NOT a user-facing config (it is reset each death).
+static bool StartMainMenu      = true;  // Если true, при запуске принудительно показывается главное меню.
+static bool NoHints			   = false;  // Если true, подсказки не показываются на экранах загрузки.
+static bool UseImagesets       = false;   // Если true, записи hints.json с m_ImageSet/m_ImageName загружаются из зарегистрированного imageset backgrounds; иначе используется m_ImagePath.
+static bool LoadVideo          = false;  // Видео удалены из мода, оставлять false.
 
-static bool AntiNvidia         = false;  // If set to true, the Anti-NVIDIA Inspector captcha will be shown before connecting.
+// Параметры ниже сейчас часто ломаются. Исправление планируется в обновлении 4.0.0.
+static bool EnableMenuVideo    = false;  // Видео удалены из мода, оставлять false.
+static bool EnableOptionsVideo = false;  // Видео удалены из мода, оставлять false.
 
-// FEATURES ---------------------------------------------------------------
-// Turn any Colorful UI feature off by setting it to false. Off means that part of the game stays vanilla.
-static bool CustomLoadingScreens = true;   // Colorful UI loading screens (backgrounds, logo, tips). False = vanilla loading screens.
-static bool MenuMusic            = true;   // Colorful UI main menu music. False = vanilla menu music.
-static bool CustomDeathScreens   = true;   // Colorful UI game over screen. False = vanilla death screen.
-
-// Inventory tools
-static bool InventorySort        = true;   // Sort, stack and Sort all buttons and the sort menu.
-static bool InventoryTransfer    = true;   // TARGET cards, Ctrl+click quick move, transfer arrows and Grab all.
-static bool InventoryHoverMove   = true;   // Hold Ctrl and sweep over items to move them, and its hint under the stamina bar.
-static bool InventorySearch      = true;   // The search button and search bar with category chips.
-static bool InventoryFold        = true;   // Fold and show all buttons, and fold buttons on each card.
-static bool InventoryTooltips    = true;   // Colorful UI item and slot tooltips. False = vanilla tooltips.
-static bool InventoryQuickSlots  = true;   // Colorful UI quick slot bar and quick assign (hover an item, press a number). False = vanilla quick bar.
-
-static bool RoundedInventory   = false;  // If set to true, inventory cards get rounded corners; off, they keep the original game style. Tool buttons are always rounded; quick slots follow RoundedQuickSlots.
-static bool RoundedQuickSlots  = true;   // If set to true, the quick slots use the rounded tile style. If false, they keep the vanilla quick bar look.
-
-// The below tend to break right now. Fix with 4.0.0 Update.
-static bool EnableMenuVideo    = false;  // Background video on main menu (via workspace-rooted CuiBackgroundVideo).
-static bool EnableOptionsVideo = false;  // Background video on options menu (when opened from main menu).
-static bool VideoDeathScreens  = false;  // If set to true, a random game over screen will be shown when the player dies.
-// static bool RandomDeathScreens = false;  // If set to true, a random game over video that will be shown when the player dies.
-
-// Server Information 
-// (Possibly Buggy in the CUI Buttons. Not yet tested on live servers)
-static const string SERVER_IP = "127.0.0.1";
+// Информация о сервере
+// (В кнопках CUI возможны баги. На живых серверах ещё не тестировалось)
+static const string SERVER_IP = "37.230.228.247";
 static const int SERVER_PORT = 2302;
+static const string DIAG_SERVER_IP = "127.0.0.1";
+static const int DIAG_SERVER_PORT = 2302;
 
-// Video Settings (Change them up)
-static const string m_LoadingVideo     = "CUI_Video.mov";  // Video file name for loading screen video. 
-static const string m_MainMenuVideo    = "CUI_Video.mov";  // Video file name for Main Menu screen video. 
-static const string m_OptionsMenuVideo = "CUI_Video.mov";  // Video file name for Options screen video. 
+// Настройки видео (меняйте по своему усмотрению)
+static const string m_LoadingVideo     = "";
+static const string m_MainMenuVideo    = "";
+static const string m_OptionsMenuVideo = "";
 
-// Main Menu Background — picks between imageset sprite and raw .edds
-// based on UseImagesets. Edit either side to repoint.
+static const string CUI_FACTION_PROFILE_DIR = "$profile:Colorful-UI/";
+static const string CUI_FACTION_SAVES_DIR = "$saves:Colorful-UI/";
+static const string CUI_FACTION_BACKGROUND_DIR = "Colorful-UI/GUI/textures/Factions/";
+
+class LonelinessFactionMenuBackgrounds
+{
+	static string ExtractFactionIdFromFileName(string fileName)
+	{
+		int dotIndex = fileName.LastIndexOf(".");
+		if (dotIndex <= 0)
+			return "";
+
+		string extension = fileName.Substring(dotIndex, fileName.Length() - dotIndex);
+		extension.ToLower();
+		if (extension != ".txt")
+			return "";
+
+		return fileName.Substring(0, dotIndex);
+	}
+
+	static string FindFactionIdFromDir(string dirPath)
+	{
+		string foundFileName = "";
+		FileAttr foundFileAttr;
+		FindFileHandle findHandle = FindFile(dirPath + "*.txt", foundFileName, foundFileAttr, 0);
+		if (!findHandle)
+			return "";
+
+		bool foundFile = true;
+		string factionId = "";
+		while (foundFile)
+		{
+			factionId = ExtractFactionIdFromFileName(foundFileName);
+			if (factionId != "")
+			{
+				CloseFindFile(findHandle);
+				return factionId;
+			}
+
+			foundFile = FindNextFile(findHandle, foundFileName, foundFileAttr);
+		}
+
+		CloseFindFile(findHandle);
+
+		return "";
+	}
+
+	static string ReadFactionId()
+	{
+		string savesFactionId = FindFactionIdFromDir(CUI_FACTION_SAVES_DIR);
+		if (savesFactionId != "")
+			return savesFactionId;
+
+		string profileFactionId = FindFactionIdFromDir(CUI_FACTION_PROFILE_DIR);
+		if (profileFactionId != "")
+			return profileFactionId;
+
+		return "";
+	}
+
+	static string GetFactionFindPattern(string factionId)
+	{
+		return CUI_FACTION_BACKGROUND_DIR + factionId + "_*.edds";
+	}
+
+	static string GetFactionBackgroundPath(string foundFileName)
+	{
+		string backgroundFileName = foundFileName;
+
+		int slashIndex = backgroundFileName.LastIndexOf("/");
+		if (slashIndex >= 0)
+			return backgroundFileName;
+
+		return CUI_FACTION_BACKGROUND_DIR + backgroundFileName;
+	}
+}
+
+class LonelinessFactionBackgroundPool
+{
+	static string m_CurrentFactionId;
+	static ref array<string> m_RemainingFactionBackgrounds;
+
+	static void FillPool(string factionId)
+	{
+		if (!m_RemainingFactionBackgrounds)
+			m_RemainingFactionBackgrounds = new array<string>;
+
+		if (m_CurrentFactionId != factionId)
+		{
+			m_CurrentFactionId = factionId;
+			m_RemainingFactionBackgrounds.Clear();
+		}
+
+		if (m_RemainingFactionBackgrounds.Count() > 0)
+			return;
+
+		string foundFileName = "";
+		FileAttr foundFileAttr;
+		string findPattern = LonelinessFactionMenuBackgrounds.GetFactionFindPattern(factionId);
+		FindFileHandle findHandle = FindFile(findPattern, foundFileName, foundFileAttr, 0);
+		if (!findHandle)
+			return;
+
+		bool foundFile = true;
+		while (foundFile)
+		{
+			string factionBackgroundPath = LonelinessFactionMenuBackgrounds.GetFactionBackgroundPath(foundFileName);
+			m_RemainingFactionBackgrounds.Insert(factionBackgroundPath);
+
+			foundFile = FindNextFile(findHandle, foundFileName, foundFileAttr);
+		}
+
+		CloseFindFile(findHandle);
+	}
+
+	static string TakeNextFactionBackground(string factionId)
+	{
+		if (factionId == "")
+			return "";
+
+		FillPool(factionId);
+
+		if (!m_RemainingFactionBackgrounds || m_RemainingFactionBackgrounds.Count() == 0)
+			return "";
+
+		int randomFactionPoolIndex = Math.RandomInt(0, m_RemainingFactionBackgrounds.Count());
+		string factionBackgroundPath = m_RemainingFactionBackgrounds.Get(randomFactionPoolIndex);
+		m_RemainingFactionBackgrounds.RemoveOrdered(randomFactionPoolIndex);
+		return factionBackgroundPath;
+	}
+}
+
+// Фон главного меню: faction-фон при наличии локального id-файла,
+// иначе обычная ротация из шести Loneliness_Loadscreen.
 string GetMainMenuBackground()
 {
-    if (UseImagesets)
-        return "set:backgrounds image:mainmenu";
-    return "Colorful-UI/GUI/textures/LoadScreens/MainMenu.edds";
-}
-// Set Single Game Over Screen ( Death Screen )
-class GameOverScreen
-{
-    static string GameOverScreenImage() { return "Colorful-UI/GUI/textures/DeathScreens/DeathScreen.edds"; };
-};
+	string factionId = LonelinessFactionMenuBackgrounds.ReadFactionId();
+	string factionBackground = LonelinessFactionBackgroundPool.TakeNextFactionBackground(factionId);
+	if (factionBackground != "")
+		return factionBackground;
 
-// Set Your Servers Logo
-// NOTE:  Width and High Settings are not yet implemented here.
-//        Recommended size is 512x512 But you can set the size manually in the layout file for the moment.
+	return GetRandomLonelinessBackground();
+}
+
+class LonelinessBackgroundPool
+{
+	static ref array<int> m_RemainingBackgrounds;
+
+	static void FillPool()
+	{
+		if (!m_RemainingBackgrounds)
+			m_RemainingBackgrounds = new array<int>;
+
+		if (m_RemainingBackgrounds.Count() > 0)
+			return;
+
+		for (int bgPoolIndex = 1; bgPoolIndex <= 6; bgPoolIndex++)
+		{
+			m_RemainingBackgrounds.Insert(bgPoolIndex);
+		}
+	}
+
+	static int TakeNextIndex()
+	{
+		FillPool();
+
+		int randomPoolIndex = Math.RandomInt(0, m_RemainingBackgrounds.Count());
+		int backgroundIndex = m_RemainingBackgrounds.Get(randomPoolIndex);
+		m_RemainingBackgrounds.RemoveOrdered(randomPoolIndex);
+		return backgroundIndex;
+	}
+}
+
+string GetRandomLonelinessBackground()
+{
+    int loadscreenIndex = LonelinessBackgroundPool.TakeNextIndex();
+    return "Colorful-UI/GUI/textures/LoadScreens/Loneliness_Loadscreen_" + loadscreenIndex.ToString() + "_co.paa";
+}
+
+// Фон экранов загрузки (3 фазы + ротационные подсказки) — отдельно от
+// главного меню. Сырой .edds: bg.imageset непригоден (пустой блок Images{}).
+string GetLoadingBackground()
+{
+    return GetRandomLonelinessBackground();
+}
+// Логотип сервера
+// ПРИМЕЧАНИЕ: настройки ширины и высоты здесь пока не реализованы.
+//        Рекомендуемый размер — 512×512; пока размер задаётся вручную в layout-файле.
 class Branding
 {
     static string Logo()
     {
-        if (UseImagesets)
-            return "set:branding image:logo";
-        return "Colorful-UI/GUI/textures/Shared/Colorful UI Logo.edds";
+        return "Colorful-UI/GUI/textures/Shared/Loneliness_Logo.paa";
     }
     static void ApplyLogo(ImageWidget widget)
     {
@@ -75,29 +222,26 @@ class Branding
     }
 };
 
-// Credits screen
-// This must match "DepartmentName" in Colorful-UI/Scripts/Credits.json.
-// The matching department is always drawn first, above every other mod's
-// credits, no matter which order mods load in. Rename it in both places.
-//
-// Basically if you want to put your teams creidts always at the top, just swap this out. 
-static const string CUI_CREDITS_DEPARTMENT = "Colorful-UI";
-
-// Link URLs (Add your own links here)
-// NOTE:  If you do not want to use a button, set the URL to "#" or "".
-//        If you do not set them they will not show up in the layout when compiled.
-//        This way it shows only the buttons you want to use.
+// URL ссылок (добавьте свои ссылки здесь)
+// ПРИМЕЧАНИЕ: если кнопка не нужна, укажите URL «#» или «».
+//        Если не задать — кнопки не появятся в layout после компиляции.
+//        Так отображаются только нужные кнопки.
 
 class CustomURL {
-	static string Website    = "#"; 
+	static string Website    = "https://loneliness-rp.ru/";
 	static string PriorityQ  = "#";
 	static string Custom     = "#";
+	static string Rules      = "#";
+	static string Lore       = "#";
+	static string Shop       = "#";
+	static string MusicAuthor = "https://joemathews.bandcamp.com";
 }
 
 class SocialURL {
-	static string Discord    = "#";
+	static string Discord    = "https://discord.gg/3UNhzu2Re9";
 	static string Facebook   = "#";
 	static string Twitter    = "#";
 	static string Reddit     = "#";
 	static string Youtube    = "#";
 }
+

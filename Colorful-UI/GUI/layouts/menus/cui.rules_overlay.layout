@@ -1,0 +1,278 @@
+FrameWidgetClass CUIRulesOverlayRoot {
+ visible 0
+ clipchildren 1
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ priority 1100
+ {
+  ButtonWidgetClass RulesBackdropButton {
+   color 0 0 0 0.76
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   style Empty
+  }
+  PanelWidgetClass RulesWindowShadow {
+   ignorepointer 1
+   color 0 0 0 0.45
+   position 8 10
+   size 0.70 0.84
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   style DayZDefaultPanel
+  }
+  PanelWidgetClass RulesWindowPanel {
+   clipchildren 1
+   color 0.008 0.02 0.029 0.975
+   position 0 0
+   size 0.70 0.84
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   style DayZDefaultPanel
+   {
+    PanelWidgetClass RulesTopAccent {
+     ignorepointer 1
+     color 0.322 0.612 0.824 1
+     position 0 0
+     size 150 3
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     style DayZDefaultPanel
+    }
+    PanelWidgetClass RulesBorderTop {
+     ignorepointer 1
+     color 0.925 0.95 0.965 0.24
+     position 150 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style DayZDefaultPanel
+    }
+    PanelWidgetClass RulesBorderBottom {
+     ignorepointer 1
+     color 0.925 0.95 0.965 0.24
+     size 1 1
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style DayZDefaultPanel
+    }
+    TextWidgetClass RulesTitleText {
+     ignorepointer 1
+     color 0.925 0.95 0.965 1
+     position 0.04 0.035
+     size 0.80 0.052
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text "Правила проекта"
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+     "text sharpness" 1.05
+     "exact text" 1
+     "exact text size" 31
+     "text halign" left
+     "text valign" center
+    }
+    ButtonWidgetClass RulesCloseButton {
+     color 0 0 0 0
+     position 0.915 0.027
+     size 0.048 0.060
+     halign left_ref
+     valign top_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style Empty
+     {
+      PanelWidgetClass RulesClosePanel {
+       ignorepointer 1
+       color 0.027 0.063 0.094 0.96
+       size 1 1
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style blank
+      }
+      PanelWidgetClass RulesCloseAccent {
+       ignorepointer 1
+       color 0.322 0.612 0.824 1
+       position 0 0
+       size 3 1
+       hexactpos 1
+       vexactpos 0
+       hexactsize 1
+       vexactsize 0
+       style blank
+      }
+      TextWidgetClass RulesCloseText {
+       ignorepointer 1
+       color 0.925 0.95 0.965 0.92
+       size 1 1
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       text "X"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+       "exact text" 1
+       "exact text size" 21
+       "text halign" center
+       "text valign" center
+      }
+     }
+    }
+    PanelWidgetClass RulesSeparator {
+     ignorepointer 1
+     color 0.925 0.95 0.965 0.22
+     position 0.04 0.105
+     size 0.92 1
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 1
+     style DayZDefaultPanel
+    }
+    PanelWidgetClass RulesStatusPanel {
+     ignorepointer 1
+     color 0.051 0.09 0.129 0.72
+     position 0.04 0.122
+     size 0.92 0.046
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style DayZDefaultPanel
+     {
+      PanelWidgetClass RulesStatusDot {
+       ignorepointer 1
+       color 0.322 0.612 0.824 1
+       position 14 0
+       size 4 18
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style DayZDefaultPanel
+      }
+      TextWidgetClass RulesStatusText {
+       ignorepointer 1
+       color 0.925 0.95 0.965 0.72
+       position 28 0
+       size 0.94 1
+       hexactpos 1
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       text ""
+       font "Colorful-UI/GUI/fonts/HudStalker/Arimo-Stalker.fnt"
+       "exact text" 1
+       "exact text size" 15
+       "text halign" left
+       "text valign" center
+      }
+     }
+    }
+    PanelWidgetClass RulesContentSurface {
+     ignorepointer 1
+     color 0.027 0.063 0.094 0.30
+     position 0.04 0.187
+     size 0.92 0.759
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style DayZDefaultPanel
+    }
+    ScrollWidgetClass RulesScroll {
+     clipchildren 1
+     ignorepointer 0
+     position 0.052 0.201
+     size 0.896 0.731
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     "Scrollbar V" 1
+     {
+      PanelWidgetClass RulesContentRoot {
+       clipchildren 1
+       ignorepointer 1
+       color 0 0 0 0
+       position 0 0
+       size 1 300
+       hexactpos 0
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       "no focus" 1
+      }
+     }
+    }
+    PanelWidgetClass RulesScrollSkin {
+     ignorepointer 1
+     color 0.008 0.02 0.029 0.98
+     position 0.939 0.201
+     size 12 0.731
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
+     vexactsize 0
+     style blank
+     {
+      PanelWidgetClass RulesScrollTrack {
+       ignorepointer 1
+       color 0.925 0.95 0.965 0.10
+       position 5 0
+       size 2 1
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 0
+       style blank
+      }
+      PanelWidgetClass RulesScrollThumb {
+       ignorepointer 1
+       color 0.322 0.612 0.824 0.92
+       position 2 0
+       size 8 72
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style blank
+      }
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,6211 @@
+FrameWidgetClass HudFrameWidget {
+ clipchildren 0
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactsize 0
+ vexactsize 0
+ {
+  RichTextWidgetClass DefaultActionWidget {
+   visible 1
+   disabled 0
+   clipchildren 0
+   position 0 0.06
+   size 0.25 0.025
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   priority 5
+   style DayZNormal
+   text "Action"
+   font "gui/fonts/Metron"
+   "bold text" 0
+   "exact text" 0
+   "text halign" center
+   "text valign" center
+   wrap 0
+  }
+  PanelWidgetClass ActionsPanel {
+   visible 0
+   color 1 1 1 0.467
+   size 209 572
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 1
+   vexactsize 1
+   fixaspect fixwidth
+   scriptclass "AutoHeightSpacer"
+   style editor_quad_dark
+   {
+    TextWidgetClass ActionListItem0 {
+     inheritalpha 1
+     position 8 8
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem1 {
+     inheritalpha 1
+     position 8 40
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem2 {
+     inheritalpha 1
+     position 8 72
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem3 {
+     inheritalpha 1
+     position 8 104
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem4 {
+     inheritalpha 1
+     position 8 136
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem5 {
+     inheritalpha 1
+     position 8 168
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem6 {
+     inheritalpha 1
+     position 8 200
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem7 {
+     inheritalpha 1
+     position 8 232
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem8 {
+     inheritalpha 1
+     position 8 264
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem9 {
+     inheritalpha 1
+     position 8 296
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem10 {
+     inheritalpha 1
+     position 8 328
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem11 {
+     inheritalpha 1
+     position 8 360
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem12 {
+     inheritalpha 1
+     position 8 392
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem13 {
+     inheritalpha 1
+     position 8 392
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem14 {
+     inheritalpha 1
+     position 8 424
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem15 {
+     inheritalpha 1
+     position 8 456
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem16 {
+     inheritalpha 1
+     position 8 488
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem17 {
+     inheritalpha 1
+     position 8 520
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem18 {
+     inheritalpha 1
+     position 8 552
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+    TextWidgetClass ActionListItem19 {
+     inheritalpha 1
+     position 8 584
+     size 184 24
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     text "action 1"
+     "exact text" 1
+     "text valign" center
+    }
+   }
+   {
+    ScriptParamsClass {
+     AlignChilds 1
+     Gap 2
+    }
+   }
+  }
+  FrameWidgetClass CrossHairs {
+   visible 1
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   scriptclass "CrossHairSelector"
+   {
+    ImageWidgetClass dot {
+     visible 0
+     inheritalpha 1
+     color 1 1 1 0.784
+     size 0.004 0.004
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     image0 "set:dayz_crosshairs image:dot_4x4"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+    }
+    ImageWidgetClass cross_128x128 {
+     visible 0
+     inheritalpha 1
+     color 1 1 1 0.498
+     position 0 0
+     size 0.12 0.12
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     image0 "set:dayz_crosshairs image:cross_128x128"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     filter 1
+    }
+    ImageWidgetClass crossT_128x128 {
+     visible 0
+     inheritalpha 1
+     color 1 1 1 0.627
+     position 0 0
+     size 0.12 0.12
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     image0 "set:dayz_crosshairs image:crossT_128x128"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     filter 1
+    }
+   }
+  }
+  FrameWidgetClass NotificationFrameWidget {
+   position 0.02 0
+   size 0.22 0.12
+   halign right_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   fixaspect fixwidth
+  }
+  PanelWidgetClass ChatChannelPanel {
+   visible 0
+   position 0 190
+   size 0.35 0.05
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   fixaspect fixwidth
+   style rover_sim_black_2
+   {
+    TextWidgetClass ChatChannelText {
+     clipchildren 0
+     inheritalpha 1
+     size 1 1
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     text "#layout_chat_channel"
+     font "gui/fonts/sdf_MetronLight24"
+     "exact text" 1
+     "exact text size" 26
+     "size to text h" 0
+     "size to text v" 0
+    }
+   }
+  }
+  PanelWidgetClass HudPanel {
+   visible 1
+   clipchildren 0
+   inheritalpha 0
+   position 0 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   {
+    FrameWidgetClass GameStatusIcons {
+     visible 1
+     ignorepointer 1
+     position 3 156.925
+     size 0.059 0.513
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     {
+      ImageWidgetClass HighPingA {
+       visible 0
+       ignorepointer 1
+       ignoregloballv 1
+       color 0.796 0.596 0.192 1
+       position 0 13
+       size 32 32
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:conPing"
+       imageTexture "{C139E49FD0ECAF9E}gui/imagesets/dayz_gui@2x.edds"
+       mode blend
+       "src alpha" 1
+      }
+      ImageWidgetClass HighPingB {
+       visible 0
+       ignorepointer 1
+       ignoregloballv 1
+       color 1 0 0 1
+       position 0 13
+       size 32 32
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:conPing"
+       imageTexture "{C139E49FD0ECAF9E}gui/imagesets/dayz_gui@2x.edds"
+       mode blend
+       "src alpha" 1
+      }
+      ImageWidgetClass LowServerPerfA {
+       visible 0
+       ignorepointer 1
+       ignoregloballv 1
+       color 0.796 0.596 0.192 1
+       position 0 91
+       size 32 32
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:conServer"
+       imageTexture "{C139E49FD0ECAF9E}gui/imagesets/dayz_gui@2x.edds"
+       mode blend
+       "src alpha" 1
+      }
+      ImageWidgetClass LowServerPerfB {
+       visible 0
+       ignorepointer 1
+       ignoregloballv 1
+       color 1 0 0 1
+       position 0 91
+       size 32 32
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:conServer"
+       imageTexture "{C139E49FD0ECAF9E}gui/imagesets/dayz_gui@2x.edds"
+       mode blend
+       "src alpha" 1
+      }
+      ImageWidgetClass ConnectionLost {
+       visible 0
+       ignorepointer 1
+       ignoregloballv 1
+       color 1 0 0 1
+       position 0 52
+       size 32 32
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       image0 "set:dayz_gui image:conLost"
+       imageTexture "{C139E49FD0ECAF9E}gui/imagesets/dayz_gui@2x.edds"
+       mode blend
+       "src alpha" 1
+      }
+     }
+    }
+    WrapSpacerWidgetClass BadgesPanel {
+     visible 1
+     clipchildren 0
+     ignorepointer 1
+     position 200 63.5
+     size 738.5 79
+     halign right_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     priority 100
+     draggable 0
+     scriptclass ""
+     Padding 0
+     Margin 0
+     content_halign right
+     content_valign center
+     {
+      ImageWidgetClass Wetness {
+       visible 1
+       color 0.863 0.863 0.863 1
+       position 0.2 0
+       size 35 35
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       image0 "set:HudStalkerSystem image:iconDrops"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       filter 1
+       nocache 0
+      }
+      ImageWidgetClass Fracture {
+       visible 1
+       clipchildren 1
+       color 0.863 0.863 0.863 1
+       position 0.8 0
+       size 35 35
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       image0 "set:HudStalkerSystem image:iconBone"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       filter 1
+       nocache 0
+      }
+      ImageWidgetClass Stomach {
+       visible 1
+       color 0.863 0.863 0.863 1
+       position 0 0
+       size 35 35
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       image0 "set:HudStalkerSystem image:iconStomach"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       filter 1
+       nocache 0
+      }
+      ImageWidgetClass Sick {
+       visible 1
+       color 0.863 0.863 0.863 1
+       position 0.4 0
+       size 35 35
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       image0 "set:HudStalkerSystem image:iconBacteria"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       filter 1
+       nocache 0
+      }
+      ImageWidgetClass Pills {
+       visible 1
+       clipchildren 1
+       color 0.863 0.863 0.863 1
+       position 0.8 0
+       size 35 35
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       image0 "set:HudStalkerSystem image:iconPill"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       filter 1
+       nocache 0
+      }
+      ImageWidgetClass Poisoned {
+       visible 1
+       clipchildren 1
+       color 0.863 0.863 0.863 1
+       position 0.8 0
+       size 35 35
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       image0 "set:dayz_gui image:iconSkull"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       filter 1
+       nocache 0
+      }
+      ImageWidgetClass Bleeding {
+       visible 1
+       clipchildren 0
+       color 0.863 0.863 0.863 1
+       position 0.8 0
+       size 35 35
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       image0 "set:HudStalkerSystem image:iconBleeding"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       filter 1
+       nocache 0
+       {
+        TextWidgetClass BleedingCount {
+         visible 1
+         position -2 -2
+         size 17 15
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         style Light
+         text "10"
+         font "gui/fonts/sdf_MetronLight24"
+         "outline size" 5
+         "shadow size" 9
+         "italic text" 0
+         "bold text" 1
+         "exact text" 0
+         "text halign" center
+        }
+       }
+      }
+      ImageWidgetClass Shock {
+       visible 1
+       clipchildren 1
+       color 0.863 0.863 0.863 1
+       position 0.8 0
+       size 35 35
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       image0 "set:dayz_gui image:iconShock"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       filter 1
+       nocache 0
+      }
+      ImageWidgetClass InjuredLegs {
+       visible 1
+       clipchildren 1
+       color 0.863 0.863 0.863 1
+       position 0.8 0
+       size 35 35
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       image0 "set:HudStalkerSystem image:iconInjuredLegs0"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       filter 1
+       nocache 0
+      }
+     }
+    }
+    FrameWidgetClass BadgesSpacer {
+     visible 0
+     position 117.175 -33.13
+     size 35 35
+     halign right_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     priority 100
+     {
+      PanelWidgetClass BadgeNotifierDivider {
+       color 1 1 1 0.294
+       position 0 0
+       size 3 19
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style rover_sim_colorable
+      }
+     }
+    }
+    FrameWidgetClass NotifiersPanel {
+     visible 1
+     clipchildren 1
+     position 0 -0.004
+     size 0.348 0.15
+     halign right_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     priority 100
+     draggable 0
+     {
+      PanelWidgetClass Health {
+       clipchildren 1
+       inheritalpha 0
+       position 273.295 12.724
+       size 25 21
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scaled 1
+       fixaspect fixwidth
+       priority 1000
+       draggable 0
+       style blank
+       {
+        ImageWidgetClass IconHealth {
+         visible 1
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 0
+         size 25 21
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         image0 "set:dayz_gui image:iconHealth0"
+         mode blend
+         "src alpha" 1
+         "flip u" 0
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass HealthArrowUp3 {
+         visible 1
+         clipchildren 1
+         color 0.863 0.863 0.863 1
+         position 0 0
+         size 22 18
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp3"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass HealthArrowUp2 {
+         visible 1
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 0
+         size 22 13
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp2"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass HealthArrowUp1 {
+         visible 1
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 0
+         size 22 7
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp1"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass HealthArrowDown1 {
+         visible 0
+         clipchildren 1
+         color 0.863 0.863 0.863 1
+         position 0 0
+         size 22 7
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp1"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass HealthArrowDown2 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 0
+         size 22 13
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp2"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass HealthArrowDown3 {
+         visible 1
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 0
+         size 22 18
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp3"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+       }
+      }
+      PanelWidgetClass Blood {
+       visible 1
+       clipchildren 1
+       inheritalpha 0
+       position 261.105 31.574
+       size 0.152 25.092
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       scaled 1
+       fixaspect fixwidth
+       priority 4
+       style blank
+       {
+        ImageWidgetClass IconBlood {
+         visible 1
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 4.056 1.632
+         size 25 21
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         image0 "set:dayz_gui image:iconBlood0"
+         mode blend
+         "src alpha" 1
+         "flip u" 0
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass BloodArrowUp3 {
+         visible 1
+         clipchildren 1
+         color 0.863 0.863 0.863 1
+         position 4.056 1.632
+         size 22 18
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp3"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass BloodArrowUp2 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 4.056 1.632
+         size 22 13
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp2"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass BloodArrowUp1 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 4.056 1.632
+         size 22 7
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp1"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass BloodArrowDown1 {
+         visible 0
+         clipchildren 1
+         color 0.863 0.863 0.863 1
+         position 4.056 1.632
+         size 22 7
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp1"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass BloodArrowDown2 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 4.056 1.632
+         size 22 13
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp2"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass BloodArrowDown3 {
+         visible 1
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 4.056 2.632
+         size 22 19
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp3"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+        TextWidgetClass BloodType {
+         visible 1
+         clipchildren 0
+         color 0.863 0.863 0.863 1
+         position 5 2
+         size 17 12
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 2
+         text "AB"
+         font "gui/fonts/sdf_MetronLight24"
+         "text halign" center
+        }
+        TextWidgetClass BloodPosType {
+         visible 1
+         clipchildren 0
+         color 0.863 0.863 0.863 1
+         position 5 2
+         size 17 12
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text "+"
+         font "gui/fonts/sdf_MetronLight24"
+         "text halign" center
+        }
+       }
+      }
+      PanelWidgetClass NotifierDivider {
+       visible 0
+       color 1 1 1 0.294
+       position 86.803 -10.528
+       size 3 19
+       halign right_ref
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style rover_sim_colorable
+      }
+      PanelWidgetClass Temperature {
+       clipchildren 0
+       inheritalpha 0
+       position 76.298 -26.5
+       size 49.027 81
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       style blank
+       {
+        ImageWidgetClass IconTemperature {
+         clipchildren 0
+         color 0.863 0.863 0.863 1
+         position 1.2 0
+         size 35 35
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         image0 "set:HudStalkerSystem image:iconTemperature4"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip u" 0
+         "flip v" 0
+         filter 1
+         nocache 0
+         {
+          TextWidgetClass TemperatureValueTop {
+           visible 1
+           color 0.863 0.863 0.863 1
+           position 22 -1
+           size 40 12
+           halign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           font "gui/fonts/sdf_MetronLight24"
+           "size to text h" 1
+           "text halign" center
+          }
+          TextWidgetClass TemperatureValueBottom {
+           visible 1
+           color 0.863 0.863 0.863 1
+           position 22 -1
+           size 40 12
+           halign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           font "gui/fonts/sdf_MetronLight24"
+           "size to text h" 1
+           "text halign" center
+          }
+          ImageWidgetClass HeatBuffer3 {
+           visible 0
+           color 0.863 0.863 0.863 0
+           position 29 -2
+           size 13 13
+           halign right_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           image0 "set:dayz_gui image:iconHeatBuffer"
+           mode blend
+           "src alpha" 1
+           "clamp mode" clamp
+          }
+          ImageWidgetClass HeatBuffer2 {
+           visible 0
+           color 0.863 0.863 0.863 0
+           position 29 11
+           size 13 13
+           halign right_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           image0 "set:dayz_gui image:iconHeatBuffer"
+           mode blend
+           "src alpha" 1
+           "clamp mode" clamp
+          }
+          ImageWidgetClass HeatBuffer1 {
+           visible 0
+           color 0.863 0.863 0.863 0
+           position 29 24
+           size 13 13
+           halign right_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           image0 "set:dayz_gui image:iconHeatBuffer"
+           mode blend
+           "src alpha" 1
+           "clamp mode" clamp
+          }
+         }
+        }
+        ImageWidgetClass TemperatureArrowUp3 {
+         visible 1
+         clipchildren 1
+         color 0.863 0.863 0.863 1
+         position 0 -27
+         size 22 17
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp3"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass TemperatureArrowUp2 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 -25
+         size 22 12
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp2"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass TemperatureArrowUp1 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 -22
+         size 22 7
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp1"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass TemperatureArrowDown1 {
+         visible 0
+         clipchildren 1
+         color 0.863 0.863 0.863 1
+         position 0 -22
+         size 22 7
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp1"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass TemperatureArrowDown2 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 -25
+         size 22 12
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp2"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass TemperatureArrowDown3 {
+         visible 1
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 -27
+         size 22 17
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp3"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+       }
+      }
+      PanelWidgetClass Hungry {
+       clipchildren 1
+       inheritalpha 0
+       position 127.324 -26.5
+       size 35 81
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       style blank
+       {
+        ImageWidgetClass IconHungry {
+         color 0.863 0.863 0.863 1
+         position 0 0
+         size 35 35
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         image0 "set:HudStalkerSystem image:iconHungry0"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip u" 0
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass HungryArrowUp3 {
+         visible 1
+         clipchildren 0
+         color 0.863 0.863 0.863 1
+         position 0 -27
+         size 22 17
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp3"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass HungryArrowUp2 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 -25
+         size 22 12
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp2"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass HungryArrowUp1 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 -22
+         size 22 7
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp1"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass HungryArrowDown1 {
+         visible 0
+         clipchildren 1
+         color 0.863 0.863 0.863 1
+         position 0 -22
+         size 22 7
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp1"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass HungryArrowDown2 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 -25
+         size 22 12
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp2"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass HungryArrowDown3 {
+         visible 1
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 -27
+         size 22 17
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp3"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+       }
+      }
+      PanelWidgetClass Thirsty {
+       clipchildren 1
+       inheritalpha 0
+       position 164.327 -26.5
+       size 35 81
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scaled 1
+       fixaspect fixwidth
+       style blank
+       {
+        ImageWidgetClass IconThirsty {
+         color 0.863 0.863 0.863 1
+         position 0 0
+         size 35 35
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         image0 "set:HudStalkerSystem image:iconThirsty0"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip u" 0
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass ThirstyArrowUp3 {
+         visible 1
+         clipchildren 1
+         color 0.863 0.863 0.863 1
+         position 0 -27
+         size 22 17
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp3"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass ThirstyArrowUp2 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 -25
+         size 22 12
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp2"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass ThirstyArrowUp1 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 -22
+         size 22 7
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp1"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass ThirstyArrowDown1 {
+         visible 0
+         clipchildren 1
+         color 0.863 0.863 0.863 1
+         position 0 -22
+         size 22 7
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp1"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass ThirstyArrowDown2 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 -25
+         size 22 12
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp2"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass ThirstyArrowDown3 {
+         visible 1
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 -27
+         size 22 17
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:HudStalkerSystem image:iconArrowUp3"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+       }
+      }
+      PanelWidgetClass Bacteria {
+       visible 0
+       clipchildren 1
+       inheritalpha 0
+       position 225.546 7.376
+       size 35 81
+       halign right_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       style blank
+       {
+        ImageWidgetClass IconBacteria {
+         color 0.863 0.863 0.863 1
+         position 0 0
+         size 35 35
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         image0 "set:dayz_gui image:iconBacteria"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip u" 0
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass BacteriaArrowUp3 {
+         visible 1
+         clipchildren 1
+         color 0.863 0.863 0.863 1
+         position 0 -27
+         size 22 17
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:dayz_gui image:iconArrowUp3"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass BacteriaArrowUp2 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 -25
+         size 22 12
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:dayz_gui image:iconArrowUp2"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass BacteriaArrowUp1 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 -22
+         size 22 7
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:dayz_gui image:iconArrowUp1"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 1
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass BacteriaArrowDown1 {
+         visible 0
+         clipchildren 1
+         color 0.863 0.863 0.863 1
+         position 0 22
+         size 22 7
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:dayz_gui image:iconArrowUp1"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass BacteriaArrowDown2 {
+         visible 0
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 25
+         size 22 12
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:dayz_gui image:iconArrowUp2"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass BacteriaArrowDown3 {
+         visible 1
+         clipchildren 1
+         inheritalpha 0
+         color 0.863 0.863 0.863 1
+         position 0 27
+         size 22 17
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 999
+         image0 "set:dayz_gui image:iconArrowUp3"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+       }
+      }
+      FrameWidgetClass CustomStalkerPanel {
+       visible 1
+       clipchildren 0
+       ignorepointer 0
+       position 0 0.04
+       size 2.078 0.778
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       fixaspect fixwidth
+       {
+        ImageWidgetClass StalkerPanel {
+         visible 0
+         ignorepointer 1
+         position 0 0
+         size 0.932 0.785
+         halign right_ref
+         valign bottom_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 3
+         image0 "set:HudStalkerSystem image:iconUIMain"
+         mode blend
+         "src alpha" 1
+         "stretch mode" invalid
+        }
+        ImageWidgetClass PanelBackground {
+         visible 0
+         ignorepointer 1
+         color 0.318 0.318 0.318 1
+         position 0.319 0.192
+         size 0.506 0.328
+         halign right_ref
+         valign bottom_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         priority 1
+        }
+        PanelWidgetClass PlayerPanel {
+         visible 1
+         clipchildren 1
+         position 61.725 23.908
+         size 165.995 6
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         priority 2
+         style blank
+         "next left" "StancePanel"
+         {
+          ProgressBarWidgetClass StaminaBar {
+           visible 1
+           color 0 0.502 0.502 1
+           position 0 0
+           size 1 6
+           halign right_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           fixaspect fixwidth
+           priority 2
+           style Default
+           current 200
+           vertical 0
+           flipped 1
+          }
+          PanelWidgetClass StaminaBackground {
+           visible 0
+           color 0 0 0 0.502
+           position 0 0
+           size 1 5
+           halign right_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           style rover_sim_colorable
+          }
+         }
+        }
+        ProgressBarWidgetClass HPBar {
+         visible 1
+         ignorepointer 1
+         color 0.561 0.016 0 1
+         position 0.32 0.42
+         size 1.32 0.1
+         halign right_ref
+         valign bottom_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         scaled 1
+         fixaspect fixwidth
+         priority 2
+         style Quantity
+         vertical 0
+         flipped 1
+        }
+        ProgressBarWidgetClass BloodBar {
+         visible 1
+         ignorepointer 1
+         color 0.361 0 0 1
+         position 0.32 0.27
+         size 1.32 0.1
+         halign right_ref
+         valign bottom_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         fixaspect fixwidth
+         priority 2
+         style Stamina
+         current 100
+         vertical 0
+         flipped 1
+        }
+        PanelWidgetClass Radiation {
+         visible 0
+         clipchildren 0
+         ignorepointer 1
+         position 1.442 -2.1
+         size 0.656 0.682
+         halign right_ref
+         valign bottom_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         fixaspect fixwidth
+         {
+          ImageWidgetClass RadPoint {
+           visible 1
+           ignorepointer 1
+           color 0.502 0 0 1
+           position 32.967 -6.973
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint1 {
+           visible 1
+           ignorepointer 1
+           color 0.502 0 0 1
+           position 38.894 -2.008
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint2 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 43.45 1.134
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint3 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 48.938 4.473
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint4 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 53.503 7.92
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint5 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 56.228 14.732
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint6 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 58.069 18.676
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint7 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 58.59 25.296
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint8 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 58.069 30.812
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint9 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 54.025 38.534
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint10 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 51.807 43.361
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint11 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 48.448 53.053
+           size 0.236 0.206
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint12 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 42.676 57.013
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint13 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 33.415 55.082
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint14 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 27.717 59.386
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint15 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 22.192 57.667
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint16 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 16.979 53.565
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint17 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 12.283 53.427
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint18 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 7.577 47.194
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint19 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 4.848 44.326
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint20 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 2.37 35.776
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint21 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 0.935 31.087
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint22 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 2.761 26.812
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint23 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 2.761 19.366
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint24 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 3.935 13.712
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint25 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 6.935 7.644
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint26 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 11.114 2.829
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint27 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 16.718 -0.078
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint28 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 21.414 -2.698
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+          ImageWidgetClass RadPoint29 {
+           visible 1
+           ignorepointer 1
+           color 0.106 0.161 0.063 1
+           position 22.979 -3.456
+           size 0.262 0.239
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+          }
+         }
+        }
+        FrameWidgetClass GasMask {
+         visible 0
+         ignorepointer 1
+         position 0.917 0.162
+         size 0.207 0.853
+         halign right_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         {
+          ImageWidgetClass IconGasMask {
+           visible 1
+           ignorepointer 1
+           position 0 -0.09
+           size 0.71 0.5
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           imageTexture "{157F4DB0759E30AE}Colorful-UI/GUI/textures/HudStalker/gasmasks.edds"
+           mode blend
+           "src alpha" 1
+           "stretch mode" stretch_w_h
+          }
+          TextWidgetClass TextGasMask {
+           visible 1
+           ignorepointer 1
+           position 0 0.29
+           size 0.8 0.229
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           text "100%"
+           "text halign" center
+           "text valign" center
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+    TextWidgetClass Zeroing {
+     color 1 1 1 0.784
+     position 0.06 0.03
+     size 0.117 0.016
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     style Bold
+     font "gui/fonts/Metron"
+     "bold text" 0
+     "exact text" 0
+     "text valign" center
+    }
+    TextWidgetClass WeaponMode {
+     color 1 1 1 0.784
+     position -0.06 0.03
+     size 0.117 0.016
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     style Bold
+     font "gui/fonts/Metron"
+     "bold text" 0
+     "text halign" right
+     "text valign" center
+    }
+    PanelWidgetClass WeaponStats {
+     visible 0
+     color 0.267 0.267 0.267 0.686
+     position 0.008 0.01
+     size 0.22 0.047
+     halign right_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     style rover_sim_colorable
+     {
+      TextWidgetClass ZeroingOld {
+       position 0.022 0.463
+       size 0.198 0.252
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       font "gui/fonts/Metron14"
+      }
+      TextWidgetClass MagazineName {
+       position 0.247 0.463
+       size 0.629 0.252
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       font "gui/fonts/Metron14"
+       "text halign" right
+      }
+      TextWidgetClass WeaponName {
+       position 0.62 0.126
+       size 0.359 0.252
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       font "gui/fonts/Metron14"
+       "text halign" right
+      }
+     }
+    }
+    PanelWidgetClass CursorIcons {
+     visible 1
+     position 0 0
+     size 0.03 0.03
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     {
+      ImageWidgetClass Cursor {
+       visible 0
+       position 0 0
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       image0 ""
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       filter 1
+       nocache 0
+      }
+     }
+    }
+    PanelWidgetClass WalkieTalkie {
+     visible 0
+     clipchildren 0
+     position 305 100
+     size 0.118 0.042
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     scriptclass ""
+     {
+      PanelWidgetClass Wrapper {
+       visible 1
+       clipchildren 0
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       scriptclass ""
+       {
+        ImageWidgetClass Icon {
+         clipchildren 1
+         keepsafezone 0
+         position 0 0
+         size 0.291 0.952
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         image0 "set:dayz_gui image:walkie_talkie"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip u" 0
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+        TextWidgetClass Text {
+         clipchildren 0
+         keepsafezone 0
+         position 0.37 0
+         size 0.598 0.693
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         text "0"
+         font "gui/fonts/Metron"
+         "exact text" 0
+         "text valign" center
+        }
+       }
+      }
+     }
+    }
+    FrameWidgetClass ContinuousActionProgress {
+     visible 1
+     clipchildren 1
+     ignorepointer 1
+     position 0 0
+     size 48 48
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     draggable 0
+     scriptclass "ContinuousActionProgress"
+     {
+      PanelWidgetClass PBRadial1 {
+       visible 1
+       clipchildren 1
+       position 0 0
+       size 48 48
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scriptclass "RadialProgressBar"
+       {
+        ImageWidgetClass Background_PBRadial1 {
+         visible 1
+         clipchildren 0
+         inheritalpha 0
+         color 1 1 1 0.1961
+         position 0 0
+         size 48 48
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 100
+         scriptclass ""
+         image0 "set:dayz_gui image:continuous_action_mouse"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+         filter 1
+        }
+        ImageWidgetClass BarPart2_PBRadial1 {
+         visible 0
+         clipchildren 0
+         inheritalpha 0
+         position 0 0
+         size 48 48
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 100
+         scriptclass ""
+         image0 "set:dayz_gui image:continuous_action_mouse_half"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+        }
+        PanelWidgetClass BarHider_PBRadial1 {
+         visible 1
+         clipchildren 1
+         color 0 0 0 1
+         position 12 0
+         size 24 48
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         priority 99
+         style blank
+         {
+          ImageWidgetClass BarPart1_PBRadial1 {
+           visible 0
+           clipchildren 0
+           inheritalpha 0
+           position -12 0
+           size 48 48
+           halign center_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           priority 50
+           scriptclass ""
+           image0 "set:dayz_gui image:continuous_action_mouse_half"
+           mode blend
+           "src alpha" 1
+           "clamp mode" clamp
+           "stretch mode" stretch_w_h
+           filter 1
+           rotation 0 0 180
+          }
+         }
+        }
+       }
+       {
+        ScriptParamsClass {
+         start_rotation 180
+        }
+       }
+      }
+      ImageWidgetClass cap_init_loader {
+       visible 1
+       disabled 0
+       clipchildren 1
+       inheritalpha 0
+       ignorepointer 0
+       keepsafezone 0
+       color 0.8784 0.8784 0.8784 1
+       position 0 0
+       size 48 48
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scriptclass ""
+       image0 "set:dayz_gui image:continuous_action_mouse_part"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "flip u" 0
+       "flip v" 0
+       filter 1
+       nocache 0
+      }
+     }
+    }
+    ImageWidgetClass PermanentCrossHair {
+     visible 0
+     color 1 0 0 1
+     size 0.032 0.032
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     image0 "set:dayz_crosshairs image:cross_32x32"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     filter 1
+    }
+    ImageWidgetClass ProjectedCrossHair {
+     visible 0
+     disabled 0
+     clipchildren 1
+     inheritalpha 0
+     ignorepointer 0
+     keepsafezone 0
+     color 1 0 0 1
+     size 0.024 0.024
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     draggable 0
+     scriptclass "ProjectedCrosshair"
+     image0 ""
+     imageTexture "{0824EF46ED4B1CCD}gui/textures/dz_inv_x_ca.edds"
+     mode blend
+     "src alpha" 1
+     "stretch mode" stretch_w_h
+     "flip u" 0
+     "flip v" 0
+     filter 1
+     nocache 0
+    }
+    GridSpacerWidgetClass ActionTargetsCursorWidget {
+     visible 1
+     clipchildren 0
+     inheritalpha 0
+     ignorepointer 1
+     position 316 65
+     size 350 166
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     scaled 1
+     fixaspect fixwidth
+     draggable 0
+     scriptclass "ActionTargetsCursor"
+     Padding 0
+     Margin 0
+     "Size To Content H" 1
+     "Size To Content V" 1
+     Columns 1
+     {
+      ImageWidgetClass item {
+       visible 1
+       clipchildren 0
+       inheritalpha 0
+       color 0.314 0.314 0.314 0
+       position 0 0
+       size 348 40
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scaled 1
+       scriptclass ""
+       imageTexture "{E262CF82FD5DFF31}gui/textures/linear_gradient.edds"
+       mode blend
+       "src alpha" 1
+       "stretch mode" stretch_w_h
+       {
+        ImageWidgetClass item_flag_icon {
+         visible 0
+         clipchildren 1
+         position 50 0
+         size 16 16
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         image0 "set:dayz_gui image:icon_flag"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         filter 1
+         nocache 0
+        }
+        GridSpacerWidgetClass item_left {
+         clipchildren 1
+         inheritalpha 0
+         position 0 0
+         size 60 30
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         scriptclass ""
+         Padding 0
+         Margin 0
+         "Size To Content H" 1
+         "Size To Content V" 1
+         Columns 1
+         Rows 2
+         {
+          ContentWidgetClass item_status_wrapper {
+           visible 1
+           inheritalpha 0
+           size 60 10
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass item_health_mark {
+             visible 1
+             clipchildren 1
+             inheritalpha 0
+             color 1 1 1 0.498
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             image0 "set:dayz_gui image:circle"
+             mode blend
+             "src alpha" 1
+             "clamp mode" clamp
+             filter 1
+             nocache 0
+            }
+           }
+          }
+          ContentWidgetClass item_quantity_wrapper {
+           visible 1
+           clipchildren 1
+           inheritalpha 0
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           {
+            ProgressBarWidgetClass item_quantity_pb {
+             visible 1
+             inheritalpha 0
+             size 36 4
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             style Quantity
+             "no focus" 0
+             vertical 0
+             flipped 0
+            }
+            TextWidgetClass item_quantity_text {
+             visible 0
+             disabled 0
+             clipchildren 1
+             inheritalpha 0
+             size 36 16
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             style None
+             text "10/30"
+             font "gui/fonts/sdf_MetronBook24"
+             "shadow size" 3
+             "shadow offset" 2 2
+             "italic text" 0
+             "bold text" 0
+             "exact text" 1
+             "exact text size" 14
+             "size to text h" 1
+             "size to text v" 1
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass item_right {
+         clipchildren 0
+         inheritalpha 0
+         position 60 0
+         size 290 40
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         {
+          ImageWidgetClass ImageWidget14 {
+           ignorepointer 1
+           color 0 0 0 0.475
+           position 0 0
+           size 1 1
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           imageTexture "{B138F88DFB943FCE}Colorful-UI/GUI/textures/HudStalker/8.edds"
+           mode blend
+           "src alpha" 1
+           "stretch mode" stretch_w_h
+          }
+          ImageWidgetClass ImageWidget15 {
+           visible 1
+           ignorepointer 1
+           color 0 1 0.035 1
+           position -0.491 0
+           size 0.01 1
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           mode blend
+           "src alpha" 1
+           "stretch mode" stretch_w_h
+          }
+          TextWidgetClass item_desc {
+           visible 1
+           disabled 0
+           clipchildren 0
+           inheritalpha 0
+           ignorepointer 0
+           keepsafezone 0
+           position 10 0
+           size 270 16
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           style Normal
+           text "#layout_hud_action_target_description"
+           font "Colorful-UI/GUI/fonts/HudStalker/Arimo-Stalker"
+           "shadow size" 3
+           "shadow color" 0 0 0 1
+           "italic text" 0
+           "bold text" 0
+           "exact text" 0
+           "text valign" center
+          }
+         }
+        }
+       }
+      }
+      ImageWidgetClass interact {
+       visible 1
+       clipchildren 0
+       inheritalpha 0
+       ignorepointer 0
+       keepsafezone 0
+       color 0.314 0.314 0.314 0
+       position 0 0
+       size 350 40
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scaled 1
+       scriptclass ""
+       imageTexture "{E262CF82FD5DFF31}gui/textures/linear_gradient.edds"
+       mode blend
+       "src alpha" 1
+       "stretch mode" stretch_w_h
+       {
+        ContentWidgetClass interact_left {
+         inheritalpha 0
+         position 0 0
+         size 60 40
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         {
+          PanelWidgetClass interact_mlt_wrapper {
+           visible 1
+           inheritalpha 0
+           position 3 0
+           size 8 16
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass interact_mtl_up {
+             inheritalpha 0
+             position 0 -5
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode blend
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip v" 1
+            }
+            ImageWidgetClass interact_mtl_down {
+             inheritalpha 0
+             position 0 5
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode additive
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip u" 0
+             "flip v" 0
+            }
+           }
+          }
+          RichTextWidgetClass interact_btn_icon_xbox {
+           visible 0
+           clipchildren 1
+           inheritalpha 0
+           position 0 0
+           size 32 32
+           halign center_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           fixaspect inside
+           scriptclass ""
+           text "interact_btn_icon_xboxData"
+           font "gui/fonts/sdf_MetronBook24"
+           "exact text" 1
+           "exact text size" 24
+           "size to text h" 1
+           "size to text v" 1
+           "text valign" center
+          }
+          PanelWidgetClass interact_btn_icon {
+           position 0 0
+           size 60 40
+           halign center_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass interact_icon_frame {
+             visible 1
+             clipchildren 1
+             inheritalpha 0
+             position 0 0
+             size 40 40
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             fixaspect inside
+             image0 "set:dayz_gui image:key_icon"
+             mode blend
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip u" 0
+             "flip v" 0
+             filter 1
+             nocache 0
+            }
+            TextWidgetClass interact_btn_text {
+             visible 1
+             disabled 0
+             clipchildren 1
+             inheritalpha 0
+             ignorepointer 0
+             keepsafezone 0
+             size 22 22
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             style Normal
+             text "F"
+             font "gui/fonts/sdf_MetronBook72"
+             "outline size" 1
+             "shadow size" 3
+             "shadow offset" 2 2
+             "bold text" 1
+             "exact text" 0
+             "text halign" center
+             "text valign" center
+            }
+            ImageWidgetClass interact_btn_inner_icon {
+             visible 0
+             clipchildren 1
+             inheritalpha 0
+             size 22 22
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             image0 "set:dayz_gui image:gear"
+             mode additive
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip u" 0
+             "flip v" 0
+             nocache 0
+            }
+           }
+          }
+          PanelWidgetClass interact_mlt_wrapper_not_select {
+           visible 1
+           inheritalpha 0
+           position 2.855 -0.436
+           size 8 16
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass interact_mtl_up_not_select {
+             inheritalpha 0
+             position -0.436 -2.529
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode blend
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip v" 1
+            }
+            ImageWidgetClass interact_mtl_down_not_select {
+             inheritalpha 0
+             position 0 1.657
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode additive
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip u" 0
+             "flip v" 0
+            }
+           }
+          }
+         }
+        }
+        ContentWidgetClass interact_right {
+         clipchildren 0
+         inheritalpha 0
+         position 60 0
+         size 290 40
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         {
+          ImageWidgetClass ImageWidget16 {
+           ignorepointer 1
+           color 0 0 0 0.475
+           position 0 0
+           size 1 1
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           imageTexture "{B138F88DFB943FCE}Colorful-UI/GUI/textures/HudStalker/8.edds"
+           mode blend
+           "src alpha" 1
+           "stretch mode" stretch_w_h
+          }
+          ImageWidgetClass ImageWidget17 {
+           visible 1
+           ignorepointer 1
+           color 1 0.765 0 1
+           position -0.491 0
+           size 0.01 1
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           mode blend
+           "src alpha" 1
+           "stretch mode" stretch_w_h
+          }
+          TextWidgetClass interact_action_name {
+           visible 1
+           disabled 0
+           clipchildren 0
+           inheritalpha 0
+           ignorepointer 0
+           keepsafezone 0
+           position 10 0
+           size 270 16
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           style None
+           text "#layout_hud_action_target_interact"
+           font "Colorful-UI/GUI/fonts/HudStalker/Arimo-Stalker"
+           "shadow size" 3
+           "shadow color" 0 0 0 1
+           "shadow offset" 2 2
+           "italic text" 0
+           "bold text" 0
+           "exact text" 0
+           "text valign" center
+          }
+         }
+        }
+       }
+      }
+      ImageWidgetClass continuous_interact {
+       visible 1
+       clipchildren 0
+       inheritalpha 0
+       ignorepointer 0
+       keepsafezone 0
+       color 0.314 0.314 0.314 0
+       position 0 0
+       size 350 40
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scaled 1
+       scriptclass ""
+       imageTexture "{E262CF82FD5DFF31}gui/textures/linear_gradient.edds"
+       mode blend
+       "src alpha" 1
+       "stretch mode" stretch_w_h
+       {
+        ContentWidgetClass continuous_interact_left {
+         inheritalpha 0
+         position 0 0
+         size 60 40
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         {
+          PanelWidgetClass continuous_interact_mlt_wrapper {
+           visible 0
+           inheritalpha 0
+           position 3 0
+           size 8 16
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass continuous_interact_mtl_up {
+             inheritalpha 0
+             position 0 -5
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode blend
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip v" 1
+            }
+            ImageWidgetClass continuous_interact_mtl_down {
+             inheritalpha 0
+             position 0 5
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode additive
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip u" 0
+             "flip v" 0
+            }
+           }
+          }
+          RichTextWidgetClass continuous_interact_btn_icon_xbox {
+           visible 0
+           clipchildren 1
+           inheritalpha 0
+           position 0 0
+           size 32 32
+           halign center_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           fixaspect inside
+           scriptclass ""
+           text "continuous_interact_btn_icon_xboxData"
+           font "gui/fonts/sdf_MetronBook24"
+           "exact text" 1
+           "exact text size" 24
+           "size to text h" 1
+           "size to text v" 1
+           "text valign" center
+          }
+          PanelWidgetClass continuous_interact_btn_icon {
+           position 0 0
+           size 60 40
+           halign center_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass continuous_interact_icon_frame {
+             visible 1
+             clipchildren 1
+             inheritalpha 0
+             position 0 0
+             size 40 40
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             fixaspect inside
+             image0 "set:dayz_gui image:key_icon"
+             mode blend
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip u" 0
+             "flip v" 0
+             filter 1
+             nocache 0
+            }
+            TextWidgetClass continuous_interact_btn_text {
+             visible 1
+             disabled 0
+             clipchildren 1
+             inheritalpha 0
+             ignorepointer 0
+             keepsafezone 0
+             size 22 22
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             style Normal
+             text "F"
+             font "gui/fonts/sdf_MetronBook72"
+             "outline size" 1
+             "shadow size" 3
+             "shadow offset" 2 2
+             "bold text" 1
+             "exact text" 0
+             "text halign" center
+             "text valign" center
+            }
+            ImageWidgetClass continuous_interact_btn_inner_icon {
+             visible 0
+             clipchildren 1
+             inheritalpha 0
+             size 22 22
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             image0 "set:dayz_gui image:gear"
+             mode additive
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip u" 0
+             "flip v" 0
+             nocache 0
+            }
+           }
+          }
+          PanelWidgetClass continuous_interact_mlt_wrapper_not_select {
+           visible 1
+           inheritalpha 0
+           position 2.855 -0.436
+           size 8 16
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass continuous_interact_mtl_up_not_select {
+             inheritalpha 0
+             position -0.436 -2.529
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode blend
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip v" 1
+            }
+            ImageWidgetClass continuous_interact_mtl_down_not_select {
+             inheritalpha 0
+             position 0 1.657
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode additive
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip u" 0
+             "flip v" 0
+            }
+           }
+          }
+         }
+        }
+        ContentWidgetClass continuous_interact_right {
+         clipchildren 0
+         inheritalpha 0
+         position 60 0
+         size 290 40
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         {
+          ImageWidgetClass ImageWidget18 {
+           ignorepointer 1
+           color 0 0 0 0.475
+           position 0 0
+           size 1 1
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           imageTexture "{B138F88DFB943FCE}Colorful-UI/GUI/textures/HudStalker/8.edds"
+           mode blend
+           "src alpha" 1
+           "stretch mode" stretch_w_h
+          }
+          ImageWidgetClass ImageWidget19 {
+           visible 1
+           ignorepointer 1
+           color 1 0.765 0 1
+           position -0.491 0
+           size 0.01 1
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           mode blend
+           "src alpha" 1
+           "stretch mode" stretch_w_h
+          }
+          TextWidgetClass continuous_interact_action_name {
+           visible 1
+           disabled 0
+           clipchildren 0
+           inheritalpha 0
+           ignorepointer 0
+           keepsafezone 0
+           position 10 0
+           size 270 16
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           style None
+           text "#layout_hud_action_target_interact"
+           font "Colorful-UI/GUI/fonts/HudStalker/Arimo-Stalker"
+           "shadow size" 3
+           "shadow color" 0 0 0 1
+           "shadow offset" 2 2
+           "italic text" 0
+           "bold text" 0
+           "exact text" 0
+           "text valign" center
+          }
+         }
+        }
+       }
+      }
+      ImageWidgetClass single {
+       visible 1
+       clipchildren 0
+       inheritalpha 0
+       color 0.314 0.314 0.314 0
+       position 0 0
+       size 350 40
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scaled 1
+       scriptclass ""
+       imageTexture "{E262CF82FD5DFF31}gui/textures/linear_gradient.edds"
+       mode blend
+       "src alpha" 1
+       "stretch mode" stretch_w_h
+       {
+        ContentWidgetClass single_left {
+         inheritalpha 0
+         position 0 0
+         size 60 40
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         {
+          ImageWidgetClass single_btn_icon {
+           visible 1
+           clipchildren 1
+           inheritalpha 0
+           position 0 0
+           size 36 36
+           halign center_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           fixaspect fixwidth
+           image0 "set:dayz_gui image:left_mouse"
+           mode additive
+           "src alpha" 1
+           "clamp mode" clamp
+           "flip u" 0
+           "flip v" 0
+           nocache 0
+          }
+          RichTextWidgetClass single_btn_icon_xbox {
+           visible 0
+           clipchildren 1
+           inheritalpha 0
+           position 0 0
+           size 25.92 36
+           halign center_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           fixaspect inside
+           scriptclass ""
+           text "single_btn_icon_xboxData"
+           font "gui/fonts/sdf_MetronBook24"
+           "exact text" 1
+           "exact text size" 24
+           "size to text h" 1
+           "size to text v" 1
+           "text valign" center
+          }
+          PanelWidgetClass single_mlt_wrapper {
+           visible 1
+           inheritalpha 0
+           position 3 0
+           size 8 16
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass single_mtl_up {
+             inheritalpha 0
+             position 0 -5
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode blend
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip v" 1
+            }
+            ImageWidgetClass single_mtl_down {
+             inheritalpha 0
+             position 0 5
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode additive
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip u" 0
+             "flip v" 0
+            }
+           }
+          }
+          PanelWidgetClass single_mlt_wrapper_not_select {
+           visible 1
+           inheritalpha 0
+           position 2.855 -0.436
+           size 8 16
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass single_mtl_up_not_select {
+             inheritalpha 0
+             position -0.436 -2.529
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode blend
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip v" 1
+            }
+            ImageWidgetClass single_mtl_down_not_select {
+             inheritalpha 0
+             position 0 1.657
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode additive
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip u" 0
+             "flip v" 0
+            }
+           }
+          }
+         }
+        }
+        ContentWidgetClass single_right {
+         clipchildren 0
+         inheritalpha 0
+         position 60 0
+         size 290 40
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         {
+          ImageWidgetClass ImageWidget110 {
+           ignorepointer 1
+           color 0 0 0 0.475
+           position 0 0
+           size 1 1
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           imageTexture "{B138F88DFB943FCE}Colorful-UI/GUI/textures/HudStalker/8.edds"
+           mode blend
+           "src alpha" 1
+           "stretch mode" stretch_w_h
+          }
+          ImageWidgetClass ImageWidget111 {
+           visible 1
+           ignorepointer 1
+           position -0.491 0
+           size 0.01 1
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           mode blend
+           "src alpha" 1
+           "stretch mode" stretch_w_h
+          }
+          TextWidgetClass single_action_name {
+           visible 1
+           disabled 0
+           clipchildren 0
+           inheritalpha 0
+           ignorepointer 0
+           keepsafezone 0
+           position 10 0
+           size 270 16
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           style None
+           text "#layout_hud_action_target_single"
+           font "Colorful-UI/GUI/fonts/HudStalker/Arimo-Stalker"
+           "shadow size" 3
+           "shadow color" 0 0 0 1
+           "shadow offset" 2 2
+           "italic text" 0
+           "bold text" 0
+           "exact text" 0
+           "text valign" center
+          }
+         }
+        }
+       }
+      }
+      ImageWidgetClass continuous {
+       visible 1
+       clipchildren 0
+       inheritalpha 0
+       color 0.314 0.314 0.314 0
+       position 0 0
+       size 350 40
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scaled 1
+       scriptclass ""
+       imageTexture "{E262CF82FD5DFF31}gui/textures/linear_gradient.edds"
+       mode blend
+       "src alpha" 1
+       "stretch mode" stretch_w_h
+       {
+        ContentWidgetClass continuous_left {
+         inheritalpha 0
+         position 0 0
+         size 60 40
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         {
+          ImageWidgetClass continuous_btn_icon {
+           visible 1
+           clipchildren 1
+           inheritalpha 0
+           size 36 36
+           halign center_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           fixaspect inside
+           scriptclass ""
+           image0 "set:dayz_gui image:left_mouse"
+           mode additive
+           "src alpha" 1
+           "clamp mode" clamp
+           "flip u" 0
+           "flip v" 0
+           nocache 0
+          }
+          RichTextWidgetClass continuous_btn_icon_xbox {
+           visible 0
+           clipchildren 1
+           inheritalpha 0
+           position 0 0
+           size 25.92 36
+           halign center_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           fixaspect inside
+           scriptclass ""
+           text "continuous_btn_icon_xboxData"
+           font "gui/fonts/sdf_MetronBook24"
+           "exact text" 1
+           "exact text size" 24
+           "size to text h" 1
+           "size to text v" 1
+           "text valign" center
+          }
+          PanelWidgetClass continuous_mlt_wrapper {
+           visible 1
+           inheritalpha 0
+           position 3 0
+           size 8 16
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass continuous_mtl_up {
+             inheritalpha 0
+             position 0 -5
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode blend
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip v" 1
+            }
+            ImageWidgetClass continuous_mtl_down {
+             inheritalpha 0
+             position 0 5
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode additive
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip u" 0
+             "flip v" 0
+            }
+           }
+          }
+          PanelWidgetClass continuous_mlt_wrapper_not_select {
+           visible 1
+           inheritalpha 0
+           position 2.855 -0.436
+           size 8 16
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass continuous_mtl_up_not_select {
+             inheritalpha 0
+             position -0.436 -2.529
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode blend
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip v" 1
+            }
+            ImageWidgetClass continuous_mtl_down_not_select {
+             inheritalpha 0
+             position 0 1.657
+             size 8 8
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             draggable 0
+             image0 "set:dayz_gui image:specialization_arrow"
+             mode additive
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip u" 0
+             "flip v" 0
+            }
+           }
+          }
+         }
+        }
+        ContentWidgetClass continuous_right {
+         clipchildren 0
+         inheritalpha 0
+         position 60 0
+         size 290 40
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         {
+          ImageWidgetClass ImageWidget112 {
+           ignorepointer 1
+           color 0 0 0 0.475
+           position 0 0
+           size 1 1
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           imageTexture "{B138F88DFB943FCE}Colorful-UI/GUI/textures/HudStalker/8.edds"
+           mode blend
+           "src alpha" 1
+           "stretch mode" stretch_w_h
+          }
+          ImageWidgetClass ImageWidget113 {
+           visible 1
+           ignorepointer 1
+           position -0.491 0
+           size 0.01 1
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           mode blend
+           "src alpha" 1
+           "stretch mode" stretch_w_h
+          }
+          TextWidgetClass continuous_action_name {
+           visible 1
+           disabled 0
+           clipchildren 0
+           inheritalpha 0
+           ignorepointer 0
+           keepsafezone 0
+           position 10 0
+           size 270 16
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           style None
+           text "#layout_hud_action_target_continuous"
+           font "Colorful-UI/GUI/fonts/HudStalker/Arimo-Stalker"
+           "shadow size" 3
+           "shadow color" 0 0 0 1
+           "shadow offset" 2 2
+           "italic text" 0
+           "bold text" 0
+           "exact text" 0
+           "text valign" center
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+    TextWidgetClass TextInfoXbox {
+     visible 0
+     position 0 -200
+     size 1155 152
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     "text halign" center
+     "text valign" center
+    }
+    WrapSpacerWidgetClass LeftHUDPanel {
+     visible 1
+     clipchildren 0
+     ignorepointer 1
+     position -0.463 0
+     size 0.2 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     priority 100
+     Padding 4
+     Margin 17
+     content_valign bottom
+     {
+      PanelWidgetClass PresencePanel {
+       visible 1
+       disabled 0
+       position 230 0
+       size 32 32
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       style blank
+       {
+        ImageWidgetClass Presence0 {
+         visible 0
+         position 0 0
+         size 9.66 32
+         halign right_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         image0 "set:dayz_gui image:Presence0"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass Presence1 {
+         visible 0
+         position 5.12 0
+         size 9.66 32
+         halign right_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         image0 "set:dayz_gui image:Presence1"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass Presence2 {
+         visible 0
+         position 10.24 0
+         size 9.66 32
+         halign right_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         image0 "set:dayz_gui image:Presence2"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass Presence3 {
+         visible 0
+         position 15.36 0
+         size 9.66 32
+         halign right_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         image0 "set:dayz_gui image:Presence3"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass Presence4 {
+         visible 0
+         inheritalpha 0
+         position 20.48 0
+         size 9.66 32
+         halign right_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         image0 "set:dayz_gui image:Presence4"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         filter 1
+         nocache 0
+        }
+       }
+      }
+      PanelWidgetClass StancePanel {
+       visible 1
+       position 0 0
+       size 32 32
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       style blank
+       {
+        ImageWidgetClass StanceProne {
+         visible 0
+         position 0 0
+         size 32 32
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         draggable 0
+         image0 "set:dayz_gui image:stance_prone"
+         mode additive
+         "src alpha" 1
+         "clamp mode" clamp
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass StanceCrouch {
+         visible 0
+         position 0 0
+         size 32 32
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         draggable 0
+         image0 "set:dayz_gui image:stance_crouch"
+         mode additive
+         "src alpha" 1
+         "clamp mode" clamp
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass StanceStand {
+         visible 0
+         position 0 0
+         size 32 32
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         draggable 0
+         image0 "set:dayz_gui image:stance_stand"
+         mode additive
+         "src alpha" 1
+         "clamp mode" clamp
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass StanceStandWalk {
+         visible 0
+         position 0 0
+         size 32 32
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         draggable 0
+         image0 "set:dayz_gui image:stance_walk"
+         mode additive
+         "src alpha" 1
+         "clamp mode" clamp
+         filter 1
+         nocache 0
+        }
+        ImageWidgetClass StanceCar {
+         visible 0
+         position 0 0
+         size 32 32
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         draggable 0
+         image0 "set:dayz_gui image:stance_car"
+         mode additive
+         "src alpha" 1
+         "clamp mode" clamp
+         filter 1
+         nocache 0
+        }
+       }
+      }
+      PanelWidgetClass SpecializationPanel {
+       visible 0
+       clipchildren 1
+       position 0 5
+       size 288 32
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       priority 1
+       style blank
+       {
+        PanelWidgetClass filler {
+         visible 0
+         disabled 0
+         size 32 32
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         priority 1
+         style blank
+        }
+        ImageWidgetClass SpecializationIconNeedle {
+         visible 1
+         position 36 0
+         size 32 32
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         priority 999
+         image0 "set:dayz_gui image:icon_needle"
+         mode additive
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip u" 0
+         "flip v" 0
+         filter 1
+        }
+        ImageWidgetClass SpecializationBar {
+         visible 1
+         clipchildren 0
+         position 72 0
+         size 180 8
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         priority 999
+         image0 "set:dayz_gui image:icon_bar_specialisation"
+         mode additive
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip u" 0
+         "flip v" 0
+         filter 0
+         {
+          ImageWidgetClass SpecializationIcon {
+           visible 1
+           clipchildren 0
+           position 0 -0.75
+           size 17 11
+           halign center_ref
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           fixaspect fixwidth
+           priority 999
+           image0 "set:dayz_gui image:specialization_arrow"
+           mode additive
+           "src alpha" 1
+           "clamp mode" clamp
+           "flip u" 0
+           "flip v" 0
+           filter 1
+          }
+         }
+        }
+        ImageWidgetClass SpecializationIconHammer {
+         visible 1
+         position 256 0
+         size 32 32
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         fixaspect fixwidth
+         priority 999
+         image0 "set:dayz_gui image:icon_hammer"
+         mode additive
+         "src alpha" 1
+         "clamp mode" clamp
+         "flip u" 0
+         "flip v" 0
+         filter 1
+         nocache 0
+        }
+       }
+      }
+      GridSpacerWidgetClass ItemActions {
+       visible 1
+       disabled 0
+       clipchildren 0
+       keepsafezone 0
+       color 0.314 0.314 0.314 0
+       position 0 51
+       size 320 160
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       priority 2
+       scriptclass "ItemActionsWidget"
+       "no focus" 0
+       Padding 0
+       Margin 0
+       "Size To Content H" 1
+       "Size To Content V" 1
+       content_valign bottom
+       Columns 1
+       Rows 4
+       {
+        ImageWidgetClass ia_ammoinfo {
+         visible 0
+         ignorepointer 1
+         color 0.314 0.314 0.314 1
+         position 0 40
+         size 320 55
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+         {
+          ItemPreviewWidgetClass ia_ammoimage {
+           visible 1
+           ignorepointer 1
+           position 0.002 -0.022
+           size 0.183 1.067
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           scaled 1
+           priority 1
+          }
+          TextWidgetClass ia_ammomax {
+           ignorepointer 1
+           position 60 0.125
+           size 40 40
+           hexactpos 1
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           text "23"
+           "text halign" center
+           "text valign" center
+          }
+          TextWidgetClass ia_ammoactual {
+           ignorepointer 1
+           position 120 0.125
+           size 40 40
+           hexactpos 1
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           draggable 0
+           text "23"
+           "text halign" center
+           "text valign" center
+          }
+          TextWidgetClass ia_ammodivider {
+           ignorepointer 1
+           position 100 0.125
+           size 20 40
+           hexactpos 1
+           vexactpos 0
+           hexactsize 1
+           vexactsize 1
+           text "/"
+           "text halign" center
+           "text valign" center
+          }
+         }
+        }
+        ImageWidgetClass ia_item {
+         visible 1
+         clipchildren 0
+         inheritalpha 0
+         color 0.314 0.314 0.314 0
+         position 0 0
+         size 320 40
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         scriptclass ""
+         imageTexture "{E262CF82FD5DFF31}gui/textures/linear_gradient.edds"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+         {
+          ImageWidgetClass ia_item_flag_icon {
+           visible 0
+           clipchildren 1
+           position 45 0
+           size 16 16
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           image0 "set:dayz_gui image:icon_flag"
+           mode blend
+           "src alpha" 1
+           "clamp mode" clamp
+           filter 1
+           nocache 0
+          }
+          GridSpacerWidgetClass ia_item_left {
+           clipchildren 1
+           position 0 0
+           size 50 30
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           scriptclass ""
+           Padding 0
+           Margin 0
+           "Size To Content H" 1
+           "Size To Content V" 1
+           Columns 1
+           Rows 2
+           {
+            ContentWidgetClass ia_item_status_wrapper {
+             visible 1
+             position 0 2
+             size 1 10
+             halign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 1
+             scaled 1
+             {
+              ImageWidgetClass ia_item_health_mark {
+               visible 1
+               clipchildren 1
+               color 1 1 1 0.498
+               size 8 8
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               image0 "set:dayz_gui image:circle"
+               mode blend
+               "src alpha" 1
+               "clamp mode" clamp
+               filter 1
+               nocache 0
+              }
+             }
+            }
+            ContentWidgetClass ia_item_quantity_wrapper {
+             visible 1
+             clipchildren 1
+             position 0 0
+             size 1 1
+             halign center_ref
+             valign bottom_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             scaled 1
+             {
+              ProgressBarWidgetClass ia_item_quantity_pb {
+               visible 1
+               position 0 0
+               size 32 4
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               style Quantity
+               "no focus" 0
+               vertical 0
+               flipped 0
+              }
+              TextWidgetClass ia_item_quantity_text {
+               visible 0
+               disabled 1
+               clipchildren 1
+               size 1 16
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 0
+               vexactsize 1
+               scaled 1
+               style None
+               text "10/30"
+               font "gui/fonts/sdf_MetronBook24"
+               "shadow size" 3
+               "shadow offset" 2 2
+               "italic text" 0
+               "bold text" 0
+               "exact text" 1
+               "exact text size" 12
+               "size to text h" 1
+               "size to text v" 1
+               "text halign" center
+               "text valign" center
+              }
+             }
+            }
+           }
+          }
+          PanelWidgetClass ia_item_right {
+           clipchildren 0
+           inheritalpha 0
+           position 60 0
+           size 260 36
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass ImageWidget4 {
+             ignorepointer 1
+             color 0 0 0 0.475
+             position 0 0
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             imageTexture "{B138F88DFB943FCE}Colorful-UI/GUI/textures/HudStalker/8.edds"
+             mode blend
+             "src alpha" 1
+             "stretch mode" stretch_w_h
+            }
+            ImageWidgetClass ImageWidget2 {
+             visible 1
+             ignorepointer 1
+             color 0 1 0.035 1
+             position -0.491 0
+             size 0.01 1
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             mode blend
+             "src alpha" 1
+             "stretch mode" stretch_w_h
+            }
+            TextWidgetClass ia_item_desc {
+             visible 1
+             disabled 0
+             clipchildren 1
+             inheritalpha 0
+             ignorepointer 0
+             keepsafezone 0
+             position 8 0
+             size 170 14
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             style Normal
+             text "#layout_hud_description"
+             font "Colorful-UI/GUI/fonts/HudStalker/Arimo-Stalker"
+             "shadow size" 3
+             "shadow color" 0 0 0 1
+             "italic text" 0
+             "bold text" 0
+             "exact text" 0
+             "size to text h" 1
+             "size to text v" 0
+             "text valign" center
+            }
+            PanelWidgetClass ia_item_subdesc {
+             clipchildren 1
+             position 184 0
+             size 76 36
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             {
+              TextWidgetClass ia_item_subdesc_up {
+               position 5 5
+               size 66 12
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               font "Colorful-UI/GUI/fonts/HudStalker/Arimo-Stalker"
+               "shadow size" 3
+               "shadow color" 0 0 0 1
+              }
+              TextWidgetClass ia_item_subdesc_down {
+               position 5 19
+               size 66 12
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               font "Colorful-UI/GUI/fonts/HudStalker/Arimo-Stalker"
+               "shadow size" 3
+               "shadow color" 0 0 0 1
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+        ImageWidgetClass ia_interact {
+         visible 1
+         clipchildren 0
+         keepsafezone 0
+         color 0.314 0.314 0.314 0
+         position 0 0
+         size 320 40
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         scriptclass ""
+         imageTexture "{E262CF82FD5DFF31}gui/textures/linear_gradient.edds"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+         {
+          ContentWidgetClass ia_interact_left {
+           size 60 36
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            PanelWidgetClass ia_interact_mlt_wrapper {
+             visible 1
+             inheritalpha 0
+             position 3 0
+             size 8 16
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             {
+              ImageWidgetClass ia_interact_mtl_down {
+               inheritalpha 0
+               position 0 5
+               size 8 8
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               draggable 0
+               image0 "set:dayz_gui image:specialization_arrow"
+               mode additive
+               "src alpha" 1
+               "clamp mode" clamp
+               "stretch mode" stretch_w_h
+               "flip u" 0
+               "flip v" 0
+              }
+              ImageWidgetClass ia_interact_mtl_up {
+               inheritalpha 0
+               position 0 -5
+               size 8 8
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               draggable 0
+               image0 "set:dayz_gui image:specialization_arrow"
+               mode blend
+               "src alpha" 1
+               "clamp mode" clamp
+               "stretch mode" stretch_w_h
+               "flip v" 1
+              }
+             }
+            }
+            RichTextWidgetClass ia_interact_btn_icon_xbox {
+             visible 0
+             clipchildren 1
+             inheritalpha 0
+             position 0 0
+             size 36 36
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             fixaspect inside
+             scriptclass ""
+             text "ia_interact_btn_icon_xboxData"
+             font "gui/fonts/sdf_MetronBook24"
+             "exact text" 1
+             "exact text size" 24
+             "size to text h" 1
+             "size to text v" 1
+             "text valign" center
+            }
+            PanelWidgetClass ia_interact_btn_icon {
+             position 0 0
+             size 60 40
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             {
+              ImageWidgetClass ia_interact_icon_frame {
+               visible 1
+               clipchildren 1
+               inheritalpha 0
+               position 0 0
+               size 40 40
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               fixaspect inside
+               image0 "set:dayz_gui image:key_icon"
+               mode blend
+               "src alpha" 1
+               "clamp mode" clamp
+               "flip u" 0
+               "flip v" 0
+               filter 1
+               nocache 0
+              }
+              TextWidgetClass ia_interact_btn_text {
+               visible 1
+               disabled 0
+               clipchildren 1
+               inheritalpha 0
+               ignorepointer 0
+               keepsafezone 0
+               size 22 22
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               style Normal
+               text "F"
+               font "gui/fonts/sdf_MetronBook72"
+               "outline size" 1
+               "shadow size" 3
+               "shadow offset" 2 2
+               "bold text" 1
+               "exact text" 0
+               "text halign" center
+               "text valign" center
+              }
+              ImageWidgetClass ia_interact_btn_inner_icon {
+               visible 0
+               clipchildren 1
+               inheritalpha 0
+               size 22 22
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               image0 "set:dayz_gui image:gear"
+               mode additive
+               "src alpha" 1
+               "clamp mode" clamp
+               "flip u" 0
+               "flip v" 0
+               nocache 0
+              }
+             }
+            }
+           }
+          }
+          ContentWidgetClass ia_interact_right {
+           position 60 0
+           size 260 36
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass ImageWidget5 {
+             ignorepointer 1
+             color 0 0 0 0.475
+             position 0 0
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             imageTexture "{B138F88DFB943FCE}Colorful-UI/GUI/textures/HudStalker/8.edds"
+             mode blend
+             "src alpha" 1
+             "stretch mode" stretch_w_h
+            }
+            ImageWidgetClass ImageWidget6 {
+             visible 1
+             ignorepointer 1
+             color 1 0.765 0 1
+             position -0.491 0
+             size 0.01 1
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             mode blend
+             "src alpha" 1
+             "stretch mode" stretch_w_h
+            }
+            TextWidgetClass ia_interact_action_name {
+             visible 1
+             disabled 0
+             clipchildren 0
+             inheritalpha 0
+             ignorepointer 0
+             keepsafezone 0
+             position 8 0
+             size 250 14
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             style None
+             text "#layout_hud_action_target_interact"
+             font "Colorful-UI/GUI/fonts/HudStalker/Arimo-Stalker"
+             "shadow size" 3
+             "shadow color" 0 0 0 1
+             "shadow offset" 2 2
+             "italic text" 0
+             "bold text" 0
+             "exact text" 0
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        ImageWidgetClass ia_continuous_interact {
+         visible 1
+         clipchildren 0
+         keepsafezone 0
+         color 0.314 0.314 0.314 0
+         position 0 0
+         size 320 40
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         scriptclass ""
+         imageTexture "{E262CF82FD5DFF31}gui/textures/linear_gradient.edds"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+         {
+          ContentWidgetClass ia_continuous_interact_left {
+           size 60 36
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            PanelWidgetClass ia_continuous_interact_mlt_wrapper {
+             visible 0
+             inheritalpha 0
+             position 3 0
+             size 8 16
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             {
+              ImageWidgetClass ia_continuous_interact_mtl_down {
+               inheritalpha 0
+               position 0 5
+               size 8 8
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               draggable 0
+               image0 "set:dayz_gui image:specialization_arrow"
+               mode additive
+               "src alpha" 1
+               "clamp mode" clamp
+               "stretch mode" stretch_w_h
+               "flip u" 0
+               "flip v" 0
+              }
+              ImageWidgetClass ia_continuous_interact_mtl_up {
+               inheritalpha 0
+               position 0 -5
+               size 8 8
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               draggable 0
+               image0 "set:dayz_gui image:specialization_arrow"
+               mode blend
+               "src alpha" 1
+               "clamp mode" clamp
+               "stretch mode" stretch_w_h
+               "flip v" 1
+              }
+             }
+            }
+            RichTextWidgetClass ia_continuous_interact_btn_icon_xbox {
+             visible 0
+             clipchildren 1
+             inheritalpha 0
+             position 0 0
+             size 36 36
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             fixaspect inside
+             scriptclass ""
+             text "ia_continuous_interact_btn_icon_xboxData"
+             font "gui/fonts/sdf_MetronBook24"
+             "exact text" 1
+             "exact text size" 24
+             "size to text h" 1
+             "size to text v" 1
+             "text valign" center
+            }
+            PanelWidgetClass ia_continuous_interact_btn_icon {
+             position 0 0
+             size 60 40
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             {
+              ImageWidgetClass ia_continuous_interact_icon_frame {
+               visible 1
+               clipchildren 1
+               inheritalpha 0
+               position 0 0
+               size 40 40
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               fixaspect inside
+               image0 "set:dayz_gui image:key_icon"
+               mode blend
+               "src alpha" 1
+               "clamp mode" clamp
+               "flip u" 0
+               "flip v" 0
+               filter 1
+               nocache 0
+              }
+              TextWidgetClass ia_continuous_interact_btn_text {
+               visible 1
+               disabled 0
+               clipchildren 1
+               inheritalpha 0
+               ignorepointer 0
+               keepsafezone 0
+               size 22 22
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               style Normal
+               text "F"
+               font "gui/fonts/sdf_MetronBook72"
+               "outline size" 1
+               "shadow size" 3
+               "shadow offset" 2 2
+               "bold text" 1
+               "exact text" 0
+               "text halign" center
+               "text valign" center
+              }
+              ImageWidgetClass ia_continuous_interact_btn_inner_icon {
+               visible 0
+               clipchildren 1
+               inheritalpha 0
+               size 22 22
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               image0 "set:dayz_gui image:gear"
+               mode additive
+               "src alpha" 1
+               "clamp mode" clamp
+               "flip u" 0
+               "flip v" 0
+               nocache 0
+              }
+             }
+            }
+           }
+          }
+          ContentWidgetClass ia_continuous_interact_right {
+           position 60 0
+           size 260 36
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass ImageWidget7 {
+             ignorepointer 1
+             color 0 0 0 0.475
+             position 0 0
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             imageTexture "{B138F88DFB943FCE}Colorful-UI/GUI/textures/HudStalker/8.edds"
+             mode blend
+             "src alpha" 1
+             "stretch mode" stretch_w_h
+            }
+            ImageWidgetClass ImageWidget9 {
+             visible 1
+             ignorepointer 1
+             color 1 0.765 0 1
+             position -0.491 0
+             size 0.01 1
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             mode blend
+             "src alpha" 1
+             "stretch mode" stretch_w_h
+            }
+            TextWidgetClass ia_continuous_interact_action_name {
+             visible 1
+             disabled 0
+             clipchildren 0
+             inheritalpha 0
+             ignorepointer 0
+             keepsafezone 0
+             position 8 0
+             size 250 14
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             style None
+             text "#layout_hud_action_target_interact"
+             font "Colorful-UI/GUI/fonts/HudStalker/Arimo-Stalker"
+             "shadow size" 3
+             "shadow color" 0 0 0 1
+             "shadow offset" 2 2
+             "italic text" 0
+             "bold text" 0
+             "exact text" 0
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        ImageWidgetClass ia_single {
+         visible 1
+         clipchildren 0
+         color 0.314 0.314 0.314 0
+         position 0 0
+         size 320 40
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         scriptclass ""
+         imageTexture "{E262CF82FD5DFF31}gui/textures/linear_gradient.edds"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+         {
+          ContentWidgetClass ia_single_left {
+           size 60 36
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass ia_single_btn_icon {
+             visible 1
+             clipchildren 1
+             position 0 0
+             size 32 32
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             image0 "set:dayz_gui image:left_mouse"
+             mode additive
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip u" 0
+             "flip v" 0
+             nocache 0
+            }
+            RichTextWidgetClass ia_single_btn_icon_xbox {
+             visible 0
+             clipchildren 1
+             inheritalpha 0
+             position 0 0
+             size 25.92 36
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             fixaspect inside
+             scriptclass ""
+             text "ia_single_btn_icon_xboxData"
+             font "gui/fonts/sdf_MetronBook24"
+             "exact text" 1
+             "exact text size" 24
+             "size to text h" 1
+             "size to text v" 1
+             "text valign" center
+            }
+            PanelWidgetClass ia_single_mlt_wrapper {
+             visible 1
+             inheritalpha 0
+             position 3 0
+             size 8 16
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             {
+              ImageWidgetClass ia_single_mtl_down {
+               inheritalpha 0
+               position 0 5
+               size 8 8
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               draggable 0
+               image0 "set:dayz_gui image:specialization_arrow"
+               mode additive
+               "src alpha" 1
+               "clamp mode" clamp
+               "stretch mode" stretch_w_h
+               "flip u" 0
+               "flip v" 0
+              }
+              ImageWidgetClass ia_single_mtl_up {
+               inheritalpha 0
+               position 0 -5
+               size 8 8
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               draggable 0
+               image0 "set:dayz_gui image:specialization_arrow"
+               mode blend
+               "src alpha" 1
+               "clamp mode" clamp
+               "stretch mode" stretch_w_h
+               "flip v" 1
+              }
+             }
+            }
+           }
+          }
+          ContentWidgetClass ia_single_right {
+           position 60 0
+           size 260 36
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass ImageWidget10 {
+             ignorepointer 1
+             color 0 0 0 0.475
+             position 0 0
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             imageTexture "{B138F88DFB943FCE}Colorful-UI/GUI/textures/HudStalker/8.edds"
+             mode blend
+             "src alpha" 1
+             "stretch mode" stretch_w_h
+            }
+            ImageWidgetClass ImageWidget11 {
+             visible 1
+             ignorepointer 1
+             position -0.491 0
+             size 0.01 1
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             mode blend
+             "src alpha" 1
+             "stretch mode" stretch_w_h
+            }
+            TextWidgetClass ia_single_action_name {
+             visible 1
+             disabled 0
+             clipchildren 0
+             inheritalpha 0
+             ignorepointer 0
+             keepsafezone 0
+             position 8 0
+             size 250 14
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             style None
+             text "#layout_hud_action_single"
+             font "Colorful-UI/GUI/fonts/HudStalker/Arimo-Stalker"
+             "shadow size" 3
+             "shadow color" 0 0 0 1
+             "shadow offset" 2 2
+             "italic text" 0
+             "bold text" 0
+             "exact text" 0
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        ImageWidgetClass ia_continuous {
+         visible 1
+         clipchildren 0
+         color 0.314 0.314 0.314 0
+         position 0 0
+         size 320 40
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         scaled 1
+         scriptclass ""
+         imageTexture "{E262CF82FD5DFF31}gui/textures/linear_gradient.edds"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+         {
+          ContentWidgetClass ia_continuous_left {
+           size 60 36
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass ia_continuous_btn_icon {
+             visible 1
+             clipchildren 1
+             size 32 32
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             image0 "set:dayz_gui image:left_mouse"
+             mode additive
+             "src alpha" 1
+             "clamp mode" clamp
+             "flip u" 0
+             "flip v" 0
+             nocache 0
+            }
+            RichTextWidgetClass ia_continuous_btn_icon_xbox {
+             visible 0
+             clipchildren 1
+             inheritalpha 0
+             position 0 0
+             size 25.92 36
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             fixaspect inside
+             scriptclass ""
+             text "ia_continuous_btn_icon_xboxData"
+             font "gui/fonts/sdf_MetronBook24"
+             "exact text" 1
+             "exact text size" 24
+             "size to text h" 1
+             "size to text v" 1
+             "text valign" center
+            }
+            PanelWidgetClass ia_continuous_mlt_wrapper {
+             visible 1
+             inheritalpha 0
+             position 3 0
+             size 8 16
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             scriptclass ""
+             {
+              ImageWidgetClass ia_continuous_mtl_down {
+               inheritalpha 0
+               position 0 5
+               size 8 8
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               draggable 0
+               image0 "set:dayz_gui image:specialization_arrow"
+               mode additive
+               "src alpha" 1
+               "clamp mode" clamp
+               "stretch mode" stretch_w_h
+               "flip u" 0
+               "flip v" 0
+              }
+              ImageWidgetClass ia_continuous_mtl_up {
+               inheritalpha 0
+               position 0 -5
+               size 8 8
+               halign center_ref
+               valign center_ref
+               hexactpos 1
+               vexactpos 1
+               hexactsize 1
+               vexactsize 1
+               scaled 1
+               draggable 0
+               image0 "set:dayz_gui image:specialization_arrow"
+               mode blend
+               "src alpha" 1
+               "clamp mode" clamp
+               "stretch mode" stretch_w_h
+               "flip v" 1
+              }
+             }
+            }
+           }
+          }
+          ContentWidgetClass ia_continuous_right {
+           position 60 0
+           size 260 36
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           scaled 1
+           {
+            ImageWidgetClass ImageWidget12 {
+             ignorepointer 1
+             color 0 0 0 0.475
+             position 0 0
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             imageTexture "{B138F88DFB943FCE}Colorful-UI/GUI/textures/HudStalker/8.edds"
+             mode blend
+             "src alpha" 1
+             "stretch mode" stretch_w_h
+            }
+            ImageWidgetClass ImageWidget13 {
+             visible 1
+             ignorepointer 1
+             position -0.491 0
+             size 0.01 1
+             halign center_ref
+             valign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             mode blend
+             "src alpha" 1
+             "stretch mode" stretch_w_h
+            }
+            TextWidgetClass ia_continuous_action_name {
+             visible 1
+             disabled 0
+             clipchildren 0
+             inheritalpha 0
+             ignorepointer 0
+             keepsafezone 0
+             position 8 0
+             size 250 14
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 1
+             vexactsize 1
+             scaled 1
+             style None
+             text "#layout_hud_action_continuous"
+             font "Colorful-UI/GUI/fonts/HudStalker/Arimo-Stalker"
+             "shadow size" 3
+             "shadow color" 0 0 0 1
+             "shadow offset" 2 2
+             "italic text" 0
+             "bold text" 0
+             "exact text" 0
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      PanelWidgetClass ChatFrameWidget {
+       clipchildren 0
+       ignorepointer 1
+       position 0 0.2
+       size 5 300
+       halign center_ref
+       valign bottom_ref
+       vexactpos 0
+       hexactsize 0
+       vexactsize 1
+       priority 4
+       style blank
+      }
+      FrameWidgetClass VehicleHUDPanels {
+       visible 0
+       disabled 0
+       clipchildren 0
+       ignorepointer 1
+       position 0 40
+       size 1.6 0.27
+       valign bottom_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       priority 1
+      }
+     }
+    }
+    WrapSpacerWidgetClass VoiceLevelsPanel {
+     visible 1
+     clipchildren 0
+     ignorepointer 1
+     position 0 100
+     size 64 27.726
+     halign right_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     priority 100
+     scriptclass ""
+     Padding 0
+     Margin 0
+     content_valign center
+     {
+      ImageWidgetClass Shout {
+       visible 1
+       clipchildren 1
+       color 0.863 0.863 0.863 1
+       position 0.906 1.732
+       size 9 31
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       image0 "set:dayz_gui image:Presence2"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "flip u" 1
+       filter 1
+       nocache 0
+       rotation 0 0 180
+      }
+      ImageWidgetClass Talk {
+       visible 1
+       clipchildren 0
+       color 0.863 0.863 0.863 1
+       position 0.918 1.274
+       size 9 31
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       image0 "set:dayz_gui image:Presence1"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "flip u" 1
+       filter 1
+       nocache 0
+       rotation 0 0 180
+      }
+      ImageWidgetClass Whisper {
+       visible 1
+       clipchildren 1
+       color 0.863 0.863 0.863 1
+       position 1.001 20.823
+       size 9 30
+       halign right_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       fixaspect fixwidth
+       image0 "set:dayz_gui image:Presence0"
+       mode blend
+       "src alpha" 1
+       "clamp mode" clamp
+       "flip u" 1
+       "flip v" 0
+       filter 1
+       nocache 0
+       rotation 0 0 180
+      }
+     }
+    }
+    ImageWidgetClass mic {
+     position 0 100
+     size 40 28
+     halign right_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     fixaspect fixwidth
+     image0 "set:dayz_gui image:mic"
+     mode blend
+     "src alpha" 1
+     "flip u" 0
+     rotation 0 0 15
+    }
+    TextWidgetClass RefresherNotificationWidget {
+     visible 0
+     position -0.001 -0.058
+     size 0.117 0.016
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     fixaspect fixwidth
+     style Bold
+     text "Refresher Active"
+     font "gui/fonts/sdf_MetronLight42"
+     "bold text" 0
+     "exact text" 0
+     "text valign" center
+    }
+    FrameWidgetClass HitIndicator {
+     visible 0
+     inheritalpha 1
+     ignorepointer 1
+     position 0 0
+     size 1 1
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     {
+      PanelWidgetClass Dir_Up {
+       visible 0
+       ignorepointer 1
+       position 0 -0.25
+       size 48 48
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 1
+       vexactsize 1
+       {
+        ImageWidgetClass Dir_Up_Img {
+         color 0.886 0.031 0.031 1
+         position 0 0
+         size 1 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         image0 "set:dayz_gui image:icon_minus"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+         "flip u" 0
+         "flip v" 0
+         Mask "{48BFB4B086E16C62}gui/textures/cardial_small_mask.edds"
+         "Transition width" 0
+        }
+       }
+      }
+      PanelWidgetClass Dir_Right {
+       visible 0
+       ignorepointer 1
+       position 0.25 0
+       size 48 48
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 1
+       vexactsize 1
+       {
+        ImageWidgetClass Dir_Right_Img {
+         color 0.886 0.031 0.031 1
+         position 0 0
+         size 1 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         image0 "set:dayz_gui image:arrow_right"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+         "flip u" 0
+         "flip v" 0
+         Mask "{48BFB4B086E16C62}gui/textures/cardial_small_mask.edds"
+         "Transition width" 0
+        }
+       }
+      }
+      PanelWidgetClass Dir_Down {
+       visible 0
+       ignorepointer 1
+       position 0 0.25
+       size 48 48
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 1
+       vexactsize 1
+       {
+        ImageWidgetClass Dir_Down_Img {
+         color 0.886 0.031 0.031 1
+         position 0 0
+         size 1 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         image0 "set:dayz_gui image:icon_minus"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+         "flip u" 0
+         "flip v" 1
+         Mask "{48BFB4B086E16C62}gui/textures/cardial_small_mask.edds"
+         "Transition width" 0
+        }
+       }
+      }
+      PanelWidgetClass Dir_Left {
+       visible 0
+       ignorepointer 1
+       position -0.25 0
+       size 48 48
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 1
+       vexactsize 1
+       {
+        ImageWidgetClass Dir_Leftt_Img {
+         color 0.886 0.031 0.031 1
+         position 0 0
+         size 1 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         image0 "set:dayz_gui image:arrow_right"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+         "flip u" 1
+         "flip v" 0
+         Mask "{48BFB4B086E16C62}gui/textures/cardial_small_mask.edds"
+         "Transition width" 0
+        }
+       }
+      }
+      PanelWidgetClass Single_indicator {
+       visible 0
+       ignorepointer 1
+       position 0 0
+       size 48 48
+       halign center_ref
+       valign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        ImageWidgetClass Single_indicator_Img {
+         color 0.545 0 0 1
+         position 0 0
+         size 1 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         image0 "set:dayz_gui image:icon_minus"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+         "flip u" 0
+         "flip v" 0
+         Mask "{48BFB4B086E16C62}gui/textures/cardial_small_mask.edds"
+         "Transition width" 0
+        }
+       }
+      }
+     }
+    }
+    WrapSpacerWidgetClass QuickbarGrid {
+     visible 1
+     disabled 1
+     position 0 15
+     size 1 66
+     halign center_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     scriptclass "InventoryGrid"
+     style Colorable
+     Margin 0
+     "Size To Content H" 1
+     content_halign center
+     content_valign bottom
+     {
+      ScriptParamsClass {
+       m_IsDebugOutput 0
+      }
+     }
+    }
+   }
+  }
+  FrameWidgetClass ColorfulUIUsingBarWidgetRoot {
+   visible 1
+   clipchildren 1
+   ignorepointer 1
+   position 2.028 191.16
+   size 238.899 54.397
+   halign center_ref
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   fixaspect fixwidth
+   draggable 0
+   scriptclass "ColorfulUIUsingBarWidget"
+   {
+    ProgressBarWidgetClass ProgressBarWidgetName {
+     visible 1
+     ignorepointer 1
+     color 1 0.765 0 1
+     position -0.002 0.123
+     size 0.938 0.153
+     halign center_ref
+     valign bottom_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scriptclass "ColorfulUIUsingBarWidget"
+     style Stamina
+     {
+      ImageWidgetClass ImageWidget3 {
+       ignorepointer 1
+       position 0 0
+       size 1 0.376
+       halign center_ref
+       valign bottom_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+      }
+     }
+    }
+    ImageWidgetClass ImageWidget8 {
+     visible 1
+     ignorepointer 1
+     color 0.035 0.035 0.035 0.961
+     position -0.002 0.082
+     size 0.997 0.836
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     imageTexture "{1EAE37E3FB9BBC0B}Colorful-UI/GUI/textures/HudStalker/barus.edds"
+     mode blend
+     "src alpha" 1
+     "stretch mode" stretch_w_h
+    }
+    TextWidgetClass ActionNameTextWidgetName {
+     ignorepointer 1
+     color 0.953 0.953 0.953 1
+     position 0 0
+     size 0.774 0.337
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     scriptclass "ColorfulUIUsingBarWidget"
+     style Light
+     text "Action"
+     font "Colorful-UI/GUI/fonts/HudStalker/Arimo-Stalker"
+     "text color" 0.259 0.259 0.259 1
+     "exact text" 0
+     "size to text h" 1
+     "size to text v" 0
+     "text halign" center
+     "text valign" center
+    }
+    PanelWidgetClass StaminaBackground0 {
+     visible 1
+     color 0 0 0 0
+     position 0 0
+     size 0.993 6.995
+     halign center_ref
+     valign bottom_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+     style rover_sim_colorable
+    }
+   }
+  }
+ }
+}
+

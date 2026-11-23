@@ -8,17 +8,6 @@ FrameWidgetClass settings_menu_root {
  vexactsize 0
  priority 951
  {
-  TextWidgetClass version {
-   visible 0
-   ignorepointer 1
-   position 0 0
-   size 200 20
-   hexactpos 1
-   vexactpos 1
-   hexactsize 1
-   vexactsize 1
-   font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-  }
   VideoWidgetClass MenuVideo {
    ignorepointer 1
    size 0.16 0.09
@@ -101,7 +90,9 @@ FrameWidgetClass settings_menu_root {
   FrameWidgetClass Tabber {
    ignorepointer 1
    position 0 0
-   size 1 1
+   size 0.9 0.9
+   halign center_ref
+   valign center_ref
    hexactpos 1
    vexactpos 1
    hexactsize 0
@@ -109,33 +100,56 @@ FrameWidgetClass settings_menu_root {
    priority 1
    scriptclass "TabberUI"
    {
-    WrapSpacerWidgetClass TabControls {
+    GridSpacerWidgetClass TabControls {
      visible 1
      clipchildren 0
      ignorepointer 1
-     position 80 80
-     size 0.7 65
-     hexactpos 1
-     vexactpos 1
-     hexactsize 0
+     position 0 0
+     size 710 55
+     hexactpos 0
+     vexactpos 0
+     hexactsize 1
      vexactsize 1
+     "no focus" 1
      Padding 0
      Margin 0
      "Size To Content H" 1
      "Size To Content V" 1
+     Columns 4
+     Rows 1
      {
-      ScrollWidgetClass Tab_Control_Scroller {
+      SpacerWidgetClass TabBar {
        clipchildren 1
-       size 1 75
+       ignorepointer 1
+       position 0 0
+       size 1 1
        hexactpos 1
        vexactpos 1
        hexactsize 0
-       vexactsize 1
-       scaled 1
-       "Scrollbar H" 1
+       vexactsize 0
+       "no focus" 1
+       Padding 0
+       Margin 0
+       "Size To Content H" 1
+       "Size To Content V" 1
        {
+        ImageWidgetClass Tabs_Background {
+         visible 0
+         ignorepointer 1
+         color 1 1 1 0.5098
+         position 0 0
+         size 1 1
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         imageTexture "{5A89D58DD2276E85}gui/textures/serratedblack2.edds"
+         mode blend
+         "src alpha" 1
+         "clamp mode" clamp
+         "stretch mode" stretch_w_h
+        }
         GridSpacerWidgetClass Tab_Control_Container {
-         visible 1
          ignorepointer 1
          color 0 0 0 0.549
          position 0 0
@@ -150,249 +164,250 @@ FrameWidgetClass settings_menu_root {
          Padding 0
          Margin 0
          "Size To Content H" 1
-         Columns 50
+         "Size To Content V" 1
+         Columns 10
          Rows 1
          {
-           PanelWidgetClass Tab_Control_0 {
-             visible 1
-             clipchildren 1
-             color 0 0 0 0.549
+          PanelWidgetClass Tab_Control_0 {
+           visible 1
+           clipchildren 1
+           color 0 0 0 0.549
+           position 0 0
+           size 160 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 0
+           priority 200
+           userID 0
+           style DayZDefaultPanel
+           "no focus" 1
+           "next down" "XComboBoxWidget1"
+           {
+            TextWidgetClass Tab_Control_0_Title {
+             ignorepointer 1
              position 0 0
-             size 160 1
+             size 1 0.42
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             priority 250
+             text "#STR_settings_menu_root_Tabber_TabControls_TabBar_Tab_Control_Container_Tab_Control_0_Tab_Control_0_Title0"
+             font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+             "size to text h" 1
+             "size to text v" 0
+             "text halign" center
+             "text valign" center
+            }
+            ImageWidgetClass Tab_Control_0_Background {
+             visible 0
+             disabled 0
+             inheritalpha 0
+             ignorepointer 1
+             color 1 1 1 0.7843
+             position 0 0
+             size 710 1
              hexactpos 1
              vexactpos 1
              hexactsize 1
              vexactsize 0
-             priority 200
-             userID 0
-             style DayZDefaultPanel
-             "no focus" 1
-             "next down" "XComboBoxWidget1"
-             {
-              TextWidgetClass Tab_Control_0_Title {
-               ignorepointer 1
-               position 0 0
-               size 1 0.42
-               halign center_ref
-               valign center_ref
-               hexactpos 1
-               vexactpos 1
-               hexactsize 0
-               vexactsize 0
-               priority 250
-               text "#STR_settings_menu_root_Tabber_TabControls_TabBar_Tab_Control_Container_Tab_Control_0_Tab_Control_0_Title0"
-               font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-               "size to text h" 1
-               "size to text v" 0
-               "text halign" center
-               "text valign" center
-              }
-              ImageWidgetClass Tab_Control_0_Background {
-               visible 0
-               disabled 0
-               inheritalpha 0
-               ignorepointer 1
-               color 1 1 1 0.7843
-               position 0 0
-               size 710 1
-               hexactpos 1
-               vexactpos 1
-               hexactsize 1
-               vexactsize 0
-               draggable 0
-               imageTexture "{5A89D58DD2276E85}gui/textures/serratedblack2.edds"
-               mode blend
-               "src alpha" 1
-               "clamp mode" clamp
-               "stretch mode" stretch_w_h
-               "flip u" 0
-               "flip v" 0
-               filter 1
-               nocache 0
-              }
-             }
+             draggable 0
+             imageTexture "{5A89D58DD2276E85}gui/textures/serratedblack2.edds"
+             mode blend
+             "src alpha" 1
+             "clamp mode" clamp
+             "stretch mode" stretch_w_h
+             "flip u" 0
+             "flip v" 0
+             filter 1
+             nocache 0
             }
-           PanelWidgetClass Tab_Control_1 {
-             visible 1
-             clipchildren 1
-             color 0 0 0 0
+           }
+          }
+          PanelWidgetClass Tab_Control_1 {
+           visible 1
+           clipchildren 1
+           color 0 0 0 0
+           position 0 0
+           size 170 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 0
+           priority 200
+           userID 0
+           style DayZDefaultPanel
+           "no focus" 1
+           "next down" "XComboBoxWidget1"
+           {
+            TextWidgetClass Tab_Control_1_Title {
+             ignorepointer 1
              position 0 0
-             size 170 1
+             size 1 0.42
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             priority 250
+             text "#STR_settings_menu_root_Tabber_TabControls_TabBar_Tab_Control_Container_Tab_Control_1_Tab_Control_1_Title0"
+             font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+             "size to text h" 1
+             "size to text v" 0
+             "text halign" center
+             "text valign" center
+            }
+            ImageWidgetClass Tab_Control_1_Background {
+             visible 0
+             disabled 0
+             inheritalpha 0
+             ignorepointer 1
+             color 1 1 1 0.7843
+             position -160 0
+             size 710 1
              hexactpos 1
              vexactpos 1
              hexactsize 1
              vexactsize 0
-             priority 200
-             userID 0
-             style DayZDefaultPanel
-             "no focus" 1
-             "next down" "XComboBoxWidget1"
-             {
-              TextWidgetClass Tab_Control_1_Title {
-               ignorepointer 1
-               position 0 0
-               size 1 0.42
-               halign center_ref
-               valign center_ref
-               hexactpos 1
-               vexactpos 1
-               hexactsize 0
-               vexactsize 0
-               priority 250
-               text "#STR_settings_menu_root_Tabber_TabControls_TabBar_Tab_Control_Container_Tab_Control_1_Tab_Control_1_Title0"
-               font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-               "size to text h" 1
-               "size to text v" 0
-               "text halign" center
-               "text valign" center
-              }
-              ImageWidgetClass Tab_Control_1_Background {
-               visible 0
-               disabled 0
-               inheritalpha 0
-               ignorepointer 1
-               color 1 1 1 0.7843
-               position -160 0
-               size 710 1
-               hexactpos 1
-               vexactpos 1
-               hexactsize 1
-               vexactsize 0
-               draggable 0
-               imageTexture "{5A89D58DD2276E85}gui/textures/serratedblack2.edds"
-               mode blend
-               "src alpha" 1
-               "clamp mode" clamp
-               "stretch mode" stretch_w_h
-               "flip u" 0
-               "flip v" 0
-               filter 1
-               nocache 0
-              }
-             }
+             draggable 0
+             imageTexture "{5A89D58DD2276E85}gui/textures/serratedblack2.edds"
+             mode blend
+             "src alpha" 1
+             "clamp mode" clamp
+             "stretch mode" stretch_w_h
+             "flip u" 0
+             "flip v" 0
+             filter 1
+             nocache 0
             }
-           PanelWidgetClass Tab_Control_2 {
-             visible 1
-             clipchildren 1
-             color 0 0 0 0
+           }
+          }
+          PanelWidgetClass Tab_Control_2 {
+           visible 1
+           clipchildren 1
+           color 0 0 0 0
+           position 0 0
+           size 160 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 0
+           priority 200
+           userID 0
+           style DayZDefaultPanel
+           "no focus" 1
+           "next down" "XComboBoxWidget1"
+           {
+            TextWidgetClass Tab_Control_2_Title {
+             ignorepointer 1
              position 0 0
-             size 160 1
+             size 1 0.42
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             priority 250
+             text "#STR_settings_menu_root_Tabber_TabControls_TabBar_Tab_Control_Container_Tab_Control_2_Tab_Control_2_Title0"
+             font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+             "size to text h" 1
+             "size to text v" 0
+             "text halign" center
+             "text valign" center
+            }
+            ImageWidgetClass Tab_Control_2_Background {
+             visible 0
+             disabled 0
+             inheritalpha 0
+             ignorepointer 1
+             color 1 1 1 0.7843
+             position -330 0
+             size 710 1
              hexactpos 1
              vexactpos 1
              hexactsize 1
              vexactsize 0
-             priority 200
-             userID 0
-             style DayZDefaultPanel
-             "no focus" 1
-             "next down" "XComboBoxWidget1"
-             {
-              TextWidgetClass Tab_Control_2_Title {
-               ignorepointer 1
-               position 0 0
-               size 1 0.42
-               halign center_ref
-               valign center_ref
-               hexactpos 1
-               vexactpos 1
-               hexactsize 0
-               vexactsize 0
-               priority 250
-               text "#STR_settings_menu_root_Tabber_TabControls_TabBar_Tab_Control_Container_Tab_Control_2_Tab_Control_2_Title0"
-               font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-               "size to text h" 1
-               "size to text v" 0
-               "text halign" center
-               "text valign" center
-              }
-              ImageWidgetClass Tab_Control_2_Background {
-               visible 0
-               disabled 0
-               inheritalpha 0
-               ignorepointer 1
-               color 1 1 1 0.7843
-               position -330 0
-               size 710 1
-               hexactpos 1
-               vexactpos 1
-               hexactsize 1
-               vexactsize 0
-               draggable 0
-               imageTexture "{5A89D58DD2276E85}gui/textures/serratedblack2.edds"
-               mode blend
-               "src alpha" 1
-               "clamp mode" clamp
-               "stretch mode" stretch_w_h
-               "flip u" 0
-               "flip v" 0
-               filter 1
-               nocache 0
-              }
-             }
+             draggable 0
+             imageTexture "{5A89D58DD2276E85}gui/textures/serratedblack2.edds"
+             mode blend
+             "src alpha" 1
+             "clamp mode" clamp
+             "stretch mode" stretch_w_h
+             "flip u" 0
+             "flip v" 0
+             filter 1
+             nocache 0
             }
-           PanelWidgetClass Tab_Control_3 {
-             visible 1
-             clipchildren 1
-             color 0 0 0 0
+           }
+          }
+          PanelWidgetClass Tab_Control_3 {
+           visible 1
+           clipchildren 1
+           color 0 0 0 0
+           position 0 0
+           size 220 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 0
+           priority 200
+           userID 0
+           style DayZDefaultPanel
+           "no focus" 1
+           "next down" "XComboBoxWidget1"
+           {
+            TextWidgetClass Tab_Control_3_Title {
+             ignorepointer 1
              position 0 0
-             size 220 1
+             size 1 0.42
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             priority 250
+             text "#STR_settings_menu_root_Tabber_TabControls_TabBar_Tab_Control_Container_Tab_Control_3_Tab_Control_3_Title0"
+             font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+             "size to text h" 1
+             "text halign" center
+             "text valign" center
+            }
+            ImageWidgetClass Tab_Control_3_Background {
+             visible 0
+             disabled 0
+             inheritalpha 0
+             ignorepointer 1
+             color 1 1 1 0.7843
+             position -490 0
+             size 710 1
              hexactpos 1
              vexactpos 1
              hexactsize 1
              vexactsize 0
-             priority 200
-             userID 0
-             style DayZDefaultPanel
-             "no focus" 1
-             "next down" "XComboBoxWidget1"
-             {
-              TextWidgetClass Tab_Control_3_Title {
-               ignorepointer 1
-               position 0 0
-               size 1 0.42
-               halign center_ref
-               valign center_ref
-               hexactpos 1
-               vexactpos 1
-               hexactsize 0
-               vexactsize 0
-               priority 250
-               text "#STR_settings_menu_root_Tabber_TabControls_TabBar_Tab_Control_Container_Tab_Control_3_Tab_Control_3_Title0"
-               font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-               "size to text h" 1
-               "text halign" center
-               "text valign" center
-              }
-              ImageWidgetClass Tab_Control_3_Background {
-               visible 0
-               disabled 0
-               inheritalpha 0
-               ignorepointer 1
-               color 1 1 1 0.7843
-               position -490 0
-               size 710 1
-               hexactpos 1
-               vexactpos 1
-               hexactsize 1
-               vexactsize 0
-               draggable 0
-               imageTexture "{5A89D58DD2276E85}gui/textures/serratedblack2.edds"
-               mode blend
-               "src alpha" 1
-               "clamp mode" clamp
-               "stretch mode" stretch_w_h
-               "flip u" 0
-               "flip v" 0
-               filter 1
-               nocache 0
-              }
-             }
+             draggable 0
+             imageTexture "{5A89D58DD2276E85}gui/textures/serratedblack2.edds"
+             mode blend
+             "src alpha" 1
+             "clamp mode" clamp
+             "stretch mode" stretch_w_h
+             "flip u" 0
+             "flip v" 0
+             filter 1
+             nocache 0
             }
+           }
+          }
          }
         }
        }
       }
-        FrameWidgetClass ConsoleControls {
+      FrameWidgetClass ConsoleControls {
        visible 0
        clipchildren 0
        ignorepointer 1
@@ -444,48 +459,47 @@ FrameWidgetClass settings_menu_root {
     FrameWidgetClass Tab_0 {
      visible 1
      ignorepointer 1
-     position 80 160
-     size 1760 800
+     size 0.8 900
+     valign bottom_ref
      hexactpos 1
      vexactpos 1
-     hexactsize 1
+     hexactsize 0
      vexactsize 1
     }
     FrameWidgetClass Tab_1 {
      visible 0
      ignorepointer 1
-     position 80 160
-     size 1760 800
+     size 0.8 900
+     valign bottom_ref
      hexactpos 1
      vexactpos 1
-     hexactsize 1
+     hexactsize 0
      vexactsize 1
     }
     FrameWidgetClass Tab_2 {
      visible 0
      ignorepointer 1
-     position 80 160
-     size 1760 800
+     size 0.8 900
+     valign bottom_ref
      hexactpos 1
      vexactpos 1
-     hexactsize 1
+     hexactsize 0
      vexactsize 1
     }
     FrameWidgetClass Tab_3 {
      visible 0
      ignorepointer 1
-     position 80 160
-     size 1760 800
+     size 0.8 900
+     valign bottom_ref
      hexactpos 1
      vexactpos 1
-     hexactsize 1
+     hexactsize 0
      vexactsize 1
     }
    }
   }
   FrameWidgetClass SafeZone {
    ignorepointer 1
-   priority 2
    size 0.9 0.9
    halign center_ref
    valign center_ref
@@ -559,7 +573,7 @@ FrameWidgetClass settings_menu_root {
            hexactsize 0
            vexactsize 0
            text "#STR_settings_menu_root_play_panel_root_top_back0"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 1
            "exact text size" 45
            "size to text h" 1
@@ -608,7 +622,7 @@ FrameWidgetClass settings_menu_root {
       WrapSpacerWidgetClass top {
        ignorepointer 1
        color 0 0 0 0.549
-       size 1 0
+       size 0 0
        halign center_ref
        valign bottom_ref
        hexactpos 0
@@ -652,7 +666,7 @@ FrameWidgetClass settings_menu_root {
            hexactsize 0
            vexactsize 0
            text "#STR_settings_menu_root_play_panel_root_bottom_apply0"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 1
            "exact text size" 24
            "text halign" right
@@ -692,7 +706,7 @@ FrameWidgetClass settings_menu_root {
            hexactsize 0
            vexactsize 0
            text "#menu_undo_cap"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 1
            "exact text size" 24
            "text halign" right
@@ -731,7 +745,7 @@ FrameWidgetClass settings_menu_root {
            hexactsize 0
            vexactsize 0
            text "#menu_default_cap"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 1
            "exact text size" 24
            "text halign" right
@@ -762,7 +776,7 @@ FrameWidgetClass settings_menu_root {
            vexactpos 1
            hexactsize 0
            vexactsize 0
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 0
            "text halign" center
            "text valign" center
@@ -784,7 +798,7 @@ FrameWidgetClass settings_menu_root {
      priority 1
      style Normal
      text "#STR_settings_menu_root_SettingsTextWidget0"
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
      "text color" 0.8157 0.1255 0.7843 1
      "exact text" 0
      "text halign" right
@@ -834,7 +848,7 @@ FrameWidgetClass settings_menu_root {
        hexactsize 0
        vexactsize 0
        text "This is Header"
-       font "gui/fonts/sdf_MetronLight72"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
        "exact text" 1
        "exact text size" 18
       }
@@ -881,7 +895,7 @@ FrameWidgetClass settings_menu_root {
          hexactsize 0
          vexactsize 1
          text "this is details"
-         font "gui/fonts/sdf_MetronLight72"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
          "exact text" 1
          "exact text size" 16
          "size to text h" 0
@@ -934,7 +948,7 @@ FrameWidgetClass settings_menu_root {
          hexactsize 0
          vexactsize 1
          text "#options_game_connectivity_ping"
-         font "gui/fonts/sdf_MetronLight72"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
          "exact text" 1
          "exact text size" 16
          "size to text h" 0
@@ -1007,7 +1021,7 @@ FrameWidgetClass settings_menu_root {
          hexactsize 0
          vexactsize 1
          text "#options_game_connectivity_desc_ping"
-         font "gui/fonts/sdf_MetronLight72"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
          "exact text" 1
          "exact text size" 16
          "size to text h" 0
@@ -1043,7 +1057,7 @@ FrameWidgetClass settings_menu_root {
          hexactsize 0
          vexactsize 1
          text "#options_game_connectivity_disconnect"
-         font "gui/fonts/sdf_MetronLight72"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
          "exact text" 1
          "exact text size" 16
          "size to text h" 0
@@ -1092,7 +1106,7 @@ FrameWidgetClass settings_menu_root {
          hexactsize 0
          vexactsize 1
          text "#options_game_connectivity_desc_disconnect"
-         font "gui/fonts/sdf_MetronLight72"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
          "exact text" 1
          "exact text size" 16
          "size to text h" 0
@@ -1128,7 +1142,7 @@ FrameWidgetClass settings_menu_root {
          hexactsize 0
          vexactsize 1
          text "#options_game_connectivity_sperformance"
-         font "gui/fonts/sdf_MetronLight72"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
          "exact text" 1
          "exact text size" 16
          "size to text h" 0
@@ -1199,7 +1213,7 @@ FrameWidgetClass settings_menu_root {
          hexactsize 0
          vexactsize 1
          text "#options_game_connectivity_desc_sperformance"
-         font "gui/fonts/sdf_MetronLight72"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
          "exact text" 1
          "exact text size" 16
          "size to text h" 0

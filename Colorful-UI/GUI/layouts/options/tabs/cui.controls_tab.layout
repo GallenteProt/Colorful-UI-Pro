@@ -1,5 +1,4 @@
 FrameWidgetClass controls_tab_root {
- ignorepointer 1
  position 0 0
  size 1 1
  hexactpos 1
@@ -77,7 +76,7 @@ FrameWidgetClass controls_tab_root {
            vexactsize 1
            style Normal
            text "#layout_pc_controls_keyboard"
-           font "gui/fonts/sdf_MetronLight72"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 0
            "text halign" center
            "text valign" center
@@ -113,7 +112,7 @@ FrameWidgetClass controls_tab_root {
            vexactsize 1
            style Normal
            text "#layout_pc_controls_configure_keys"
-           font "gui/fonts/sdf_MetronLight24"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            text_proportion 0.55
            "text halign" center
            "text valign" center
@@ -161,7 +160,7 @@ FrameWidgetClass controls_tab_root {
            vexactsize 1
            style Normal
            text "#STR_sensitivity_options_header"
-           font "gui/fonts/sdf_MetronLight72"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 0
            "text halign" center
            "text valign" center
@@ -235,7 +234,7 @@ FrameWidgetClass controls_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_Invert_Vertical"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -330,7 +329,7 @@ FrameWidgetClass controls_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_Camera_V_Sensitivity"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -412,7 +411,7 @@ FrameWidgetClass controls_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_Camera_H_Sensitivity"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -505,7 +504,7 @@ FrameWidgetClass controls_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_Aiming_V_Sensitivity"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18
@@ -587,7 +586,7 @@ FrameWidgetClass controls_tab_root {
                  hexactsize 0
                  vexactsize 0
                  text "#STR_Aiming_H_Sensitivity"
-                 font "gui/fonts/sdf_MetronLight24"
+                 font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
                  "text offset" 8 0
                  "exact text" 0
                  "exact text size" 18

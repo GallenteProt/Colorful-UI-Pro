@@ -104,7 +104,7 @@ FrameWidgetClass keybindings_root {
      vexactsize 0
      priority 2
      text "#main_menu_version"
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
      "exact text" 0
      "text valign" center
     }
@@ -120,7 +120,7 @@ FrameWidgetClass keybindings_root {
      vexactsize 0
      priority 2
      text "#copyright_disclamer"
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
      "exact text" 0
      "text valign" center
     }
@@ -153,7 +153,8 @@ FrameWidgetClass keybindings_root {
    {
     TextWidgetClass KeybindingsTextWidget {
      ignorepointer 1
-     size 0.3 50
+     position 0 0
+     size 0.476 50
      halign right_ref
      hexactpos 0
      vexactpos 1
@@ -162,8 +163,8 @@ FrameWidgetClass keybindings_root {
      priority 1
      style Normal
      text "#layout_pc_keybinding_desc"
-     font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
-     "text color" 0.8157 0.1255 0.7843 1
+     font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
+     "text color" 0.816 0.125 0.784 1
      "exact text" 0
      "text halign" right
      "text valign" center
@@ -182,7 +183,8 @@ FrameWidgetClass keybindings_root {
        visible 1
        clipchildren 0
        ignorepointer 1
-       size 0.7 65
+       position 0 0
+       size 0.621 65
        hexactpos 1
        vexactpos 1
        hexactsize 0
@@ -194,10 +196,11 @@ FrameWidgetClass keybindings_root {
        {
         ScrollWidgetClass Tab_Control_Scroller {
          clipchildren 1
-         size 1 75
+         position 0 0
+         size 1050 75
          hexactpos 1
          vexactpos 1
-         hexactsize 0
+         hexactsize 1
          vexactsize 1
          scaled 1
          "Scrollbar H" 1
@@ -311,7 +314,7 @@ FrameWidgetClass keybindings_root {
        hexactsize 1
        vexactsize 1
        text "#keybinding_profile"
-       font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
        "text halign" center
        "text valign" center
       }
@@ -320,7 +323,7 @@ FrameWidgetClass keybindings_root {
        clipchildren 0
        inheritalpha 0
        ignorepointer 0
-       color 0.1176 0.1176 0.1176 1
+       color 0.118 0.118 0.118 1
        position 0 5
        size 0.95 40
        halign center_ref
@@ -414,8 +417,8 @@ FrameWidgetClass keybindings_root {
            hexactsize 0
            vexactsize 0
            scaled 1
-           text "#layout_pc_keybinding_play_pannel_back"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           text "Back"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 45
@@ -431,7 +434,7 @@ FrameWidgetClass keybindings_root {
       FrameWidgetClass TopSpacer {
        visible 1
        ignorepointer 1
-       position 174.92999 0.3113
+       position 174.93 0.311
        size 1 15
        hexactpos 1
        vexactpos 1
@@ -456,7 +459,7 @@ FrameWidgetClass keybindings_root {
       FrameWidgetClass BottomSpacer {
        visible 1
        ignorepointer 1
-       position 174.92999 0.3113
+       position 174.93 0.311
        size 1 15
        hexactpos 1
        vexactpos 1
@@ -510,8 +513,8 @@ FrameWidgetClass keybindings_root {
            hexactsize 0
            vexactsize 0
            scaled 1
-           text "#layout_pc_keybinding_apply"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           text "Apply"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 24
@@ -552,8 +555,8 @@ FrameWidgetClass keybindings_root {
            hexactsize 0
            vexactsize 0
            scaled 1
-           text "#menu_undo_cap"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           text "Undo"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 24
@@ -595,8 +598,8 @@ FrameWidgetClass keybindings_root {
            hexactsize 0
            vexactsize 0
            scaled 1
-           text "#str_settings_menu_root_play_panel_root_top_reset0"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           text "Reset"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 24
@@ -638,8 +641,8 @@ FrameWidgetClass keybindings_root {
            hexactsize 0
            vexactsize 0
            scaled 1
-           text "#options_reset_all"
-           font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+           text "Reset All"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "text sharpness" 1.5
            "exact text" 1
            "exact text size" 24
@@ -672,7 +675,7 @@ FrameWidgetClass keybindings_root {
          text "#options_reset_all"
          text_proportion 0.55
          text_halign right
-         font "Colorful-UI/GUI/fonts/GB-Regular.fnt"
+         font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
          switch normal
         }
        }

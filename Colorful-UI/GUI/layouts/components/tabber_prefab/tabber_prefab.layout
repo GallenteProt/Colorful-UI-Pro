@@ -90,7 +90,7 @@ FrameWidgetClass Tabber {
            vexactsize 0
            priority 250
            text "Tab 0 Title"
-           font "gui/fonts/sdf_MetronLight72"
+           font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
            "exact text" 0
            "text halign" center
            "text valign" center
@@ -147,7 +147,7 @@ FrameWidgetClass Tabber {
        vexactpos 1
        hexactsize 1
        vexactsize 1
-       font "gui/fonts/sdf_MetronBook24"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
        "exact text" 1
        "exact text size" 24
        "size to text h" 1
@@ -166,7 +166,7 @@ FrameWidgetClass Tabber {
        vexactpos 1
        hexactsize 1
        vexactsize 1
-       font "gui/fonts/sdf_MetronBook24"
+       font "Colorful-UI/GUI/fonts/Helvetica_Black.fnt"
        "exact text" 1
        "exact text size" 24
        "size to text h" 1

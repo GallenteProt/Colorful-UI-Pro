@@ -1,6 +1,6 @@
-// UiHintPanel / UiHintPanelLoading — CUI hint panels.
-// Vanilla source: P:\scripts\3_game\gui\hints\uihintpanel.c
-
+// Extend the vanilla hint-page data model with optional imageset coordinates.
+// Both fields are populated by JsonFileLoader when present in hints.json; if
+// absent (or UseImagesets is off), the engine falls back to m_ImagePath.
 modded class HintPage
 {
 	private string m_ImageSet;
@@ -15,36 +15,25 @@ modded class UiHintPanel extends ScriptedWidgetEventHandler
 	protected const string m_DataPath = "Colorful-UI/Scripts/Data/hints.json";
 	protected string m_RootPath       = "Colorful-UI/GUI/layouts/loading/hints/cui.ingamehints.layout";
 
+	// Show/hide the hint image. State held in a static so it survives the
+	// menu being closed and reopened — once the user hides the image it
+	// stays hidden across subsequent in-game menu opens until toggled back.
+	//
+	// Click + hover are handled inline (no cuiElmnt) because this class
+	// lives in 3_Game and cuiElmnt is in 5_Mission.
 	protected static bool s_HintImageHidden;
 
 	protected ButtonWidget m_HideImageBtn;
 	protected TextWidget   m_HideImageBtnLabel;
 
-	// False leaves the panel exactly vanilla: vanilla layout, data, text, images and hover.
-	protected bool IsStyled()
-	{
-		return true;
-	}
-
-	override protected void LoadContentList()
-	{
-		if (IsStyled())
-		{
-			super.LoadContentList();
-			return;
-		}
-
-		string errorMessage;
-		if (!JsonFileLoader<array<ref HintPage>>.LoadFile("scripts/data/hints.json", m_ContentList, errorMessage))
-			ErrorEx(errorMessage);
-	}
-
 	override protected void BuildLayout(Widget parent_widget)
 	{
 		super.BuildLayout(parent_widget);
-		if (!IsStyled()) return;
 		if (!m_RootFrame) return;
 
+		// Seed the Left/Right chevron icons to the same idle color we apply
+		// on mouse leave — keeps the layout's faded-white default from
+		// showing on first display.
 		ImageWidget leftIcon  = ImageWidget.Cast(m_RootFrame.FindAnyWidget("LeftImage"));
 		ImageWidget rightIcon = ImageWidget.Cast(m_RootFrame.FindAnyWidget("RightImage"));
 		if (leftIcon)  leftIcon.SetColor(colorScheme.PrimaryText());
@@ -54,6 +43,7 @@ modded class UiHintPanel extends ScriptedWidgetEventHandler
 		m_HideImageBtnLabel = TextWidget.Cast(m_RootFrame.FindAnyWidget("HideImageBtn_label"));
 		if (m_HideImageBtnLabel) m_HideImageBtnLabel.SetColor(colorScheme.PrimaryText());
 
+		// Apply the persisted state on every fresh build of the layout.
 		ApplyHintImageState();
 	}
 
@@ -69,48 +59,22 @@ modded class UiHintPanel extends ScriptedWidgetEventHandler
 
 		if (m_HideImageBtnLabel)
 		{
-			if (s_HintImageHidden) m_HideImageBtnLabel.SetText(CuiLoc.Get("CUI_show_image"));
-			else                   m_HideImageBtnLabel.SetText(CuiLoc.Get("CUI_hide_image"));
+			if (s_HintImageHidden) m_HideImageBtnLabel.SetText("Show Image");
+			else                   m_HideImageBtnLabel.SetText("Hide Image");
 		}
 	}
 
-	// hints.json now stores CUI_ keys (not English text) in m_Headline/m_Description. Resolve
-	// them here — the narrowest vanilla setters (P:\scripts\3_game\gui\hints\uihintpanel.c:127-139)
-	// — so every page flip and freshly built panel picks up the current language. CuiLoc.Get()
-	// already passes through unrecognized strings unchanged, so this is safe even if a future
-	// hint entry ships literal text instead of a key.
-	override protected void SetHintHeadline()
-	{
-		if (!IsStyled())
-		{
-			super.SetHintHeadline();
-			return;
-		}
-
-		m_UiHeadlineLabel.SetText(CuiLoc.Get(m_ContentList.Get(m_PageIndex).GetHeadlineText()));
-	}
-
-	override protected void SetHintDescription()
-	{
-		if (!IsStyled())
-		{
-			super.SetHintDescription();
-			return;
-		}
-
-		m_UiDescLabel.SetText(CuiLoc.Get(m_ContentList.Get(m_PageIndex).GetDescriptionText()));
-		m_UiDescLabel.Update();
-		m_SpacerFrame.Update();
-	}
-
+	// Replaces vanilla SetHintImage (uihintpanel.c:140-157) so we can:
+	//   1. Optionally route image loading through a registered imageset
+	//      ("set:<set> image:<name>") when UseImagesets is on and the page
+	//      provides m_ImageSet/m_ImageName. Falls back to m_ImagePath if
+	//      either field is missing or the toggle is off.
+	//   2. Honor the persistent s_HintImageHidden toggle. Vanilla calls
+	//      m_UiHintImage.Show(true) unconditionally on every page change,
+	//      slideshow tick, and menu reopen — without this override our hide
+	//      state would get clobbered moments after the user clicks it.
 	override protected void SetHintImage()
 	{
-		if (!IsStyled())
-		{
-			super.SetHintImage();
-			return;
-		}
-
 		if (!m_UiHintImage)
 			return;
 
@@ -143,8 +107,6 @@ modded class UiHintPanel extends ScriptedWidgetEventHandler
 
 	override bool OnClick(Widget w, int x, int y, int button)
 	{
-		if (!IsStyled()) return super.OnClick(w, x, y, button);
-
 		if (button == MouseState.LEFT && m_HideImageBtn && w == m_HideImageBtn)
 		{
 			ToggleHintImage();
@@ -153,10 +115,16 @@ modded class UiHintPanel extends ScriptedWidgetEventHandler
 		return super.OnClick(w, x, y, button);
 	}
 
+	// Icon-only hover for the Left/Right chevrons + label hover for the
+	// hide-image toggle. Layout has style=Empty and a transparent button bg;
+	// we color the icon / label ourselves.
+	//
+	// HideImageBtn returns true to bypass vanilla's UiHintPanel hover paint
+	// (which repaints child text red, clobbering our SetColor). Mirrors the
+	// Keybindings.c pattern. Left/Right still call super so vanilla's
+	// slideshow pause/resume on hover keeps working.
 	override bool OnMouseEnter(Widget w, int x, int y)
 	{
-		if (!IsStyled()) return super.OnMouseEnter(w, x, y);
-
 		if (w == m_HideImageBtn && m_HideImageBtnLabel)
 		{
 			m_HideImageBtnLabel.SetColor(colorScheme.ButtonHover());
@@ -175,8 +143,6 @@ modded class UiHintPanel extends ScriptedWidgetEventHandler
 
 	override bool OnMouseLeave(Widget w, Widget enterW, int x, int y)
 	{
-		if (!IsStyled()) return super.OnMouseLeave(w, enterW, x, y);
-
 		if (w == m_HideImageBtn && m_HideImageBtnLabel)
 		{
 			m_HideImageBtnLabel.SetColor(colorScheme.PrimaryText());
@@ -202,6 +168,7 @@ modded class UiHintPanelLoading extends UiHintPanel
 	protected ImageWidget m_BottomShader;
 	protected ImageWidget m_Icon;
 	protected VideoWidget m_Video;
+	protected Widget m_LoadingDimmer;
 
 	void ~UiHintPanelLoading()
 	{
@@ -212,19 +179,8 @@ modded class UiHintPanelLoading extends UiHintPanel
 		}
 	}
 
-	override protected bool IsStyled()
-	{
-		return CustomLoadingScreens;
-	}
-
 	override void Init(DayZGame game)
 	{
-		if (!CustomLoadingScreens)
-		{
-			super.Init(game);
-			return;
-		}
-
 		m_RootPath = "Colorful-UI/GUI/layouts/loading/hints/cui.loadinghints.layout";
 
 		if (!game)
@@ -245,16 +201,14 @@ modded class UiHintPanelLoading extends UiHintPanel
 
 	override protected void BuildLayout(Widget parent_widget)
 	{
-		if (!CustomLoadingScreens)
-		{
-			super.BuildLayout(parent_widget);
-			return;
-		}
-
 		m_RootFrame = m_Game.GetWorkspace().CreateWidgets(m_RootPath, parent_widget);
 
 		#ifndef WORKBENCH
-			if (LoadVideo && m_RootFrame) {
+			// Original pattern: copy from the addon folder into $saves: and
+			// Load from there. Launcher pre-copies the source .mov too so
+			// $saves: always has a valid file even if the in-engine CopyFile
+			// no-ops. GetState() guard prevents re-Load on reopen.
+			if (LoadVideo && m_LoadingVideo != "") {
 				Class.CastTo(m_Video, m_RootFrame.FindAnyWidget("LoadingVid"));
 				if (m_Video && m_Video.GetState() == VideoState.NONE)
 				{
@@ -280,6 +234,7 @@ modded class UiHintPanelLoading extends UiHintPanel
 			m_UiDescLabel       = RichTextWidget.Cast(m_RootFrame.FindAnyWidget("HintDescLabel"));
 			m_UiHintImage       = ImageWidget.Cast(m_RootFrame.FindAnyWidget("HintImage"));
 			m_UiPageingLabel    = TextWidget.Cast(m_RootFrame.FindAnyWidget("PageInfoLabel"));
+			m_LoadingDimmer     = m_RootFrame.FindAnyWidget("LoadingBrightnessDimmer");
 
 			if (m_BottomShader)    m_BottomShader.SetColor(colorScheme.BottomShader());
 			if (m_TopShader)       m_TopShader.SetColor(colorScheme.TopShader());
@@ -288,6 +243,7 @@ modded class UiHintPanelLoading extends UiHintPanel
 			if (m_TipLineR)        m_TipLineR.SetColor(colorScheme.TipLine());
 			if (m_UiHeadlineLabel) m_UiHeadlineLabel.SetColor(colorScheme.TipHeader());
 			if (m_UiDescLabel)     m_UiDescLabel.SetColor(colorScheme.TipText());
+			if (m_LoadingDimmer)   m_LoadingDimmer.SetColor(colorScheme.LoadingDim());
 
 			m_RootFrame.SetHandler(this);
 

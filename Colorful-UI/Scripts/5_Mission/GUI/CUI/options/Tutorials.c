@@ -1,6 +1,3 @@
-// TutorialsMenu — CUI tutorials screen.
-// Vanilla source: P:\scripts\5_mission\gui\newui\mainmenu\tutorialsmenu.c
-
 modded class TutorialsMenu extends UIScriptedMenu
 {
 	private	Widget m_shader, m_TopShader, m_BottomShader;
@@ -15,9 +12,10 @@ modded class TutorialsMenu extends UIScriptedMenu
 		m_InfoTextRight	= layoutRoot.FindAnyWidget("InfoTextRight");
 		
 		m_Back			= ButtonWidget.Cast(layoutRoot.FindAnyWidget("BackBtn"));
-        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Back), "#layout_pc_keybinding_play_pannel_back", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Back");
+        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Back), "Назад", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Back");
 		
 		layoutRoot.FindAnyWidget("Tabber").GetScript(m_TabScript);
+		// Remove first so reopening the menu doesn't accumulate duplicate callbacks.
 		m_TabScript.m_OnTabSwitch.Remove(DrawConnectingLines);
 		m_TabScript.m_OnTabSwitch.Insert(DrawConnectingLines);
 			
@@ -26,6 +24,7 @@ modded class TutorialsMenu extends UIScriptedMenu
 		m_tab_images[2] = ImageWidget.Cast(layoutRoot.FindAnyWidget("InventoryTabBackdropImageWidget"));
 		m_tab_images[3] = ImageWidget.Cast(layoutRoot.FindAnyWidget("MenusTabBackdropImageWidget"));
 		
+		// Note that this is just used as a visual trim, not a real loading bar.
 		m_LoadingBar        = ProgressBarWidget.Cast(layoutRoot.FindAnyWidget("LoadingBar"));
 		if (m_LoadingBar) m_LoadingBar.SetColor(colorScheme.Loadingbar());
 

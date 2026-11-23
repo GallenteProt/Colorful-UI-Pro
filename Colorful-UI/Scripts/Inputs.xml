@@ -2,11 +2,13 @@
 <modded_inputs>
     <inputs>
         <actions>
-			    <!-- Actions go here -->
+            <input name="UAColorfulUIDiagConnect" loc="Colorful-UI: подключиться к DIAG" />
         </actions>
     </inputs>
 
     <preset>
-		  <!-- Presets for actions go here -->
+        <input name="UAColorfulUIDiagConnect">
+            <btn name="kF5" />
+        </input>
     </preset>
 </modded_inputs>

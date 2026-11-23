@@ -1,5 +1,3 @@
-// CharacterCreationMenu — CUI character screen.
-// Vanilla source: P:\scripts\5_mission\gui\newui\charactercreation\charactercreationmenu.c
 
 modded class CharacterCreationMenu extends UIScriptedMenu
 {
@@ -19,18 +17,18 @@ modded class CharacterCreationMenu extends UIScriptedMenu
         m_MenuDivider               = ImageWidget.Cast(layoutRoot.FindAnyWidget("MenuDivider"));
 		m_TopShader                 = ImageWidget.Cast(layoutRoot.FindAnyWidget("TopShader"));
 		m_BottomShader              = ImageWidget.Cast(layoutRoot.FindAnyWidget("BottomShader"));
-		m_PlayedCharacterInfo       = layoutRoot.FindAnyWidget("played_char_info");
-
+		
 		m_TopShader.SetColor(colorScheme.TopShader());
 		m_BottomShader.SetColor(colorScheme.BottomShader());
 
+		// Note that this is just used as a visual trim, not a real loading bar.
 		m_LoadingBar        = ProgressBarWidget.Cast(layoutRoot.FindAnyWidget("LoadingBar"));
 		if (m_LoadingBar) m_LoadingBar.SetColor(colorScheme.Loadingbar());
 
-        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Apply), "#layout_character_creation_apply", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Apply");
-        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Save), "#layout_character_creation_save", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Saveback");
+        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Apply), "Применить", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Apply");
+        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_Save), "Сохранить", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Saveback");
         cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_RandomizeCharacter), "",     colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "RandomizeCharacter");
-        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_BackButton), "#layout_character_creation_back", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Back");
+        cuiElmnt.proBtnCB(this, ButtonWidget.Cast(m_BackButton), "Назад", colorScheme.PrimaryText(), colorScheme.ButtonHover(), this, "Back");
         if (m_MenuDivider) m_MenuDivider.SetColor(colorScheme.Separator());
 	
 		if (m_Scene && m_Scene.GetIntroCharacter())
@@ -104,26 +102,6 @@ modded class CharacterCreationMenu extends UIScriptedMenu
 		return layoutRoot;
 	}
 
-	// cui.characters.layout has no version label, header text or tooltip, so the vanilla
-	// Refresh / SetTooltipTexts bodies null-deref (Refresh runs from Init, tooltips on hover).
-	override void Refresh()
-	{
-		if (!m_Scene || !m_Scene.GetIntroCharacter()) return;
-
-		string name = m_Scene.GetIntroCharacter().GetCharacterName();
-		if (name == "") name = GameConstants.DEFAULT_CHARACTER_NAME;
-		if (m_NameSelector) m_NameSelector.SetValue(name);
-
-		bool isDefault = m_Scene.GetIntroCharacter().IsDefaultCharacter();
-		if (m_Apply) m_Apply.Show(!isDefault);
-		if (m_Save)  m_Save.Show(isDefault);
-		if (m_PlayedCharacterInfo) m_PlayedCharacterInfo.Show(!isDefault);
-	}
-
-	override void SetTooltipTexts(Widget w, string header = "", string desc = "")
-	{
-	}
-
     void Saveback()
     {
         Save();
@@ -135,6 +113,11 @@ modded class CharacterCreationMenu extends UIScriptedMenu
 		cuiElmnt.CleanupForOwner(this);
 	}
 
+	// Vanilla CharacterCreationMenu.ColorHighlight hardcodes red ARGB(255,255,0,0)
+	// across every label/text/option widget on hover (and the input panel). Swap
+	// the red for our scheme's hover/brand colors. ColorNormal already paints
+	// COLOR_NORMAL_TEXT (white) which matches our scheme, so no override there.
+	// Vanilla source: P:\scripts\5_mission\gui\newui\charactercreation\charactercreationmenu.c:623-672
 	override void ColorHighlight(Widget w)
 	{
 		if (!w) return;
@@ -144,6 +127,7 @@ modded class CharacterCreationMenu extends UIScriptedMenu
 
 		if (w.IsInherited(ButtonWidget))
 		{
+			hoverText = UIColor.ZoneLoadingBlue();
 			ButtonWidget button = ButtonWidget.Cast(w);
 			button.SetTextColor(hoverText);
 		}
@@ -161,10 +145,10 @@ modded class CharacterCreationMenu extends UIScriptedMenu
 		if (text2) text2.SetColor(hoverText);
 		if (text3) { text3.SetColor(hoverText); w.SetAlpha(1); }
 		if (image) image.SetColor(hoverIcon);
-		if (option) option.SetColor(hoverText);
+		if (option) option.SetColor(colorScheme.OptionBGHover());
 
 		#ifndef PLATFORM_CONSOLE
-		if (option_label) option_label.SetColor(hoverText);
+		if (option_label) option_label.SetColor(colorScheme.OptionSelectionText());
 		#endif
 	}
 }
